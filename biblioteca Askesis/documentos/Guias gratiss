@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guías Gratuitas - Askesis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #CCCCCC;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+            --askesis-green: #008037;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            /* Fondo con imagen de handstand */
+            background-image: url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Handstand%20Castro.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .background-overlay {
+            background-color: rgba(18, 18, 18, 0.9);
+            min-height: 100vh;
+        }
+        
+        .askesis-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            color: var(--askesis-text-white);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            min-height: 130px;
+        }
+
+        .askesis-card:hover {
+            border-color: var(--askesis-orange);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(245, 130, 32, 0.15);
+            color: var(--askesis-orange);
+        }
+        .askesis-card i {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--askesis-orange);
+        }
+
+        .btn-askesis-full {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            background-color: var(--askesis-green);
+            color: var(--askesis-text-white);
+        }
+        .btn-askesis-full:hover {
+            transform: scale(1.05);
+            background-color: #00662c;
+        }
+    </style>
+</head>
+<body class="bg-askesis-dark">
+    <div class="background-overlay">
+        <div class="container mx-auto p-4 md:p-8">
+            <header class="text-center mb-16 pt-8">
+                <a href="https://omniainbonum.github.io/Askesis-web/" target="_blank" class="inline-block mb-8">
+                     <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis" class="w-24 h-24 rounded-full border-2 border-askesis-orange">
+                </a>
+                <h1 class="text-4xl md:text-5xl font-black text-askesis-text-white uppercase tracking-wider font-roboto mb-3">
+                    Guías de <span class="text-askesis-orange">Regalo</span>
+                </h1>
+                <p class="text-lg text-askesis-light-gray max-w-3xl mx-auto">
+                    Aquí tienes 6 de nuestras guías fundamentales para que inicies tu camino. Domina las bases del entrenamiento de fuerza y la calistenia con material basado en ciencia.
+                </p>
+            </header>
+
+            <main>
+
+                <!-- 6 Guías de Regalo -->
+                <section>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                        <a href="https://omniainbonum.github.io/askesis-links/Guia%20L%20Sit.html" target="_blank" class="askesis-card">
+                            <i class="fas fa-chair"></i>
+                            <span>L-Sit</span>
+                        </a>
+                        <a href="https://omniainbonum.github.io/askesis-links/Guia%20Handstand.html" target="_blank" class="askesis-card">
+                            <i class="fas fa-hands"></i>
+                            <span>Handstand</span>
+                        </a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Principios%20del%20entrenamiento%20deportivo.html" target="_blank" class="askesis-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Principios del Entrenamiento</span>
+                        </a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Anatom%C3%ADa%20Funcional.html" target="_blank" class="askesis-card">
+                            <i class="fas fa-bone"></i>
+                            <span>Anatomía Funcional</span>
+                        </a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Hipertrofia%20Muscular.html" target="_blank" class="askesis-card">
+                            <i class="fas fa-dumbbell"></i>
+                            <span>Hipertrofia Muscular</span>
+                        </a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Flexibilidad%20y%20Movilidad.html" target="_blank" class="askesis-card">
+                            <i class="fas fa-child-reaching"></i>
+                            <span>Flexibilidad y Movilidad</span>
+                        </a>
+                    </div>
+                </section>
+                
+                <!-- Call to Action -->
+                <section class="mt-20">
+                    <div class="bg-askesis-gray p-8 rounded-lg text-center shadow-xl border border-askesis-orange">
+                        <h2 class="text-3xl font-black text-askesis-text-white mb-4">Desbloquea Todo Tu Potencial</h2>
+                        <p class="text-askesis-light-gray max-w-3xl mx-auto mb-6">
+                            ¿Te gustaron estas guías? Son solo una pequeña muestra. Nuestra biblioteca completa incluye <strong>más de 45 guías detalladas</strong>, documentos de análisis y progresiones para dominar los elementos de fuerza más avanzados.
+                        </p>
+                        <p class="text-askesis-light-gray max-w-3xl mx-auto mb-8">
+                            Puedes adquirir la colección completa o acceder a ella y mucho más con una de nuestras <strong>asesorías mensuales</strong>.
+                        </p>
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20colecci%C3%B3n%20completa%20de%20gu%C3%ADas." class="btn-askesis-full inline-block font-bold py-3 px-8 rounded-lg text-lg">
+                            <i class="fab fa-whatsapp mr-2"></i>Consultar por Asesoría
+                        </a>
+                    </div>
+                </section>
+
+            </main>
+
+            <footer class="text-center mt-20 py-8 border-t border-askesis-border">
+                <p class="text-gray-500">© 2025 Askesis. Creado para organizar y compartir conocimiento.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
