@@ -3,101 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Índice de Contenidos Fitness</title>
+    <title>Biblioteca de Fitness y Entrenamiento - Askesis</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Definición de la paleta de colores y fuentes de "test web" */
+        :root {
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #CCCCCC;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
         }
-        .card {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+        /* Estilo para los títulos de sección */
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-text-white);
+            font-size: 1.75rem; /* 28px */
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--askesis-orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
         }
-        .card:hover {
+        
+        /* Estilo para las tarjetas de contenido */
+        .askesis-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            color: var(--askesis-text-white);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            min-height: 100px;
+        }
+
+        .askesis-card:hover {
+            border-color: var(--askesis-orange);
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 25px rgba(245, 130, 32, 0.1);
+            color: var(--askesis-orange);
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-askesis-dark">
 
     <div class="container mx-auto p-4 md:p-8">
-        <header class="text-center mb-10">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Biblioteca de Fitness y Entrenamiento</h1>
-            <p class="text-lg text-gray-600 mt-2">Una colección de guías y análisis para optimizar tu rendimiento.</p>
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-black text-askesis-text-white uppercase tracking-wider font-roboto mb-3">
+                Biblioteca de <span class="text-[#F58220]">Contenido</span>
+            </h1>
+            <p class="text-lg text-askesis-light-gray max-w-2xl mx-auto">
+                Una colección de guías y análisis para optimizar tu rendimiento, basada en la ciencia del ejercicio.
+            </p>
         </header>
 
-        <main class="space-y-12">
+        <main class="space-y-16">
+            
             <!-- Sección: Análisis Muscular y de Ejercicios -->
-            <div>
-                <h2 class="text-2xl font-bold border-l-4 border-blue-600 pl-4 mb-6">Análisis Muscular y de Ejercicios</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <a href="documentos/analisis_hombro.html" class="card bg-white p-6 rounded-lg shadow">Análisis del Hombro</a>
-                    <a href="documentos/analisis_sentadilla.html" class="card bg-white p-6 rounded-lg shadow">Análisis Profundo de la Sentadilla</a>
-                    <a href="documentos/analisis_biceps.html" class="card bg-white p-6 rounded-lg shadow">Análisis Profundo del Bíceps</a>
-                    <a href="documentos/analisis_pecho.html" class="card bg-white p-6 rounded-lg shadow">Análisis Profundo del Pecho</a>
-                    <a href="documentos/analisis_peso_muerto.html" class="card bg-white p-6 rounded-lg shadow">Análisis Profundo del Peso Muerto</a>
-                    <a href="documentos/analisis_triceps.html" class="card bg-white p-6 rounded-lg shadow">Análisis Profundo del Tríceps</a>
-                    <a href="documentos/antebrazos_agarre.html" class="card bg-white p-6 rounded-lg shadow">Antebrazos y Fuerza de Agarre</a>
-                    <a href="documentos/entreno_piernas.html" class="card bg-white p-6 rounded-lg shadow">Entreno de Piernas</a>
+            <section>
+                <div class="text-center">
+                   <h2 class="section-title"><i class="fas fa-dumbbell mr-3 text-[#F58220]"></i>Análisis de Ejercicios</h2>
                 </div>
-            </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                    <a href="documentos/analisis_hombro.html" class="askesis-card">Análisis del Hombro</a>
+                    <a href="documentos/analisis_sentadilla.html" class="askesis-card">Análisis Profundo de la Sentadilla</a>
+                    <a href="documentos/analisis_biceps.html" class="askesis-card">Análisis Profundo del Bíceps</a>
+                    <a href="documentos/analisis_pecho.html" class="askesis-card">Análisis Profundo del Pecho</a>
+                    <a href="documentos/analisis_peso_muerto.html" class="askesis-card">Análisis Profundo del Peso Muerto</a>
+                    <a href="documentos/analisis_triceps.html" class="askesis-card">Análisis Profundo del Tríceps</a>
+                    <a href="documentos/antebrazos_agarre.html" class="askesis-card">Antebrazos y Fuerza de Agarre</a>
+                    <a href="documentos/entreno_piernas.html" class="askesis-card">Entreno de Piernas</a>
+                </div>
+            </section>
 
             <!-- Sección: Principios y Filosofías de Entrenamiento -->
-            <div>
-                <h2 class="text-2xl font-bold border-l-4 border-green-600 pl-4 mb-6">Principios y Filosofías de Entrenamiento</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <a href="documentos/filosofias_entrenamiento.html" class="card bg-white p-6 rounded-lg shadow">Filosofías de Entrenamiento</a>
-                    <a href="documentos/fuerza_inteligente_nippard.html" class="card bg-white p-6 rounded-lg shadow">Fuerza Inteligente Método Nippard</a>
-                    <a href="documentos/principios_programacion.html" class="card bg-white p-6 rounded-lg shadow">Principios de Programación</a>
-                    <a href="documentos/planos_anatomicos.html" class="card bg-white p-6 rounded-lg shadow">Planos Anatómicos y Entrenamiento Funcional</a>
-                    <a href="documentos/tecnicas_intensidad.html" class="card bg-white p-6 rounded-lg shadow">Técnicas de Intensidad Avanzadas</a>
-                    <a href="documentos/tension_mecanica_estres.html" class="card bg-white p-6 rounded-lg shadow">Tensión Mecánica vs. Estrés Metabólico</a>
+            <section>
+                <div class="text-center">
+                    <h2 class="section-title"><i class="fas fa-brain mr-3 text-[#F58220]"></i>Principios del Entrenamiento</h2>
                 </div>
-            </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                    <a href="documentos/filosofias_entrenamiento.html" class="askesis-card">Filosofías de Entrenamiento</a>
+                    <a href="documentos/fuerza_inteligente_nippard.html" class="askesis-card">Fuerza Inteligente: Método Nippard</a>
+                    <a href="documentos/principios_programacion.html" class="askesis-card">Principios de Programación</a>
+                    <a href="documentos/planos_anatomicos.html" class="askesis-card">Planos Anatómicos y Entrenamiento</a>
+                    <a href="documentos/tecnicas_intensidad.html" class="askesis-card">Técnicas de Intensidad Avanzadas</a>
+                    <a href="documentos/tension_mecanica_estres.html" class="askesis-card">Tensión Mecánica vs. Estrés Metabólico</a>
+                </div>
+            </section>
 
              <!-- Sección: Guías Específicas -->
-            <div>
-                <h2 class="text-2xl font-bold border-l-4 border-purple-600 pl-4 mb-6">Guías Específicas</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <a href="documentos/guia_askesis_core.html" class="card bg-white p-6 rounded-lg shadow">Guía Askesis Core y Cintura Escapular</a>
-                    <a href="documentos/guia_askesis_planche.html" class="card bg-white p-6 rounded-lg shadow">Guía Askesis Lean Planche</a>
-                    <a href="documentos/guia_askesis_espalda.html" class="card bg-white p-6 rounded-lg shadow">Guía Askesis para el Desarrollo de Espalda</a>
-                    <a href="documentos/guia_askesis_hombros.html" class="card bg-white p-6 rounded-lg shadow">Guía Askesis para el Desarrollo de Hombros</a>
-                    <a href="documentos/prompts_guide.html" class="card bg-white p-6 rounded-lg shadow">Prompts Guide</a>
-                    <a href="documentos/look_maxing.html" class="card bg-white p-6 rounded-lg shadow">Look maxing</a>
+            <section>
+                <div class="text-center">
+                    <h2 class="section-title"><i class="fas fa-book-open mr-3 text-[#F58220]"></i>Guías Específicas</h2>
                 </div>
-            </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                    <a href="documentos/guia_askesis_core.html" class="askesis-card">Guía Core y Cintura Escapular</a>
+                    <a href="documentos/guia_askesis_planche.html" class="askesis-card">Guía Lean Planche</a>
+                    <a href="documentos/guia_askesis_espalda.html" class="askesis-card">Guía Desarrollo de Espalda</a>
+                    <a href="documentos/guia_askesis_hombros.html" class="askesis-card">Guía Desarrollo de Hombros</a>
+                    <a href="documentos/prompts_guide.html" class="askesis-card">Prompts Guide</a>
+                    <a href="documentos/look_maxing.html" class="askesis-card">Look maxing</a>
+                </div>
+            </section>
 
             <!-- Sección: Ciencia del Entrenamiento y Fisiología -->
-            <div>
-                <h2 class="text-2xl font-bold border-l-4 border-red-600 pl-4 mb-6">Ciencia del Entrenamiento y Fisiología</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <a href="documentos/adaptacion_calor_frio.html" class="card bg-white p-6 rounded-lg shadow">Adaptación al Calor y Frío (Hormesis)</a>
-                    <a href="documentos/calentamiento_activacion.html" class="card bg-white p-6 rounded-lg shadow">Calentamiento y Activación</a>
-                    <a href="documentos/cardio_acondicionamiento.html" class="card bg-white p-6 rounded-lg shadow">Cardio y Acondicionamiento Metabólico</a>
-                    <a href="documentos/composicion_fibras.html" class="card bg-white p-6 rounded-lg shadow">Composición de Fibras Musculares</a>
-                    <a href="documentos/desarrollo_fuerza.html" class="card bg-white p-6 rounded-lg shadow">Desarrollo de la Fuerza</a>
-                    <a href="documentos/peaking_tapering.html" class="card bg-white p-6 rounded-lg shadow">El Arte del Peaking y Tapering</a>
-                    <a href="documentos/entrenamiento_ayunas.html" class="card bg-white p-6 rounded-lg shadow">Entrenamiento en Ayunas y Rendimiento</a>
-                    <a href="documentos/entrenamiento_isometrico.html" class="card bg-white p-6 rounded-lg shadow">Entrenamiento Isométrico</a>
-                    <a href="documentos/entrenamiento_ocular.html" class="card bg-white p-6 rounded-lg shadow">Entrenamiento Ocular y Tiempo de Reacción</a>
-                    <a href="documentos/entrenamiento_frecuencia_cardiaca.html" class="card bg-white p-6 rounded-lg shadow">Entrenamiento por Zonas de Frecuencia</a>
-                    <a href="documentos/entrenamiento_ciclo_menstrual.html" class="card bg-white p-6 rounded-lg shadow">Entrenamiento y Ciclo Menstrual</a>
-                    <a href="documentos/estabilidad_pie_tobillo.html" class="card bg-white p-6 rounded-lg shadow">Estabilidad de Pie y Tobillo</a>
-                    <a href="documentos/evaluacion_postural.html" class="card bg-white p-6 rounded-lg shadow">Evaluación Postural y Correctivos</a>
-                    <a href="documentos/fuerza_tendones_ligamentos.html" class="card bg-white p-6 rounded-lg shadow">Fuerza de Tendones y Ligamentos</a>
-                    <a href="documentos/fuerza_rotacional.html" class="card bg-white p-6 rounded-lg shadow">Fuerza Rotacional y Anti-Rotacional</a>
-                    <a href="documentos/conexion_fascial.html" class="card bg-white p-6 rounded-lg shadow">La Conexión Fascial y el Movimiento</a>
-                    <a href="documentos/potencia_explosividad.html" class="card bg-white p-6 rounded-lg shadow">Potencia y Explosividad</a>
-                    <a href="documentos/sistema_vestibular.html" class="card bg-white p-6 rounded-lg shadow">Sistema Vestibular y Equilibrio</a>
+            <section>
+                <div class="text-center">
+                    <h2 class="section-title"><i class="fas fa-microscope mr-3 text-[#F58220]"></i>Ciencia y Fisiología</h2>
                 </div>
-            </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                    <a href="documentos/adaptacion_calor_frio.html" class="askesis-card">Adaptación al Calor y Frío</a>
+                    <a href="documentos/calentamiento_activacion.html" class="askesis-card">Calentamiento y Activación</a>
+                    <a href="documentos/cardio_acondicionamiento.html" class="askesis-card">Cardio y Acondicionamiento</a>
+                    <a href="documentos/composicion_fibras.html" class="askesis-card">Composición de Fibras Musculares</a>
+                    <a href="documentos/desarrollo_fuerza.html" class="askesis-card">Desarrollo de la Fuerza</a>
+                    <a href="documentos/peaking_tapering.html" class="askesis-card">El Arte del Peaking y Tapering</a>
+                    <a href="documentos/entrenamiento_ayunas.html" class="askesis-card">Entrenamiento en Ayunas</a>
+                    <a href="documentos/entrenamiento_isometrico.html" class="askesis-card">Entrenamiento Isométrico</a>
+                    <a href="documentos/entrenamiento_ocular.html" class="askesis-card">Entrenamiento Ocular y Reacción</a>
+                    <a href="documentos/entrenamiento_frecuencia_cardiaca.html" class="askesis-card">Entrenamiento por Zonas de FC</a>
+                    <a href="documentos/entrenamiento_ciclo_menstrual.html" class="askesis-card">Entrenamiento y Ciclo Menstrual</a>
+                    <a href="documentos/estabilidad_pie_tobillo.html" class="askesis-card">Estabilidad de Pie y Tobillo</a>
+                    <a href="documentos/evaluacion_postural.html" class="askesis-card">Evaluación Postural y Correctivos</a>
+                    <a href="documentos/fuerza_tendones_ligamentos.html" class="askesis-card">Fuerza de Tendones y Ligamentos</a>
+                    <a href="documentos/fuerza_rotacional.html" class="askesis-card">Fuerza Rotacional y Anti-Rotacional</a>
+                    <a href="documentos/conexion_fascial.html" class="askesis-card">La Conexión Fascial y el Movimiento</a>
+                    <a href="documentos/potencia_explosividad.html" class="askesis-card">Potencia y Explosividad</a>
+                    <a href="documentos/sistema_vestibular.html" class="askesis-card">Sistema Vestibular y Equilibrio</a>
+                </div>
+            </section>
 
         </main>
 
-        <footer class="text-center mt-12 py-6 border-t border-gray-200">
-            <p class="text-gray-500">Creado para organizar y compartir conocimiento.</p>
+        <footer class="text-center mt-20 py-8 border-t border-askesis-border">
+            <p class="text-gray-500">© 2025 Askesis. Creado para organizar y compartir conocimiento.</p>
         </footer>
     </div>
 
