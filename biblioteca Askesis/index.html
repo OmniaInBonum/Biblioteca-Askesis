@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca de Fitness y Entrenamiento - Askesis</title>
+    <title>Portal de Entrenamiento - Askesis</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Definición de la paleta de colores y fuentes de "test web" */
         :root {
             --askesis-orange: #F58220;
             --askesis-dark: #121212;
@@ -19,9 +18,7 @@
             --askesis-border: #333333;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Montserrat', sans-serif;
@@ -29,11 +26,10 @@
             color: var(--askesis-light-gray);
         }
 
-        /* Estilo para los títulos de sección */
         .section-title {
             font-family: 'Roboto', sans-serif;
             color: var(--askesis-text-white);
-            font-size: 1.75rem; /* 28px */
+            font-size: 1.75rem;
             font-weight: 900;
             margin-bottom: 2rem;
             padding-bottom: 0.75rem;
@@ -43,7 +39,6 @@
             display: inline-block;
         }
         
-        /* Estilo para las tarjetas de contenido */
         .askesis-card {
             background-color: var(--askesis-gray);
             border: 1px solid var(--askesis-border);
@@ -57,7 +52,7 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             min-height: 100px;
         }
 
@@ -67,6 +62,27 @@
             box-shadow: 0 8px 25px rgba(245, 130, 32, 0.1);
             color: var(--askesis-orange);
         }
+
+        .guide-section-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+        .guide-section-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border-color: var(--askesis-orange); 
+        }
+
+        .btn-askesis {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            background-color: var(--askesis-orange);
+        }
+        .btn-askesis:hover {
+            transform: scale(1.05);
+            background-color: #d97019; /* Naranja más oscuro al pasar el mouse */
+        }
+
     </style>
 </head>
 <body class="bg-askesis-dark">
@@ -74,89 +90,152 @@
     <div class="container mx-auto p-4 md:p-8">
         <header class="text-center mb-16">
             <h1 class="text-4xl md:text-5xl font-black text-askesis-text-white uppercase tracking-wider font-roboto mb-3">
-                Biblioteca de <span class="text-[#F58220]">Contenido</span>
+                Portal de <span class="text-[#F58220]">Entrenamiento</span>
             </h1>
-            <p class="text-lg text-askesis-light-gray max-w-2xl mx-auto">
-                Una colección de guías y análisis para optimizar tu rendimiento, basada en la ciencia del ejercicio.
+            <p class="text-lg text-askesis-light-gray max-w-3xl mx-auto">
+                Tu centro de conocimiento para guías detalladas, biblioteca de documentos y recursos de entrenamiento basados en ciencia.
             </p>
         </header>
 
-        <main class="space-y-16">
+        <main class="space-y-20">
+
+            <!-- Sección de Guías Detalladas -->
+            <section>
+                <div class="guide-section-card bg-askesis-gray p-6 sm:p-8 rounded-lg shadow-xl">
+                    <h2 class="text-3xl font-roboto font-bold text-askesis-text-white mb-3 text-center">Guías Detalladas de Entrenamiento</h2>
+                    <p class="text-askesis-light-gray mb-10 text-center sm:text-base">
+                        Explora guías interactivas para habilidades de calistenia y los fundamentos científicos del ejercicio.
+                    </p>
+
+                    <!-- Habilidades de Calistenia -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold font-roboto text-askesis-orange mb-4"><i class="fas fa-star mr-2"></i>Habilidades de Calistenia</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                            <a href="https://omniainbonum.github.io/askesis-links/Guia%20Back%20lever.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-undo-alt mr-2"></i>Back Lever</a>
+                            <a href="https://omniainbonum.github.io/askesis-links/Guia%20Bandera.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-flag mr-2"></i>Bandera</a>
+                            <a href="https://omniainbonum.github.io/askesis-links/Guia%20Front.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-balance-scale-left mr-2"></i>Front Lever</a>
+                            <a href="https://omniainbonum.github.io/askesis-links/Guia%20Handstand.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-hands mr-2"></i>Handstand</a>
+                            <a href="https://omniainbonum.github.io/askesis-links/Hpu.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-weight-hanging mr-2"></i>HSPU</a>
+                            <a href="https://omniainbonum.github.io/askesis-links/Guia%20L%20Sit.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-chair mr-2"></i>L-Sit</a>
+                            <a href="https://omniainbonum.github.io/askesis-links/Guia%20MU%20y%20Mesociclo%20ejemplo.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-angle-double-up mr-2"></i>Muscle Up</a>
+                            <a href="https://omniainbonum.github.io/askesis-links/Pistol%20Squat.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-shoe-prints mr-2"></i>Pistol Squat</a>
+                            <a href="https://omniainbonum.github.io/askesis-links/presstohandstand.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-level-up-alt mr-2"></i>Press to Handstand</a>
+                            <a href="https://omniainbonum.github.io/askesis-links/Guia%20planche.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-grip-lines mr-2"></i>Planche</a>
+                            <a href="https://omniainbonum.github.io/askesis-links/Shoulder%20Flag.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-user-ninja mr-2"></i>Shoulder Flag</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Principios y Fundamentos Científicos -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold font-roboto text-askesis-orange mb-4"><i class="fas fa-microscope mr-2"></i>Principios y Fundamentos</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                             <a href="https://omniainbonum.github.io/GuiasGratis/Principios%20del%20entrenamiento%20deportivo.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-lightbulb mr-2"></i>Principios del Entrenamiento</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Fisiolog%C3%ADa%20del%20Ejercicio.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-heart-pulse mr-2"></i>Fisiología</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Biomec%C3%A1nica%20Aplicada.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-balance-scale mr-2"></i>Biomecánica</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Anatom%C3%ADa%20Funcional.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-bone mr-2"></i>Anatomía</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Evaluaci%C3%B3n%20y%20Entrenamiento%20de%20la%20Condici%C3%B3n%20F%C3%ADsica.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-chart-simple mr-2"></i>Evaluación Física</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Desarrollo de Capacidades Físicas -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold font-roboto text-askesis-orange mb-4"><i class="fas fa-bolt mr-2"></i>Desarrollo de Capacidades</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Hipertrofia%20Muscular.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-dumbbell mr-2"></i>Hipertrofia</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Fuerza%20M%C3%A1xima.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-hand-fist mr-2"></i>Fuerza Máxima</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Potencia%20Muscular.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-meteor mr-2"></i>Potencia</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Resistencia%20Muscular.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-running mr-2"></i>Resistencia</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Flexibilidad%20y%20Movilidad.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-child-reaching mr-2"></i>Flexibilidad</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Entrenamiento%20de%20Velocidad%20y%20Agilidad.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-forward-step mr-2"></i>Velocidad</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Programación y Metodología -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold font-roboto text-askesis-orange mb-4"><i class="fas fa-calendar-alt mr-2"></i>Programación y Metodología</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                             <a href="https://omniainbonum.github.io/GuiasGratis/Taperin%20y%20puesta%20a%20punto.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-arrows-up-to-line mr-2"></i>Tapering</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Periodizaci%C3%B3n%20del%20Entrenamiento.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-calendar-days mr-2"></i>Periodización</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Entrenamiento%20en%20Circuito.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-arrows-spin mr-2"></i>Circuito</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Salud y Aspectos Especiales -->
+                    <div>
+                        <h3 class="text-2xl font-bold font-roboto text-askesis-orange mb-4"><i class="fas fa-heartbeat mr-2"></i>Salud y Aspectos Especiales</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Lesiones%20Deportivas%20Prevenci%C3%B3n%20y%20Primeros%20Pasos.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-first-aid mr-2"></i>Prevención de Lesiones</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Psicolog%C3%ADa%20Deportiva.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-head-side-brain mr-2"></i>Psicología Deportiva</a>
+                            <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Fuerza%20en%20Ni%C3%B1os%20y%20Adolescentes.html" target="_blank" class="btn-askesis block text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-children mr-2"></i>Fuerza en Niños</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
-            <!-- Sección: Análisis Muscular y de Ejercicios -->
+            <!-- Sección: Biblioteca de Documentos (COMPLETA Y CORREGIDA) -->
             <section>
                 <div class="text-center">
-                   <h2 class="section-title"><i class="fas fa-dumbbell mr-3 text-[#F58220]"></i>Análisis de Ejercicios</h2>
+                   <h2 class="section-title"><i class="fas fa-folder-open mr-3 text-[#F58220]"></i>Biblioteca de Documentos</h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-                    <a href="documentos/analisis_hombro.html" class="askesis-card">Análisis del Hombro</a>
-                    <a href="documentos/analisis_sentadilla.html" class="askesis-card">Análisis Profundo de la Sentadilla</a>
-                    <a href="documentos/analisis_biceps.html" class="askesis-card">Análisis Profundo del Bíceps</a>
-                    <a href="documentos/analisis_pecho.html" class="askesis-card">Análisis Profundo del Pecho</a>
-                    <a href="documentos/analisis_peso_muerto.html" class="askesis-card">Análisis Profundo del Peso Muerto</a>
-                    <a href="documentos/analisis_triceps.html" class="askesis-card">Análisis Profundo del Tríceps</a>
-                    <a href="documentos/antebrazos_agarre.html" class="askesis-card">Antebrazos y Fuerza de Agarre</a>
-                    <a href="documentos/entreno_piernas.html" class="askesis-card">Entreno de Piernas</a>
+
+                <!-- Análisis Muscular y de Ejercicios -->
+                <h3 class="text-xl font-bold font-roboto text-askesis-orange mb-4 mt-8"><i class="fas fa-dumbbell mr-2"></i>Análisis Muscular y de Ejercicios</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <a href="documentos/Analisis del Hombro.html" target="_blank" class="askesis-card">Análisis del Hombro</a>
+                    <a href="documentos/Analisis Profundo de la Sentadilla.html" target="_blank" class="askesis-card">Análisis Profundo de la Sentadilla</a>
+                    <a href="documentos/Analisis Profundo del Biceps.html" target="_blank" class="askesis-card">Análisis Profundo del Bíceps</a>
+                    <a href="documentos/Analisis Profundo del Pecho.html" target="_blank" class="askesis-card">Análisis Profundo del Pecho</a>
+                    <a href="documentos/Analisis Profundo del Peso Muerto.html" target="_blank" class="askesis-card">Análisis Profundo del Peso Muerto</a>
+                    <a href="documentos/Analisis Profundo del Triceps.html" target="_blank" class="askesis-card">Análisis Profundo del Tríceps</a>
+                    <a href="documentos/Antebrazos y Fuerza de Agarre.html" target="_blank" class="askesis-card">Antebrazos y Fuerza de Agarre</a>
+                    <a href="documentos/Entreno de Piernas.html" target="_blank" class="askesis-card">Entreno de Piernas</a>
+                </div>
+
+                <!-- Principios y Filosofías de Entrenamiento -->
+                <h3 class="text-xl font-bold font-roboto text-askesis-orange mb-4 mt-8"><i class="fas fa-brain mr-2"></i>Principios y Filosofías</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <a href="documentos/Filosofias de Entrenamiento.html" target="_blank" class="askesis-card">Filosofías de Entrenamiento</a>
+                    <a href="documentos/Fuerza Inteligente Metodo Nippard.html" target="_blank" class="askesis-card">Fuerza Inteligente: Método Nippard</a>
+                    <a href="documentos/Principios de Programacion.html" target="_blank" class="askesis-card">Principios de Programación</a>
+                    <a href="documentos/Planos Anatomicos y Entrenamiento Funcional.html" target="_blank" class="askesis-card">Planos Anatómicos</a>
+                    <a href="documentos/Tecnicas de Intensidad Avanzadas.html" target="_blank" class="askesis-card">Técnicas de Intensidad</a>
+                    <a href="documentos/Tension Mecanica vs . Estres Metabolico.html" target="_blank" class="askesis-card">Tensión vs. Estrés</a>
+                </div>
+
+                <!-- Guías Específicas -->
+                <h3 class="text-xl font-bold font-roboto text-askesis-orange mb-4 mt-8"><i class="fas fa-book-open mr-2"></i>Guías Específicas</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <a href="documentos/Guia Askesis Core y Cintura Escapular.html" target="_blank" class="askesis-card">Guía Core y Cintura Escapular</a>
+                    <a href="documentos/Guia Askesis Lean Planche.html" target="_blank" class="askesis-card">Guía Lean Planche</a>
+                    <a href="documentos/Guia Askesis para el Desarrollo de Espalda.html" target="_blank" class="askesis-card">Guía Desarrollo de Espalda</a>
+                    <a href="documentos/Guia Askesis para el Desarrollo de Hombros.html" target="_blank" class="askesis-card">Guía Desarrollo de Hombros</a>
+                    <a href="documentos/Prompts Guide.html" target="_blank" class="askesis-card">Prompts Guide</a>
+                    <a href="documentos/Look maxing.html" target="_blank" class="askesis-card">Look maxing</a>
+                </div>
+
+                 <!-- Ciencia del Entrenamiento y Fisiología -->
+                <h3 class="text-xl font-bold font-roboto text-askesis-orange mb-4 mt-8"><i class="fas fa-flask mr-2"></i>Ciencia y Fisiología</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <a href="documentos/Adaptacion al Calor y Frio ( Hormesis ).html" target="_blank" class="askesis-card">Adaptación Calor y Frío</a>
+                    <a href="documentos/Calentamiento y Activacion.html" target="_blank" class="askesis-card">Calentamiento y Activación</a>
+                    <a href="documentos/Cardio y Acondicionamiento Metabolico.html" target="_blank" class="askesis-card">Cardio y Acondicionamiento</a>
+                    <a href="documentos/Composicion de Fibras Musculares.html" target="_blank" class="askesis-card">Composición de Fibras</a>
+                    <a href="documentos/Desarrollo de la Fuerza.html" target="_blank" class="askesis-card">Desarrollo de la Fuerza</a>
+                    <a href="documentos/El Arte del Peaking y Tapering.html" target="_blank" class="askesis-card">Peaking y Tapering</a>
+                    <a href="documentos/Entrenamiento en Ayunas y Rendimiento.html" target="_blank" class="askesis-card">Entrenamiento en Ayunas</a>
+                    <a href="documentos/Entrenamiento Isometrico.html" target="_blank" class="askesis-card">Entrenamiento Isométrico</a>
+                    <a href="documentos/Entrenamiento Ocular y Tiempo de Reaccion.html" target="_blank" class="askesis-card">Entrenamiento Ocular</a>
+                    <a href="documentos/Entrenamiento por Zonas de Frecuencia.html" target="_blank" class="askesis-card">Zonas de Frecuencia Cardíaca</a>
+                    <a href="documentos/Entrenamiento y Ciclo Menstrual.html" target="_blank" class="askesis-card">Entrenamiento y Ciclo Menstrual</a>
+                    <a href="documentos/Estabilidad de Pie y Tobillo.html" target="_blank" class="askesis-card">Estabilidad Pie y Tobillo</a>
+                    <a href="documentos/Evaluacion Postural y Correctivos.html" target="_blank" class="askesis-card">Evaluación Postural</a>
+                    <a href="documentos/Fuerza de Tendones y Ligamentos.html" target="_blank" class="askesis-card">Fuerza de Tendones</a>
+                    <a href="documentos/Fuerza Rotacional y AntiRotacional.html" target="_blank" class="askesis-card">Fuerza Rotacional</a>
+                    <a href="documentos/La Conexion Fascial y el Movimiento.html" target="_blank" class="askesis-card">Conexión Fascial</a>
+                    <a href="documentos/Potencia y Explosividad.html" target="_blank" class="askesis-card">Potencia y Explosividad</a>
+                    <a href="documentos/Sistema Vestibular y Equilibrio.html" target="_blank" class="askesis-card">Sistema Vestibular</a>
                 </div>
             </section>
-
-            <!-- Sección: Principios y Filosofías de Entrenamiento -->
-            <section>
-                <div class="text-center">
-                    <h2 class="section-title"><i class="fas fa-brain mr-3 text-[#F58220]"></i>Principios del Entrenamiento</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-                    <a href="documentos/filosofias_entrenamiento.html" class="askesis-card">Filosofías de Entrenamiento</a>
-                    <a href="documentos/fuerza_inteligente_nippard.html" class="askesis-card">Fuerza Inteligente: Método Nippard</a>
-                    <a href="documentos/principios_programacion.html" class="askesis-card">Principios de Programación</a>
-                    <a href="documentos/planos_anatomicos.html" class="askesis-card">Planos Anatómicos y Entrenamiento</a>
-                    <a href="documentos/tecnicas_intensidad.html" class="askesis-card">Técnicas de Intensidad Avanzadas</a>
-                    <a href="documentos/tension_mecanica_estres.html" class="askesis-card">Tensión Mecánica vs. Estrés Metabólico</a>
-                </div>
-            </section>
-
-             <!-- Sección: Guías Específicas -->
-            <section>
-                <div class="text-center">
-                    <h2 class="section-title"><i class="fas fa-book-open mr-3 text-[#F58220]"></i>Guías Específicas</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-                    <a href="documentos/guia_askesis_core.html" class="askesis-card">Guía Core y Cintura Escapular</a>
-                    <a href="documentos/guia_askesis_planche.html" class="askesis-card">Guía Lean Planche</a>
-                    <a href="documentos/guia_askesis_espalda.html" class="askesis-card">Guía Desarrollo de Espalda</a>
-                    <a href="documentos/guia_askesis_hombros.html" class="askesis-card">Guía Desarrollo de Hombros</a>
-                    <a href="documentos/prompts_guide.html" class="askesis-card">Prompts Guide</a>
-                    <a href="documentos/look_maxing.html" class="askesis-card">Look maxing</a>
-                </div>
-            </section>
-
-            <!-- Sección: Ciencia del Entrenamiento y Fisiología -->
-            <section>
-                <div class="text-center">
-                    <h2 class="section-title"><i class="fas fa-microscope mr-3 text-[#F58220]"></i>Ciencia y Fisiología</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-                    <a href="documentos/adaptacion_calor_frio.html" class="askesis-card">Adaptación al Calor y Frío</a>
-                    <a href="documentos/calentamiento_activacion.html" class="askesis-card">Calentamiento y Activación</a>
-                    <a href="documentos/cardio_acondicionamiento.html" class="askesis-card">Cardio y Acondicionamiento</a>
-                    <a href="documentos/composicion_fibras.html" class="askesis-card">Composición de Fibras Musculares</a>
-                    <a href="documentos/desarrollo_fuerza.html" class="askesis-card">Desarrollo de la Fuerza</a>
-                    <a href="documentos/peaking_tapering.html" class="askesis-card">El Arte del Peaking y Tapering</a>
-                    <a href="documentos/entrenamiento_ayunas.html" class="askesis-card">Entrenamiento en Ayunas</a>
-                    <a href="documentos/entrenamiento_isometrico.html" class="askesis-card">Entrenamiento Isométrico</a>
-                    <a href="documentos/entrenamiento_ocular.html" class="askesis-card">Entrenamiento Ocular y Reacción</a>
-                    <a href="documentos/entrenamiento_frecuencia_cardiaca.html" class="askesis-card">Entrenamiento por Zonas de FC</a>
-                    <a href="documentos/entrenamiento_ciclo_menstrual.html" class="askesis-card">Entrenamiento y Ciclo Menstrual</a>
-                    <a href="documentos/estabilidad_pie_tobillo.html" class="askesis-card">Estabilidad de Pie y Tobillo</a>
-                    <a href="documentos/evaluacion_postural.html" class="askesis-card">Evaluación Postural y Correctivos</a>
-                    <a href="documentos/fuerza_tendones_ligamentos.html" class="askesis-card">Fuerza de Tendones y Ligamentos</a>
-                    <a href="documentos/fuerza_rotacional.html" class="askesis-card">Fuerza Rotacional y Anti-Rotacional</a>
-                    <a href="documentos/conexion_fascial.html" class="askesis-card">La Conexión Fascial y el Movimiento</a>
-                    <a href="documentos/potencia_explosividad.html" class="askesis-card">Potencia y Explosividad</a>
-                    <a href="documentos/sistema_vestibular.html" class="askesis-card">Sistema Vestibular y Equilibrio</a>
-                </div>
-            </section>
-
         </main>
 
         <footer class="text-center mt-20 py-8 border-t border-askesis-border">
