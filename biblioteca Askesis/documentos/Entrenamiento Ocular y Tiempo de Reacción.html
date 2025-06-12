@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Entrenamiento Ocular y Tiempo de Reacción</title>
+    <meta name="description" content="La guía definitiva sobre entrenamiento visual para atletas. Mejora tu tiempo de reacción, coordinación ojo-mano y visión periférica con ejercicios basados en la ciencia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Entrenamiento Ocular
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-eye mr-3 text-askesis-green"></i>Entrenamiento Ocular y Tiempo de Reacción
+        </h1>
+        <p class="section-subtitle">
+           Tu rendimiento físico está limitado por la velocidad a la que tu cerebro procesa la información visual. Entrenar tus ojos es como mejorar la CPU de tu cuerpo para una reacción y coordinación sobrehumanas.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios: El Cerebro Visual</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Coordinación Ojo-Mano</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Seguimiento Visual</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Visión Periférica</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: El Tiempo de Reacción es una Habilidad Visual</h3>
+                <p>El tiempo de reacción no es solo la rapidez con la que se mueven tus músculos. Es un proceso de tres pasos que ocurre en el cerebro, y dos de ellos son puramente visuales y cognitivos.</p>
+                <h4 class="sub-heading">Los 3 Pasos de la Reacción</h4>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li><strong>Procesamiento Visual:</strong> Tus ojos captan la información (ej: una pelota que viene hacia ti).</li>
+                    <li><strong>Toma de Decisión:</strong> Tu cerebro procesa la información, la reconoce y decide qué hacer (ej: "es una pelota, debo atraparla").</li>
+                    <li><strong>Respuesta Motora:</strong> El cerebro envía la señal a tus músculos para que ejecuten la acción (ej: extender la mano y cerrar los dedos).</li>
+                </ol>
+                <p class="mt-4">Mientras que el paso 3 se entrena con la fuerza y la potencia, los pasos 1 y 2 se entrenan mejorando la velocidad y eficiencia de tu sistema visual. Reducir el tiempo en los dos primeros pasos tiene un impacto masivo en tu tiempo de reacción total.</p>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "Un atleta de élite no ve el mundo como los demás. Su cerebro procesa la información visual más rápido, permitiéndole 'ralentizar el tiempo' y tomar mejores decisiones en una fracción de segundo. Esta habilidad es entrenable."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Coordinación Ojo-Mano: Conectando lo que Ves con lo que Haces</h3>
+                <p>Es la habilidad de guiar tus manos (o pies) basándote en la información visual que recibes. Es fundamental para cualquier deporte que implique atrapar, golpear o interceptar un objeto.</p>
+                <h4 class="sub-heading">Ejercicios Prácticos</h4>
+                <ul>
+                    <li><strong>Lanzamiento de Pelota de Tenis contra la Pared:</strong> El ejercicio más simple y efectivo. Lanza una pelota contra una pared y atrápala con la mano opuesta. Varía la distancia y la velocidad.</li>
+                    <li><strong>Pelotas de Reacción:</strong> Son pelotas con formas irregulares que rebotan en direcciones impredecibles. Déjala caer y reacciona para atraparla. Esto entrena la capacidad de ajustar rápidamente la respuesta motora.</li>
+                     <li><strong>Malabares (Juggling):</strong> Es uno de los ejercicios de coordinación ojo-mano más completos. Empezar con dos pelotas en una mano es un excelente punto de partida.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Seguimiento Visual: Manteniendo el Ojo en el Objetivo</h3>
+                <p>La capacidad de tus ojos para seguir un objeto en movimiento de forma suave o para saltar rápidamente entre diferentes objetivos es crucial.</p>
+                 <h4 class="sub-heading">Tipos de Movimientos Oculares</h4>
+                <ul>
+                    <li><strong>Seguimiento Suave (Smooth Pursuit):</strong> La habilidad de seguir un objeto en movimiento sin problemas, como seguir el vuelo de una pelota.</li>
+                    <li><strong>Movimientos Sacádicos (Saccades):</strong> Saltos oculares extremadamente rápidos entre dos o más puntos de fijación, como mirar de un jugador a otro en un campo de juego.</li>
+                </ul>
+                <h4 class="sub-heading">Ejercicios Prácticos</h4>
+                 <ul>
+                    <li><strong>Seguimiento de Lápiz/Dedo:</strong> Sostén un lápiz a la distancia del brazo. Manten la cabeza quieta y sigue la punta del lápiz con los ojos mientras lo mueves lentamente en diferentes patrones (horizontal, vertical, círculos).</li>
+                    <li><strong>Saltos Sacádicos:</strong> Coloca dos objetos o pegatinas a unos 30-40 cm de distancia. Mantén la cabeza quieta y salta tu mirada rápidamente entre un objeto y otro durante 30 segundos.</li>
+                     <li><strong>Cuerda de Brock (Brock String):</strong> Una herramienta clásica de terapia visual para entrenar la convergencia y divergencia de los ojos (la habilidad de enfocar a diferentes distancias).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Visión Periférica: Ver Todo el Campo de Juego</h3>
+                <p>Es la habilidad de ver y procesar información que está fuera de tu línea de visión directa. En deportes de equipo, es lo que te permite ver a un compañero de equipo desmarcado sin tener que girar la cabeza.</p>
+                <h4 class="sub-heading">Ejercicios Prácticos</h4>
+                 <ul>
+                    <li><strong>Tarjetas de Visión Periférica:</strong> Sostén una tarjeta con una letra o un número directamente frente a ti (visión central). Pídele a un compañero que sostenga otras tarjetas en tu visión periférica. Tu objetivo es identificar las letras/números de los lados sin dejar de mirar la tarjeta central.</li>
+                    <li><strong>Entrenamiento con Luces de Reacción:</strong> Sistemas de luces (como FitLight o BlazePod) son herramientas avanzadas para forzar al atleta a reaccionar a estímulos en su periferia.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Programación: Integrando el Entrenamiento Visual</h3>
+                <p>El entrenamiento visual es como el entrenamiento de movilidad: se beneficia de la consistencia y la calidad, no del agotamiento.</p>
+                
+                <h4 class="sub-heading">¿Cómo y Cuándo Integrarlo?</h4>
+                <ul>
+                    <li><strong>Como Parte del Calentamiento:</strong> Es el momento ideal. Realizar 5-10 minutos de ejercicios visuales antes de tu sesión principal activa y prepara el sistema nervioso.</li>
+                    <li><strong>En Días de Descanso Activo:</strong> Es una excelente manera de entrenar sin generar fatiga física.</li>
+                    <li><strong>Frecuencia:</strong> Sesiones cortas y frecuentes (5-10 minutos, 4-5 veces por semana) son mucho más efectivas que una sesión larga una vez por semana.</li>
+                </ul>
+                 <h4 class="sub-heading">Ejemplo de Rutina de Calentamiento Visual (10 min)</h4>
+                 <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li><strong>Seguimiento de Lápiz/Dedo:</strong> 2 minutos (30 seg horizontal, 30 seg vertical, 30 seg círculos en cada dirección).</li>
+                    <li><strong>Saltos Sacádicos:</strong> 3 series de 30 segundos, descansando 15 segundos entre series.</li>
+                    <li><strong>Lanzamiento de Pelota de Reacción:</strong> 3 minutos de práctica continua.</li>
+                    <li><strong>Malabares con dos pelotas:</strong> 2-3 minutos de práctica.</li>
+                 </ol>
+                 <div class="info-box">
+                    <strong>Principio de Programación Askesis:</strong> "El entrenamiento visual es entrenamiento neurológico. La clave es la concentración y la consistencia. Al igual que un músculo, la conexión entre tus ojos y tu cerebro se adapta y se vuelve más rápida con la práctica deliberada."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

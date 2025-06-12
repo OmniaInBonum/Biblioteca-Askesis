@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Entrenamiento Isométrico</title>
+    <meta name="description" content="La guía definitiva sobre entrenamiento isométrico. Aprende sobre los tipos, beneficios y cómo programar la fuerza inmóvil para romper estancamientos y fortalecer tendones.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Entrenamiento Isométrico
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-hand-paper mr-3 text-askesis-green"></i>Isométricos: La Fuerza Inmóvil
+        </h1>
+        <p class="section-subtitle">
+           El entrenamiento isométrico es una de las herramientas más potentes y subestimadas para el desarrollo de la fuerza. Aprende la ciencia y la aplicación de la contracción sin movimiento para desbloquear tu potencial.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Tipos de Isométricos</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Beneficios Clave</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Aplicación por Objetivo</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios Fundamentales: ¿Qué es una Contracción Isométrica?</h3>
+                <p>Una contracción isométrica ocurre cuando un músculo genera tensión, pero su longitud no cambia. En términos simples: <strong>estás aplicando fuerza, pero nada se mueve</strong>. Esta modalidad de entrenamiento tiene un profundo efecto sobre el sistema nervioso y los tejidos conectivos.</p>
+                <h4 class="sub-heading">La Ciencia Detrás</h4>
+                <ul>
+                    <li><strong>Máximo Reclutamiento de Unidades Motoras:</strong> Para mantener una posición o empujar contra un objeto inamovible, el sistema nervioso central (SNC) aprende a reclutar un número masivo de fibras musculares de forma simultánea. Es una forma muy eficiente de mejorar el "drive" neural.</li>
+                    <li><strong>Especificidad Angular:</strong> La fuerza ganada con isométricos es altamente específica al ángulo en el que se entrena. La ciencia muestra que hay una transferencia de fuerza de aproximadamente +/- 15 a 20 grados desde el ángulo entrenado.</li>
+                    <li><strong>Tiempo Bajo Tensión (TUT):</strong> Los isométricos permiten acumular un tiempo bajo tensión significativo, lo que puede ser un estímulo para la hipertrofia y, especialmente, para la resistencia muscular.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "El entrenamiento isométrico es el arte de enseñar a tus músculos a generar máxima tensión. Es una herramienta de precisión para fortalecer puntos débiles y construir una base de fuerza resiliente."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Los 2 Tipos de Entrenamiento Isométrico</h3>
+                <p>No todos los isométricos son iguales. Distinguimos entre dos modalidades principales con aplicaciones muy diferentes.</p>
+                <h4 class="sub-heading">1. Isométricos Cedentes (Yielding Isometrics)</h4>
+                <ul>
+                    <li><strong>Definición:</strong> Consiste en <strong>sostener una posición o una carga</strong>, resistiendo la fuerza de la gravedad. Estás impidiendo que el movimiento ocurra.</li>
+                    <li><strong>Objetivo Principal:</strong> Desarrollar la resistencia muscular, la estabilidad articular y el control corporal.</li>
+                    <li><strong>Ejemplos:</strong> Aguantar en el fondo de una sentadilla, una plancha abdominal, un L-Sit, sostener el punto medio de un curl de bíceps. La mayoría de las habilidades de calistenia (Front Lever, Planche) son isométricos cedentes.</li>
+                </ul>
+                <h4 class="sub-heading">2. Isométricos Conquistadores (Overcoming Isometrics)</h4>
+                <ul>
+                    <li><strong>Definición:</strong> Consiste en <strong>empujar o tirar con máxima fuerza contra un objeto inamovible</strong>. Estás intentando crear movimiento, pero el objeto no te lo permite.</li>
+                    <li><strong>Objetivo Principal:</strong> Aumentar la fuerza máxima en un ángulo específico y mejorar el reclutamiento neural.</li>
+                    <li><strong>Ejemplos:</strong> Empujar una barra cargada contra los pines de seguridad de un rack (Pin Press), tirar de una barra cargada con un peso imposible de levantar, empujar contra una pared.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Beneficios Clave del Entrenamiento Isométrico</h3>
+                <p>Integrar los isométricos en tu programa desbloquea beneficios que el entrenamiento dinámico por sí solo no puede ofrecer.</p>
+                 <h4 class="sub-heading">Romper Puntos de Estancamiento (Sticking Points)</h4>
+                 <ul>
+                    <li>Utilizando isométricos conquistadores, puedes aplicar máxima fuerza en el ángulo exacto donde fallas en un levantamiento (ej. a mitad de un press de banca). Esto fortalece ese punto débil específico, permitiéndote superar la meseta.</li>
+                </ul>
+                <h4 class="sub-heading">Salud y Resiliencia de los Tendones</h4>
+                 <ul>
+                    <li>Los isométricos cedentes de larga duración (30-45 segundos) con una carga moderada han demostrado tener un efecto <strong>analgésico</strong> en tendones doloridos (como en la tendinitis rotuliana o el codo de tenista).</li>
+                    <li>Además, estimulan la remodelación del colágeno en los tendones, haciéndolos más fuertes y resistentes a futuras lesiones.</li>
+                </ul>
+                <h4 class="sub-heading">Mejora de la Activación Muscular</h4>
+                 <ul>
+                     <li>Son una herramienta increíble para la conexión mente-músculo. Realizar una contracción isométrica de glúteos antes de una serie de sentadillas, por ejemplo, puede mejorar drásticamente su activación durante el movimiento.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Aplicación Práctica por Objetivo</h3>
+                <p>La forma de aplicar los isométricos varía según si tu objetivo es la fuerza máxima, la hipertrofia o la rehabilitación.</p>
+                <h4 class="sub-heading">Para Fuerza Máxima</h4>
+                 <ul>
+                    <li><strong>Método:</strong> Isométricos Conquistadores (Overcoming).</li>
+                    <li><strong>Aplicación:</strong> "Pin Presses" o "Pin Pulls". Coloca los pines de seguridad de un rack en tu punto de estancamiento. Empuja o tira de la barra contra los pines con máxima intención durante 3-6 segundos.</li>
+                </ul>
+                 <h4 class="sub-heading">Para Hipertrofia</h4>
+                 <ul>
+                    <li><strong>Método:</strong> Isométricos Cedentes (Yielding).</li>
+                    <li><strong>Aplicación:</strong> Incorpora pausas en tus series dinámicas. Por ejemplo, en un curl de bíceps, aguanta 2-3 segundos en el punto medio de cada repetición. O en la última repetición de una serie, aguanta la contracción máxima todo el tiempo que puedas.</li>
+                </ul>
+                 <h4 class="sub-heading">Para Calistenia y Habilidades</h4>
+                 <ul>
+                     <li><strong>Método:</strong> Isométricos Cedentes (Yielding).</li>
+                     <li><strong>Aplicación:</strong> La práctica de las progresiones isométricas (Tuck Planche, L-Sit, etc.) es el método principal para ganar la fuerza específica necesaria para estas habilidades.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Programación Inteligente</h3>
+                <p>Los isométricos son una dosis potente de entrenamiento. Deben programarse de forma inteligente para no generar una fatiga excesiva.</p>
+                
+                <h4 class="sub-heading">Isométricos Conquistadores (Para Fuerza)</h4>
+                <ul>
+                    <li><strong>Cuándo:</strong> Al principio de la sesión, después del calentamiento. Trátalos como tu ejercicio de fuerza principal.</li>
+                    <li><strong>Volumen:</strong> 3-6 series de 1 a 3 contracciones por serie.</li>
+                    <li><strong>Duración:</strong> Cada contracción debe ser de máxima intención y durar entre 3 y 6 segundos.</li>
+                     <li><strong>Descanso:</strong> 2-3 minutos entre series para permitir la recuperación completa del SNC.</li>
+                </ul>
+                <h4 class="sub-heading">Isométricos Cedentes (Para Hipertrofia/Resistencia)</h4>
+                <ul>
+                    <li><strong>Cuándo:</strong> Pueden usarse como pausas durante las series o como un "finisher" al final de la sesión.</li>
+                    <li><strong>Volumen:</strong> Apunta a un tiempo total bajo tensión. Por ejemplo, 60 segundos totales de aguante en plancha, dividido en las series que sean necesarias.</li>
+                     <li><strong>Duración:</strong> Los aguantes pueden variar desde 10 segundos (muy difíciles, como un L-Sit) hasta 45 segundos o más (para planchas o con fines de salud tendinosa).</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio de Programación Askesis:</strong> "No reemplaces tu entrenamiento dinámico con isométricos. Úsalos como una herramienta de precisión para atacar debilidades específicas. Son el bisturí de un cirujano, no un martillo."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Definitiva de Entrenamiento de Fuerza | Askesis</title>
+    <meta name="description" content="Guía completa sobre el entrenamiento de fuerza, desde los fundamentos fisiológicos hasta la programación avanzada. Aprende sobre hipertrofia, fuerza máxima, metodologías, nutrición y prevención de lesiones.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: '#6f42c1';
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        h2.main-section-h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-blue); 
+            font-size: 2rem; 
+            font-weight: 700;
+            margin-bottom: 1rem; 
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active-tab { display: block; }
+
+        .day-navigation-sidebar {
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--askesis-orange) var(--askesis-dark);
+        }
+        .day-navigation-sidebar::-webkit-scrollbar { width: 8px; }
+        .day-navigation-sidebar::-webkit-scrollbar-track { background: var(--askesis-dark); }
+        .day-navigation-sidebar::-webkit-scrollbar-thumb { background-color: var(--askesis-orange); border-radius: 10px; border: 2px solid var(--askesis-dark); }
+        
+        .day-tab-button {
+            margin-bottom: 0.5rem;
+            transition: all 0.2s ease;
+        }
+        .day-tab-button.active-day-tab {
+            box-shadow: 0 2px 8px rgba(245, 130, 32, 0.3);
+            background-color: var(--askesis-orange) !important;
+            color: var(--askesis-text-white) !important;
+            border-color: var(--askesis-orange) !important;
+        }
+        
+        .day-content-item { display: none; }
+        .day-content-item.active-day-content { display: block; animation: fadeIn 0.5s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+            text-align: center;
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        .session-card .highlight { color: var(--askesis-blue); font-weight: bold; }
+
+        .notes {
+            font-style: italic;
+            color: var(--askesis-green);
+            display: block;
+            margin-top: 8px;
+            font-size: 0.95em;
+            padding: 0.5rem;
+            background-color: rgba(0, 128, 55, 0.1);
+            border-left: 3px solid var(--askesis-green);
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            border-left: 4px solid var(--askesis-orange);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(245, 130, 32, 0.1);
+        }
+        .warning-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-orange);
+        }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+
+        .session-buttons-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--askesis-border);
+        }
+
+        .session-button {
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            text-decoration: none; color: white;
+        }
+        .session-button:hover { transform: translateY(-3px); }
+        .scroll-to-top { background-color: var(--askesis-blue); }
+        .youtube-video { background-color: #FF0000; }
+        
+        footer {
+            background-color: #0a0a0a;
+            color: var(--askesis-light-gray);
+            padding: 4rem 1rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--askesis-border);
+            margin-top: 3rem;
+        }
+
+        .scroll-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1001;
+            cursor: pointer;
+            transition: opacity 0.4s, transform 0.4s, visibility 0.4s;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .scroll-to-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top-btn:hover {
+            background-color: #E07017;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Guía Definitiva de Fuerza
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-dumbbell mr-3 text-askesis-green"></i>El Manual del Entrenamiento de Fuerza
+        </h1>
+        <p class="section-subtitle">
+           Una guía exhaustiva que desglosa la ciencia, la metodología y la aplicación práctica del entrenamiento de fuerza. Desde los principios fisiológicos hasta la programación de élite, este es tu mapa para construir un cuerpo más fuerte, resiliente y capaz.
+        </p>
+
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="section1-content" role="tab" aria-selected="true">I. Introducción</button>
+            <button class="tab-button" data-tab="section2-content" role="tab">II. Fundamentos</button>
+            <button class="tab-button" data-tab="section3-content" role="tab">III. Metodologías</button>
+            <button class="tab-button" data-tab="section4-content" role="tab">IV. Implementación</button>
+            <button class="tab-button" data-tab="section5-content" role="tab">V. Aplicaciones</button>
+            <button class="tab-button" data-tab="section6-content" role="tab">VI. Optimización</button>
+            <button class="tab-button" data-tab="section7-content" role="tab">VII. Tendencias</button>
+            <button class="tab-button" data-tab="section8-content" role="tab">VIII. Nivel Avanzado</button>
+        </div>
+        
+        <!-- SECCIÓN 1: INTRODUCCIÓN -->
+        <div id="section1-content" class="tab-content" role="tabpanel">
+            <h2 class="main-section-h2"><i class="fas fa-flag-checkered mr-3"></i>Capítulo I: Introducción al Entrenamiento de Fuerza</h2>
+            <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <nav class="md:w-1/3 w-full day-navigation-sidebar bg-askesis-dark p-4 rounded-lg border border-askesis-border self-start md:sticky md:top-24"></nav>
+                <div class="md:w-2/3 w-full day-main-content-area">
+                    
+                    <div class="session-card day-content-item" id="fs-s1d1">
+                        <h3>1.1 ¿Qué es el Entrenamiento de Fuerza?</h3>
+                        <p>El entrenamiento de fuerza es cualquier actividad física diseñada para mejorar la fuerza muscular y la resistencia mediante el uso de la resistencia. No se limita a levantar pesas; abarca un espectro de modalidades donde los músculos se contraen contra una fuerza externa, ya sea el peso corporal, bandas elásticas, pesas libres o máquinas.</p>
+                        <h4 class="sub-heading">Más allá del músculo</h4>
+                        <p>Fundamentalmente, el entrenamiento de fuerza es un diálogo con nuestro sistema neuromuscular. Cada repetición es una instrucción que le damos al cuerpo para que se adapte, se fortalezca y se vuelva más eficiente. Este proceso de adaptación, conocido como supercompensación, es la piedra angular sobre la que se construyen todas las ganancias de fuerza y masa muscular.</p>
+                    </div>
+
+                    <div class="session-card day-content-item" id="fs-s1d2">
+                        <h3>1.2 Beneficios Integrales para la Salud</h3>
+                        <p>Los beneficios del entrenamiento de fuerza trascienden la estética y el rendimiento, impactando profundamente la salud general y la longevidad.</p>
+                        <h4 class="sub-heading">Beneficios Fisiológicos</h4>
+                        <ul>
+                            <li><strong>Aumento de la Densidad Ósea:</strong> El estrés mecánico sobre los huesos estimula la formación de nuevo tejido óseo, ayudando a prevenir la osteoporosis.</li>
+                            <li><strong>Mejora del Metabolismo:</strong> Un aumento de la masa muscular eleva la tasa metabólica basal (TMB), lo que significa que quemas más calorías en reposo.</li>
+                            <li><strong>Control de la Glucosa:</strong> Mejora la sensibilidad a la insulina y ayuda a regular los niveles de azúcar en sangre, reduciendo el riesgo de diabetes tipo 2.</li>
+                            <li><strong>Salud Cardiovascular:</strong> Reduce la presión arterial, mejora el perfil de colesterol y fortalece el corazón.</li>
+                        </ul>
+                        <h4 class="sub-heading">Beneficios Psicológicos y Cognitivos</h4>
+                        <ul>
+                            <li><strong>Reducción de la Ansiedad y Depresión:</strong> La liberación de endorfinas y la mejora de la autoimagen tienen un potente efecto antidepresivo.</li>
+                            <li><strong>Mejora de la Función Cognitiva:</strong> Se ha demostrado que mejora la memoria, la atención y la función ejecutiva.</li>
+                            <li><strong>Aumento de la Confianza y Autoestima:</strong> Superar desafíos físicos y ver el progreso tangible fomenta una mayor seguridad en uno mismo.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: FUNDAMENTOS -->
+        <div id="section2-content" class="tab-content" role="tabpanel">
+             <h2 class="main-section-h2"><i class="fas fa-atom mr-3"></i>Capítulo II: Fundamentos y Principios Científicos</h2>
+             <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <nav class="md:w-1/3 w-full day-navigation-sidebar bg-askesis-dark p-4 rounded-lg border border-askesis-border self-start md:sticky md:top-24"></nav>
+                <div class="md:w-2/3 w-full day-main-content-area">
+
+                    <div class="session-card day-content-item" id="fs-s2d1">
+                        <h3>2.1 Principios del Entrenamiento</h3>
+                        <p>Estos son los pilares universales que garantizan que un programa de entrenamiento sea efectivo y seguro.</p>
+                        <ul>
+                           <li><strong>Sobrecarga Progresiva:</strong> Para que el cuerpo se adapte, el estímulo debe aumentar gradualmente. Esto se puede lograr aumentando el peso, las repeticiones, las series, o disminuyendo el descanso.</li>
+                           <li><strong>Especificidad:</strong> El cuerpo se adapta específicamente al tipo de demanda impuesta. Si quieres ser bueno en sentadillas, debes hacer sentadillas (principio SAID: Specific Adaptation to Imposed Demands).</li>
+                           <li><strong>Variedad:</strong> Cambiar periódicamente los ejercicios, rangos de repeticiones o métodos de entrenamiento ayuda a evitar el estancamiento y reduce el riesgo de lesiones por sobreuso.</li>
+                           <li><strong>Reversibilidad:</strong> Las ganancias de fuerza se pierden si el entrenamiento cesa. "Úsalo o piérdelo".</li>
+                           <li><strong>Individualidad:</strong> Cada persona responde de manera diferente al entrenamiento debido a la genética, la nutrición, el descanso y otros factores.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="session-card day-content-item" id="fs-s2d2">
+                        <h3>2.2 Fisiología de la Fuerza</h3>
+                        <p>Comprender cómo el cuerpo genera fuerza es clave para optimizar el entrenamiento.</p>
+                        <h4 class="sub-heading">Adaptaciones Neuromusculares</h4>
+                        <p>Al principio, las ganancias de fuerza son principalmente neurales. El cerebro se vuelve más eficiente en:</p>
+                        <ul>
+                            <li><strong>Reclutamiento de Unidades Motoras:</strong> Activar más fibras musculares para una contracción.</li>
+                            <li><strong>Frecuencia de Disparo:</strong> Enviar señales nerviosas más rápidas a los músculos.</li>
+                            <li><strong>Sincronización Intermuscular:</strong> Mejorar la coordinación entre diferentes grupos musculares.</li>
+                        </ul>
+                        <h4 class="sub-heading">Hipertrofia Muscular</h4>
+                        <p>Con el tiempo, las adaptaciones estructurales ocurren:</p>
+                        <ul>
+                            <li><strong>Hipertrofia Miofibrilar:</strong> Aumento del tamaño y número de las miofibrillas (las fibras contráctiles del músculo). Esto se asocia con un aumento de la fuerza máxima.</li>
+                            <li><strong>Hipertrofia Sarcoplasmática:</strong> Aumento del fluido (sarcoplasma) y otros elementos no contráctiles dentro de la célula muscular. Se asocia más con el "bombeo" y el entrenamiento tipo culturismo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECCIÓN 3: METODOLOGÍAS -->
+        <div id="section3-content" class="tab-content" role="tabpanel">
+            <h2 class="main-section-h2"><i class="fas fa-sitemap mr-3"></i>Capítulo III: Metodologías y Estrategias</h2>
+             <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <nav class="md:w-1/3 w-full day-navigation-sidebar bg-askesis-dark p-4 rounded-lg border border-askesis-border self-start md:sticky md:top-24"></nav>
+                <div class="md:w-2/3 w-full day-main-content-area">
+
+                    <div class="session-card day-content-item" id="fs-s3d1">
+                        <h3>3.1 Tipos de Entrenamiento de Fuerza</h3>
+                        <p>El entrenamiento de fuerza no es monolítico. Diferentes metodologías se enfocan en diferentes resultados.</p>
+                        <ul>
+                           <li><strong>Culturismo (Bodybuilding):</strong> El objetivo principal es la hipertrofia muscular y la estética. Utiliza rangos de repeticiones moderados (8-12), mayor volumen y descansos cortos para maximizar el estrés metabólico.</li>
+                           <li><strong>Levantamiento de Potencia (Powerlifting):</strong> Se enfoca en la fuerza máxima en tres levantamientos: sentadilla, press de banca y peso muerto. Utiliza bajas repeticiones (1-5), alta intensidad (% de 1RM) y largos descansos.</li>
+                            <li><strong>Halterofilia (Olympic Weightlifting):</strong> Se centra en la potencia explosiva a través de dos movimientos: el arranque (snatch) y el dos tiempos (clean and jerk). Requiere una técnica muy depurada.</li>
+                           <li><strong>Calistenia:</strong> Utiliza el peso corporal como resistencia. Desarrolla un gran control corporal y fuerza relativa. Habilidades como la plancha, el front lever o el pino son sus máximos exponentes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="session-card day-content-item" id="fs-s3d2">
+                        <h3>3.2 Variables de Programación</h3>
+                        <p>La manipulación de estas variables determina la naturaleza y el resultado de tu entrenamiento.</p>
+                         <ul>
+                           <li><strong>Intensidad:</strong> La cantidad de peso levantado, usualmente expresada como un porcentaje de tu repetición máxima (1RM). Alta intensidad para fuerza, moderada para hipertrofia.</li>
+                           <li><strong>Volumen:</strong> La cantidad total de trabajo realizado. Se calcula como Series x Repeticiones x Peso.</li>
+                           <li><strong>Frecuencia:</strong> Cuántas veces a la semana se entrena un grupo muscular o un movimiento.</li>
+                           <li><strong>Descanso:</strong> El tiempo de recuperación entre series. Largos descansos (3-5 min) para fuerza, cortos (30-90 s) para hipertrofia.</li>
+                           <li><strong>Selección de Ejercicios:</strong> La elección entre ejercicios compuestos (multiarticulares) y de aislamiento (monoarticulares).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4: IMPLEMENTACIÓN PRÁCTICA -->
+        <div id="section4-content" class="tab-content" role="tabpanel">
+            <h2 class="main-section-h2"><i class="fas fa-cogs mr-3"></i>Capítulo IV: Implementación Práctica</h2>
+             <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <nav class="md:w-1/3 w-full day-navigation-sidebar bg-askesis-dark p-4 rounded-lg border border-askesis-border self-start md:sticky md:top-24"></nav>
+                <div class="md:w-2/3 w-full day-main-content-area">
+
+                    <div class="session-card day-content-item" id="fs-s4d1">
+                        <h3>4.1 Estructura de una Sesión de Entrenamiento</h3>
+                        <p>Una sesión bien estructurada maximiza el rendimiento y minimiza el riesgo de lesiones. Consta de tres fases clave:</p>
+                        <h4 class="sub-heading">Fase 1: Calentamiento (10-15 min)</h4>
+                        <ul>
+                           <li><strong>General:</strong> 5 minutos de actividad cardiovascular ligera (cinta, bici, remo) para elevar la temperatura corporal.</li>
+                           <li><strong>Movilidad Dinámica:</strong> Movimientos articulares controlados (círculos de brazos, rotaciones de cadera) para lubricar las articulaciones.</li>
+                           <li><strong>Activación Específica:</strong> Ejercicios con peso corporal o bandas para "despertar" los músculos que se van a trabajar (ej. face pulls para hombros, puentes de glúteo para la cadera).</li>
+                           <li><strong>Series de Aproximación:</strong> Realizar el primer ejercicio principal con pesos progresivamente mayores hasta llegar al peso de trabajo.</li>
+                        </ul>
+                         <h4 class="sub-heading">Fase 2: Parte Principal (45-60 min)</h4>
+                         <p>Aquí se realiza el trabajo pesado. El orden es importante:</p>
+                        <ul>
+                            <li>Se comienza con los ejercicios compuestos más demandantes (sentadillas, peso muerto, press de banca) que requieren más energía y concentración.</li>
+                            <li>A continuación, se realizan los ejercicios de asistencia o secundarios.</li>
+                            <li>Finalmente, se pueden incluir ejercicios de aislamiento si son parte del programa.</li>
+                        </ul>
+                         <h4 class="sub-heading">Fase 3: Vuelta a la Calma (5-10 min)</h4>
+                        <ul>
+                            <li><strong>Estiramientos Estáticos:</strong> Mantener estiramientos suaves (20-30s) para los músculos trabajados, ayudando a mejorar la flexibilidad y reducir la tensión.</li>
+                            <li><strong>Foam Roller:</strong> Puede ayudar a aliviar la tensión muscular y mejorar la recuperación.</li>
+                        </ul>
+                    </div>
+
+                    <div class="session-card day-content-item" id="fs-s4d2">
+                        <h3>4.2 Técnica de los Ejercicios Fundamentales</h3>
+                        <p>Dominar estos cuatro movimientos es la base de cualquier programa de fuerza sólido.</p>
+                         <ul>
+                           <li><strong>Sentadilla (Squat):</strong>
+                                <br><strong>Técnica:</strong> Espalda neutra, pecho arriba, pies a la anchura de los hombros. Romper la paralela (cadera por debajo de las rodillas) si la movilidad lo permite. Empujar el suelo con toda la planta del pie.
+                                <br><strong>Errores Comunes:</strong> Talones que se levantan, rodillas que colapsan hacia adentro (valgo), espalda que se redondea.
+                           </li>
+                           <li><strong>Peso Muerto (Deadlift):</strong>
+                                <br><strong>Técnica:</strong> Espalda completamente recta y activada. La barra se desplaza en una línea vertical pegada a las tibias. La cadera y los hombros suben al mismo tiempo.
+                                <br><strong>Errores Comunes:</strong> Espalda baja redondeada (muy peligroso), tironear de la barra en lugar de empujar el suelo con las piernas.
+                           </li>
+                           <li><strong>Press de Banca (Bench Press):</strong>
+                               <br><strong>Técnica:</strong> Pies firmes en el suelo, glúteos en el banco, retracción escapular (juntar omóplatos y hundirlos en el banco) para proteger los hombros. La barra baja al esternón y sube en una ligera diagonal hacia atrás.
+                                <br><strong>Errores Comunes:</strong> Codos muy abiertos (a 90 grados), levantar los glúteos del banco, rebotar la barra en el pecho.
+                           </li>
+                           <li><strong>Press Militar (Overhead Press):</strong>
+                                <br><strong>Técnica:</strong> Core y glúteos apretados para evitar arquear la espalda. La barra sube en línea recta, pasando cerca de la cara. Codos apuntando ligeramente hacia adelante, no hacia los lados.
+                                <br><strong>Errores Comunes:</strong> Usar las piernas para empujar (push press), arquear excesivamente la zona lumbar.
+                           </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECCIÓN 5: CASOS DE ESTUDIO Y APLICACIONES -->
+        <div id="section5-content" class="tab-content" role="tabpanel">
+            <h2 class="main-section-h2"><i class="fas fa-users mr-3"></i>Capítulo V: Aplicaciones y Casos de Estudio</h2>
+             <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <nav class="md:w-1/3 w-full day-navigation-sidebar bg-askesis-dark p-4 rounded-lg border border-askesis-border self-start md:sticky md:top-24"></nav>
+                <div class="md:w-2/3 w-full day-main-content-area">
+
+                    <div class="session-card day-content-item" id="fs-s5d1">
+                        <h3>5.1 Programa para Principiantes</h3>
+                        <p>Para alguien que se inicia, el foco debe estar en aprender la técnica y construir una base de fuerza con una progresión lineal simple.</p>
+                        <h4 class="sub-heading">Ejemplo de Rutina Full-Body (3 días/semana)</h4>
+                        <ul>
+                           <li><strong>Día A:</strong> Sentadilla 3x5, Press de Banca 3x5, Remo con Barra 3x5.</li>
+                           <li><strong>Día B:</strong> Sentadilla 3x5, Press Militar 3x5, Peso Muerto 1x5.</li>
+                           <li>Se alterna Día A y Día B, con al menos un día de descanso entre sesiones (ej. Lunes A, Miércoles B, Viernes A).</li>
+                           <li><strong>Progresión:</strong> En cada sesión, se intenta añadir una pequeña cantidad de peso (ej. 1.25-2.5 kg) al mismo número de series y repeticiones.</li>
+                        </ul>
+                    </div>
+
+                    <div class="session-card day-content-item" id="fs-s5d2">
+                        <h3>5.2 Fuerza para Atletas de otros Deportes</h3>
+                        <p>El entrenamiento de fuerza es una herramienta clave para mejorar el rendimiento y prevenir lesiones en casi cualquier disciplina deportiva.</p>
+                        <ul>
+                           <li><strong>Deportes de Potencia (Fútbol, Baloncesto):</strong> Se enfocarán en movimientos explosivos como sentadillas con salto, peso muerto rumano y lanzamientos de balón medicinal. El objetivo es mejorar la tasa de desarrollo de la fuerza (RFD).</li>
+                           <li><strong>Deportes de Resistencia (Running, Ciclismo):</strong> El entrenamiento de fuerza pesado (bajas repeticiones) mejora la economía de carrera y previene lesiones por sobreuso, sin generar un aumento de peso significativo. Sentadillas pesadas y peso muerto son clave.</li>
+                           <li><strong>Deportes de Combate:</strong> Se necesita una mezcla de fuerza máxima, potencia y resistencia muscular. El programa incluiría levantamientos pesados, trabajo con kettlebells y acondicionamiento metabólico.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 6: OPTIMIZACIÓN -->
+        <div id="section6-content" class="tab-content" role="tabpanel">
+             <h2 class="main-section-h2"><i class="fas fa-chart-line mr-3"></i>Capítulo VI: Optimización y Mejores Prácticas</h2>
+             <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <nav class="md:w-1/3 w-full day-navigation-sidebar bg-askesis-dark p-4 rounded-lg border border-askesis-border self-start md:sticky md:top-24"></nav>
+                <div class="md:w-2/3 w-full day-main-content-area">
+
+                    <div class="session-card day-content-item" id="fs-s6d1">
+                        <h3>6.1 Nutrición para la Fuerza</h3>
+                        <p>La nutrición es el combustible para tu entrenamiento y la materia prima para la recuperación y el crecimiento.</p>
+                        <ul>
+                           <li><strong>Calorías:</strong> Para ganar fuerza y músculo, generalmente se necesita un ligero superávit calórico. Para perder grasa manteniendo músculo, un déficit moderado.</li>
+                           <li><strong>Proteínas:</strong> El macronutriente más importante para la reparación muscular. Apunta a 1.6-2.2 gramos por kg de peso corporal al día.</li>
+                           <li><strong>Carbohidratos:</strong> La principal fuente de energía para el entrenamiento de alta intensidad. Su consumo debe rodear la ventana de entrenamiento.</li>
+                           <li><strong>Grasas:</strong> Esenciales para la producción hormonal, incluyendo la testosterona. No deben ser inferiores al 20% de la ingesta calórica total.</li>
+                           <li><strong>Hidratación:</strong> Incluso una deshidratación leve puede mermar drásticamente el rendimiento de fuerza.</li>
+                        </ul>
+                    </div>
+
+                    <div class="session-card day-content-item" id="fs-s6d2">
+                        <h3>6.2 Suplementación Basada en Evidencia</h3>
+                        <p>La mayoría de los suplementos son innecesarios, pero algunos tienen un respaldo científico sólido para mejorar el rendimiento.</p>
+                        <ul>
+                           <li><strong>Creatina Monohidrato:</strong> El suplemento más estudiado y efectivo para mejorar la fuerza, la potencia y la masa muscular.</li>
+                           <li><strong>Proteína de Suero (Whey Protein):</strong> Una forma conveniente y de alta calidad para alcanzar los requerimientos diarios de proteína, especialmente post-entrenamiento.</li>
+                           <li><strong>Cafeína:</strong> Un potente estimulante que puede reducir la percepción del esfuerzo y aumentar el rendimiento de fuerza.</li>
+                           <li class="notes">Nota: La base siempre debe ser una dieta sólida. Los suplementos, como su nombre indica, solo complementan.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="session-card day-content-item" id="fs-s6d3">
+                        <h3>6.3 El Rol Crítico de la Recuperación</h3>
+                        <p>No te haces más fuerte en el gimnasio, te haces más fuerte cuando te recuperas del estímulo del gimnasio.</p>
+                        <ul>
+                           <li><strong>Sueño:</strong> Es el pilar fundamental de la recuperación. Durante el sueño profundo se liberan hormonas anabólicas clave. Apunta a 7-9 horas de calidad por noche.</li>
+                           <li><strong>Gestión del Estrés:</strong> El estrés crónico eleva el cortisol, una hormona catabólica que puede degradar el tejido muscular y dificultar la recuperación.</li>
+                           <li><strong>Semanas de Descarga (Deload):</strong> Períodos planificados (cada 4-8 semanas) de menor volumen e intensidad para permitir que el sistema nervioso y las articulaciones se recuperen por completo, previniendo el sobreentrenamiento.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 7: TENDENCIAS -->
+        <div id="section7-content" class="tab-content" role="tabpanel">
+             <h2 class="main-section-h2"><i class="fas fa-broadcast-tower mr-3"></i>Capítulo VII: Futuro y Tendencias</h2>
+             <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <nav class="md:w-1/3 w-full day-navigation-sidebar bg-askesis-dark p-4 rounded-lg border border-askesis-border self-start md:sticky md:top-24"></nav>
+                <div class="md:w-2/3 w-full day-main-content-area">
+
+                    <div class="session-card day-content-item" id="fs-s7d1">
+                        <h3>7.1 Tecnología en el Entrenamiento</h3>
+                        <p>La tecnología está revolucionando cómo medimos y prescribimos el entrenamiento.</p>
+                        <ul>
+                           <li><strong>Entrenamiento Basado en la Velocidad (VBT):</strong> Utiliza acelerómetros (como el de Vitruve o Push) para medir la velocidad de la barra. Permite autorregular la intensidad diaria basándose en el rendimiento real y no en porcentajes teóricos.</li>
+                           <li><strong>Wearables y Monitorización:</strong> Dispositivos que rastrean la variabilidad de la frecuencia cardíaca (VFC), la calidad del sueño y la carga de entrenamiento total para optimizar la recuperación.</li>
+                           <li><strong>Apps de Programación:</strong> Aplicaciones que utilizan IA para ajustar los programas de entrenamiento en tiempo real basándose en el feedback del atleta.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="session-card day-content-item" id="fs-s7d2">
+                        <h3>7.2 Conexión Mente-Músculo y Neurociencia</h3>
+                        <p>La investigación está demostrando que el enfoque mental puede influir directamente en las ganancias físicas.</p>
+                        <ul>
+                           <li><strong>Enfoque Interno vs. Externo:</strong> Pensar en el músculo que se contrae (interno) puede ser útil para la hipertrofia, mientras que pensar en mover el peso (externo) suele ser superior para la fuerza máxima.</li>
+                           <li><strong>Visualización:</strong> Imaginar un levantamiento exitoso antes de realizarlo puede mejorar el reclutamiento de unidades motoras y la coordinación.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECCIÓN 8: DESARROLLO AVANZADO -->
+        <div id="section8-content" class="tab-content" role="tabpanel">
+            <h2 class="main-section-h2"><i class="fas fa-rocket mr-3"></i>Capítulo VIII: Desarrollo Avanzado y Prevención</h2>
+             <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <nav class="md:w-1/3 w-full day-navigation-sidebar bg-askesis-dark p-4 rounded-lg border border-askesis-border self-start md:sticky md:top-24"></nav>
+                <div class="md:w-2/3 w-full day-main-content-area">
+
+                    <div class="session-card day-content-item" id="fs-s8d1">
+                        <h3>8.1 Técnicas Avanzadas de Entrenamiento</h3>
+                        <p>Para atletas experimentados que buscan romper estancamientos y alcanzar el máximo rendimiento.</p>
+                        <ul>
+                           <li><strong>Potenciación Post-Activación (PAP):</strong> Realizar una contracción casi máxima (ej. una sentadilla pesada) seguida de un movimiento explosivo (ej. un salto de caja). El sistema nervioso queda "cebado" y el movimiento explosivo es más potente.</li>
+                           <li><strong>Entrenamiento por Clusters:</strong> Dividir una serie en varios "mini-sets" con breves descansos intra-serie (10-30s). Permite acumular más repeticiones con un peso alto, manteniendo la calidad y velocidad.</li>
+                           <li><strong>Resistencia Acomodaticia:</strong> Uso de bandas elásticas o cadenas. La resistencia aumenta a medida que se completa el rango de movimiento, sobrecargando la porción más fuerte del levantamiento.</li>
+                        </ul>
+                    </div>
+
+                    <div class="session-card day-content-item" id="fs-s8d2">
+                        <h3>8.2 Prevención de Lesiones y Longevidad</h3>
+                        <p>La mejor habilidad es la disponibilidad. Entrenar de forma inteligente para poder seguir haciéndolo durante décadas.</p>
+                         <ul>
+                           <li><strong>Calentamiento Dinámico:</strong> Siempre prepara el cuerpo con movilidad articular y series de aproximación.</li>
+                           <li><strong>Técnica Impecable:</strong> Nunca sacrifiques la forma por el peso. Grábate y analiza tus levantamientos.</li>
+                           <li><strong>Manejo de la Fatiga:</strong> Aprende a diferenciar entre el dolor muscular de aparición tardía (DOMS) y el dolor articular o agudo. No entrenes con dolor.</li>
+                           <li><strong>Trabajo de Puntos Débiles:</strong> Dedica tiempo a ejercicios de "pre-habilitación" para fortalecer estabilizadores (manguito rotador, core profundo, glúteo medio).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <a href="#" class="scroll-to-top-btn" id="scrollTopBtn" title="Volver al inicio">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <footer>
+        <div class="container mx-auto">
+            <p class="text-lg font-semibold text-askesis-text-white">Guía Definitiva de Entrenamiento de Fuerza</p>
+            <p class="text-sm">Creado por Askesis - Ciencia Aplicada al Movimiento.</p>
+            <p class="text-xs mt-4 text-gray-500">© 2025 Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+            // --- Scroll to Top Button Logic ---
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+
+            scrollTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+
+            // --- Tab Navigation Logic ---
+            mainTabContents.forEach((mainContent) => {
+                const dayNavSidebar = mainContent.querySelector('.day-navigation-sidebar');
+                const dayMainContentArea = mainContent.querySelector('.day-main-content-area');
+                if (!dayNavSidebar || !dayMainContentArea) return;
+
+                const originalSessionCards = Array.from(dayMainContentArea.querySelectorAll('.day-content-item'));
+                dayNavSidebar.innerHTML = '';
+                
+                originalSessionCards.forEach((card) => {
+                    const dayId = card.id;
+                    const dayTitleElement = card.querySelector('h3');
+                    if (!dayTitleElement) return;
+
+                    const dayButton = document.createElement('button');
+                    dayButton.className = 'day-tab-button block w-full text-left p-3 rounded-md font-semibold transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-askesis-orange bg-askesis-dark text-askesis-light-gray border border-askesis-border';
+                    dayButton.setAttribute('data-day-target', dayId);
+                    dayButton.textContent = dayTitleElement.textContent;
+                    
+                    dayButton.addEventListener('click', () => {
+                        dayNavSidebar.querySelectorAll('.day-tab-button').forEach(btn => btn.classList.remove('active-day-tab'));
+                        dayMainContentArea.querySelectorAll('.day-content-item').forEach(item => item.classList.remove('active-day-content'));
+
+                        dayButton.classList.add('active-day-tab');
+                        const targetDayContent = dayMainContentArea.querySelector(`#${dayId}`);
+                        if (targetDayContent) {
+                            targetDayContent.classList.add('active-day-content');
+                        }
+                    });
+                    dayNavSidebar.appendChild(dayButton);
+                });
+            });
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    button.classList.add('active');
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                        
+                        const headerOffset = 80;
+                        const elementPosition = activeMainContent.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                             top: offsetPosition,
+                             behavior: "smooth"
+                        });
+
+                        const firstDayButton = activeMainContent.querySelector('.day-navigation-sidebar .day-tab-button');
+                        if (firstDayButton) {
+                            firstDayButton.click();
+                        }
+                    }
+                });
+            });
+            
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+
+</body>
+</html>

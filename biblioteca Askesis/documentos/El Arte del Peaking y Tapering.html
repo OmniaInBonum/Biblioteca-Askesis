@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: El Arte del Peaking y Tapering</title>
+    <meta name="description" content="La guía definitiva sobre peaking y tapering. Aprende a manipular el volumen, la intensidad y la fatiga para alcanzar tu máximo rendimiento en el día de la competición.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Peaking y Tapering
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-chart-line mr-3 text-askesis-green"></i>El Arte del Peaking: La Cima del Rendimiento
+        </h1>
+        <p class="section-subtitle">
+           Alcanzar tu máximo potencial en un día específico no es cuestión de suerte, es una ciencia. Aprende los principios del peaking y tapering para disipar la fatiga, maximizar la fuerza y llegar a la competición en tu mejor momento.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios: Fitness vs. Fatiga</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">El Tapering: La Herramienta</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Manipulación de Variables</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Ejemplo de Taper</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: El Modelo de Fitness-Fatiga</h3>
+                <p>Tu rendimiento en un día determinado no es solo un reflejo de tu nivel de "fitness" (lo fuerte que eres), sino una interacción entre tu fitness y tu nivel de fatiga acumulada.</p>
+                <h4 class="sub-heading">La Ecuación del Rendimiento</h4>
+                <p class="text-2xl text-center font-bold my-4">Rendimiento = Fitness - Fatiga</p>
+                <ul>
+                    <li><strong>Fitness (Condición Física):</strong> Es una cualidad estable que se construye lentamente a lo largo de semanas y meses de entrenamiento consistente. Representa tu potencial máximo.</li>
+                    <li><strong>Fatiga:</strong> Es una cualidad volátil que se acumula rápidamente con el entrenamiento intenso, pero también se disipa rápidamente con el descanso. La fatiga enmascara tu verdadero nivel de fitness.</li>
+                </ul>
+                <h4 class="sub-heading">El Dilema del Entrenamiento</h4>
+                <p>Cada sesión de entrenamiento produce dos efectos: un aumento del fitness (positivo y duradero) y un aumento de la fatiga (negativo y temporal). Durante los bloques de entrenamiento intenso, la fatiga se acumula a un ritmo tan alto que, a pesar de que tu fitness está aumentando, tu rendimiento visible (lo que puedes levantar en el gimnasio) puede estancarse o incluso disminuir. El "peaking" es el proceso de eliminar esa fatiga para que tu fitness real pueda finalmente manifestarse.</p>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "No eres tan fuerte como te sientes durante tu semana más dura de entrenamiento. Eres mucho más fuerte. El peaking es el proceso de desenterrar esa fuerza oculta bajo la fatiga."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>El Tapering: La Herramienta para el Peaking</h3>
+                <p>El "tapering" (o afinamiento) es la reducción progresiva y deliberada de la carga de entrenamiento en los días o semanas previas a una competición. El objetivo es simple: permitir que la fatiga se disipe a un ritmo mucho más rápido de lo que se pierde el fitness.</p>
+                <h4 class="sub-heading">La Magia del Taper</h4>
+                <ul>
+                    <li><strong>La Fatiga se va Rápido, el Fitness se queda:</strong> La fatiga tiene una "vida media" corta. Con unos pocos días de menor trabajo, disminuye drásticamente. El fitness, en cambio, es muy resistente y tarda semanas o meses en deteriorarse.</li>
+                    <li><strong>Supercompensación:</strong> Al eliminar la fatiga mientras se mantiene el fitness, el rendimiento no solo vuelve a la normalidad, sino que "supercompensa", alcanzando un nuevo pico que estaba latente.</li>
+                </ul>
+                <h4 class="sub-heading">¿Qué NO es un Taper?</h4>
+                 <ul>
+                    <li><strong>No es Descanso Total:</strong> Dejar de entrenar por completo puede llevar a una ligera pérdida de fitness y, lo que es más importante, a una pérdida de la habilidad técnica y la "sensación" del movimiento.</li>
+                     <li><strong>No es Entrenar Ligero:</strong> Reducir drásticamente la intensidad (el peso en la barra) es uno de los mayores errores. La intensidad es la señal que le dice a tu cuerpo que mantenga las adaptaciones de fuerza.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Manipulación de las Variables Durante el Taper</h3>
+                <p>Un taper exitoso se basa en manipular correctamente las tres variables principales del entrenamiento.</p>
+                 <h4 class="sub-heading">Volumen: La Variable Clave a Reducir</h4>
+                 <ul>
+                    <li>El volumen (series x reps) es el principal generador de fatiga. Por lo tanto, es la variable que más debemos reducir.</li>
+                    <li><strong>Recomendación:</strong> Reducir el volumen total entre un <strong>40% y un 60%</strong> del volumen normal del mesociclo. Esto se logra principalmente reduciendo el número de series y eliminando gran parte del trabajo de asistencia.</li>
+                </ul>
+                <h4 class="sub-heading">Intensidad: La Variable Clave a Mantener</h4>
+                <ul>
+                    <li>La intensidad (% de 1RM) es la señal que preserva el fitness y las adaptaciones neurales de la fuerza.</li>
+                    <li><strong>Recomendación:</strong> Mantener la intensidad alta. Debes seguir levantando pesos pesados (>85% 1RM), pero por muy pocas repeticiones (singles, dobles). Esto mantiene el sistema nervioso "cebado" para la competición sin generar fatiga.</li>
+                </ul>
+                 <h4 class="sub-heading">Frecuencia: Se Mantiene o se Reduce Ligeramente</h4>
+                <ul>
+                     <li>Mantener una frecuencia de entrenamiento relativamente normal ayuda a conservar la habilidad técnica.</li>
+                     <li><strong>Recomendación:</strong> Se puede mantener la misma cantidad de días de entrenamiento por semana, o reducirla en uno como máximo.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Ejemplo de Taper para Powerlifting (2 Semanas)</h3>
+                <p>Imaginemos un atleta cuya última semana dura de entrenamiento (Semana 0) fue la más pesada. Así podría ser su taper para una competición el Sábado de la Semana 2.</p>
+                
+                <h4 class="sub-heading">Semana 1: Reducción de Volumen, Mantenimiento de Intensidad</h4>
+                <ul>
+                    <li><strong>Lunes (Sentadilla):</strong> Último levantamiento pesado. Trabajar hasta un single a RPE 8 (un opener tentativo). Luego, 2 series de 2 repeticiones con el 80% de ese single. (Volumen drásticamente reducido).</li>
+                    <li><strong>Miércoles (Press de Banca):</strong> Mismo protocolo que la sentadilla. Último press pesado, un single a RPE 8, seguido de 2x2 con el 80%.</li>
+                    <li><strong>Viernes (Peso Muerto):</strong> Mismo protocolo que los anteriores. Último peso muerto pesado.</li>
+                    <li><i>*Nota: El trabajo de asistencia se reduce a 1-2 ejercicios por sesión, 2 series ligeras.*</i></li>
+                </ul>
+                <h4 class="sub-heading">Semana 2: Disipación Final de la Fatiga</h4>
+                <ul>
+                    <li><strong>Lunes (Sentadilla):</strong> Muy ligero. Solo el "opener" (el peso del primer intento) para 1 serie de 1 repetición. Sentirse rápido y explosivo es el objetivo.</li>
+                    <li><strong>Martes (Press de Banca):</strong> Mismo protocolo que el lunes. 1x1 con el opener.</li>
+                     <li><strong>Miércoles (Peso Muerto):</strong> Mismo protocolo que los anteriores. 1x1 con el opener.</li>
+                     <li><strong>Jueves y Viernes:</strong> Descanso total o movilidad muy ligera (caminatas).</li>
+                     <li><strong>Sábado: ¡Día de la Competición!</strong></li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

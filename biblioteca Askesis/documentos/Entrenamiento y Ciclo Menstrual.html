@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Entrenamiento y Ciclo Menstrual</title>
+    <meta name="description" content="La guía científica definitiva para atletas femeninas. Aprende a sincronizar tu entrenamiento y nutrición con las fases del ciclo menstrual para un rendimiento superior.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Entrenamiento y Ciclo Menstrual
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-sync-alt mr-3 text-askesis-green"></i>Sincroniza tu Ciclo: La Guía para la Atleta Femenina
+        </h1>
+        <p class="section-subtitle">
+           La fisiología femenina presenta un ciclo hormonal con oportunidades y desafíos únicos. Aprender a sincronizar tu entrenamiento y nutrición con tu ciclo es la clave para desbloquear tu verdadero potencial.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Las Dos Fases del Ciclo</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Fase Folicular (Días 1-14)</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Fase Lútea (Días 15-28)</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación Sincronizada</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: Más Allá del Modelo Masculino</h3>
+                <p>La gran mayoría de la investigación en ciencia del deporte se ha realizado en hombres. Sin embargo, el perfil hormonal de una mujer que no utiliza anticonceptivos hormonales es drásticamente diferente y fluctúa a lo largo del mes. Ignorar estas fluctuaciones es ignorar una variable de rendimiento fundamental.</p>
+                <h4 class="sub-heading">Las Hormonas Clave</h4>
+                <ul>
+                    <li><strong>Estrógeno:</strong> A menudo considerado "anabólico". En su pico, puede aumentar la fuerza, la tolerancia al dolor y la utilización de glucógeno. También hace que los ligamentos sean más laxos, aumentando el riesgo de lesión.</li>
+                    <li><strong>Progesterona:</strong> A menudo considerada "catabólica". En su pico, aumenta la temperatura corporal basal, el catabolismo de proteínas y puede causar retención de líquidos y síntomas premenstruales (SPM), afectando negativamente el rendimiento.</li>
+                </ul>
+                <h4 class="sub-heading">El Ciclo Simplificado en Dos Fases</h4>
+                <p>Aunque el ciclo es complejo, para fines de entrenamiento podemos dividirlo en dos grandes fases de aproximadamente 14 días cada una (basado en un ciclo de 28 días).</p>
+                 <ul>
+                    <li><strong>Fase Folicular (Día 1 al 14):</strong> Comienza con el primer día de la menstruación. Se caracteriza por bajos niveles hormonales al principio, con un aumento progresivo del estrógeno que llega a su pico en la ovulación (alrededor del día 14).</li>
+                    <li><strong>Fase Lútea (Día 15 al 28):</strong> Comienza después de la ovulación. Se caracteriza por altos niveles de progesterona y un segundo pico (menor) de estrógeno.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Fase Folicular (Días 1-14): La Fase de Potencia</h3>
+                <p>Esta es la fase de "bajas hormonas" al principio, que evoluciona hacia una fase de "alto estrógeno". Fisiológicamente, tu cuerpo es más resiliente y tiene una mayor capacidad de rendimiento durante esta fase.</p>
+                <h4 class="sub-heading">Características Fisiológicas y de Rendimiento</h4>
+                <ul>
+                    <li><strong>Semana 1 (Menstruación):</strong> Los niveles hormonales son los más bajos. Algunas atletas pueden sentirse con menos energía al principio, pero la capacidad de rendimiento se recupera rápidamente.</li>
+                    <li><strong>Semana 2 (Hacia la Ovulación):</strong> El estrógeno aumenta drásticamente. Esto se asocia con:
+                        <ul>
+                            <li><strong>Mayor producción de fuerza y potencia.</strong></li>
+                            <li><strong>Mayor tolerancia al dolor y al esfuerzo.</strong></li>
+                            <li><strong>Mejor uso del glucógeno muscular como combustible.</strong></li>
+                        </ul>
+                    </li>
+                    <li><strong>Riesgo de Lesión:</strong> El pico de estrógeno alrededor de la ovulación aumenta la laxitud de los ligamentos, lo que puede incrementar el riesgo de lesiones de tejidos blandos (como el ligamento cruzado anterior o LCA).</li>
+                </ul>
+                 <div class="info-box">
+                    <strong>Implicaciones para el Entrenamiento:</strong> "La fase folicular, especialmente la segunda semana, es tu ventana de oportunidad. Es el momento ideal para buscar récords personales (1RM), realizar entrenamientos de alta intensidad y acumular volumen de calidad."
+                </div>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Fase Lútea (Días 15-28): La Fase de Resistencia y Técnica</h3>
+                <p>Esta es la fase de "altas hormonas", dominada por la progesterona. El cuerpo experimenta cambios fisiológicos significativos que impactan el rendimiento.</p>
+                 <h4 class="sub-heading">Características Fisiológicas y de Rendimiento</h4>
+                <ul>
+                    <li><strong>Aumento de la Temperatura Corporal Basal:</strong> Sudas más y te deshidratas más rápido. La hidratación es crucial.</li>
+                    <li><strong>Cambio en el Metabolismo:</strong> El cuerpo se vuelve ligeramente más eficiente utilizando grasa como combustible, pero menos eficiente utilizando carbohidratos.</li>
+                    <li><strong>Aumento del Catabolismo:</strong> La progesterona puede aumentar la descomposición de proteínas, haciendo la recuperación más lenta.</li>
+                    <li><strong>Síntomas Premenstruales (SPM):</strong> En la última semana, la retención de líquidos, la fatiga y los cambios de humor pueden reducir drásticamente la capacidad de rendimiento y la motivación.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Implicaciones para el Entrenamiento:</strong> "Durante la fase lútea, el objetivo no es luchar contra tu fisiología, sino trabajar con ella. Reduce la intensidad máxima, enfócate en la técnica, el trabajo de hipertrofia en rangos de repeticiones más altos y prioriza la recuperación."
+                </div>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Programación Sincronizada: Un Ejemplo de Mesociclo</h3>
+                <p>Aquí te mostramos cómo estructurar un bloque de entrenamiento de 4 semanas para alinearlo con un ciclo menstrual de 28 días.</p>
+                
+                <h4 class="sub-heading">Semana 1 (Menstruación / Fase Folicular Temprana)</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Reintroducción al volumen.</li>
+                    <li><strong>Programación:</strong> Comienza el mesociclo aquí. Volumen moderado, intensidad moderada (RPE 7-8). Escucha a tu cuerpo los primeros días.</li>
+                </ul>
+                <h4 class="sub-heading">Semana 2 (Fase Folicular Tardía / Ovulación)</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Semana de sobrecarga. Máximo rendimiento.</li>
+                    <li><strong>Programación:</strong> Aumenta el volumen y la intensidad. Este es el momento de los levantamientos pesados (RPE 8-9) y de buscar récords de repeticiones. <strong>Presta especial atención a la técnica en saltos y cambios de dirección por el riesgo de lesión.</strong></li>
+                </ul>
+                 <h4 class="sub-heading">Semana 3 (Fase Lútea Media)</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Mantener el volumen, pero reducir la intensidad máxima.</li>
+                    <li><strong>Programación:</strong> Disminuye ligeramente el peso en los levantamientos principales y enfócate en rangos de hipertrofia (8-15 repeticiones). El RPE puede seguir siendo alto, pero la carga absoluta es menor. Prioriza la hidratación y la ingesta de proteínas.</li>
+                </ul>
+                 <h4 class="sub-heading">Semana 4 (Fase Lútea Tardía / Premenstrual)</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Descarga activa y recuperación.</li>
+                    <li><strong>Programación:</strong> Reduce drásticamente el volumen y la intensidad (RPE 5-7). Enfócate en la técnica, el trabajo de movilidad, y cardio de baja intensidad. Es una semana para escuchar a tu cuerpo y prepararte para el siguiente ciclo.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

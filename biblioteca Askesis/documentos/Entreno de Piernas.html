@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis para el Desarrollo de Piernas</title>
+    <meta name="description" content="Nuestra filosofía y metodología para construir piernas más fuertes y grandes, basada en principios de eficacia y sostenibilidad.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Desarrollo de Piernas
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-running mr-3 text-askesis-green"></i>Guía Definitiva para el Desarrollo de Piernas
+        </h1>
+        <p class="section-subtitle">
+           Nuestra filosofía y metodología para construir piernas más fuertes y grandes, basada en principios de eficacia y sostenibilidad.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Pilar 1: Simplicidad</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Pilar 2: Técnica</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Pilar 3: Frecuencia</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Pilar 4: Intensidad</button>
+            <button class="tab-button" data-tab="pilar5" role="tab">Pilar 5: Consistencia</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Plantilla de Rutina</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 1: La Simplicidad en la Selección de Ejercicios</h3>
+                <p>En Askesis, sostenemos que no es necesaria una complejidad abrumadora para lograr resultados. Para un crecimiento completo de las piernas, un programa efectivo solo necesita cubrir tres patrones de movimiento fundamentales.</p>
+                <h4 class="sub-heading">Los 3 Pilares del Entrenamiento de Piernas:</h4>
+                <ul>
+                    <li><strong>Un movimiento de "Sentadilla" (Squat):</strong> Se enfoca en los cuádriceps y glúteos. Aunque las sentadillas con barra son excelentes, no son obligatorias. Se puede obtener un estímulo similar con variantes como la <strong>Prensa (Leg Press), Hack Squat o Sentadillas con Barra de Seguridad</strong>. Lo importante es elegir una que te permita sentir bien el trabajo y progresar.</li>
+                    <li><strong>Un movimiento de "Bisagra de Cadera" (Hinge):</strong> El objetivo son los isquiotibiales y los glúteos. El <strong>Peso Muerto Rumano (RDL)</strong> es el rey en esta categoría. Otras opciones excelentes son el "Good Morning" o extensiones de espalda.</li>
+                    <li><strong>Un movimiento de "Estocada" (Lunge):</strong> Trabaja el equilibrio y estimula las piernas de forma unilateral. Aquí entran las <strong>Estocadas (Lunges), las Sentadillas Búlgaras (Bulgarian Split Squats) o las Estocadas Inversas</strong>. Estos movimientos son clave para la estabilidad y el desarrollo equilibrado.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "No necesitas cinco tipos diferentes de sentadillas. La clave es dominar una variante de cada uno de estos tres movimientos y enfocarte en la sobrecarga progresiva."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 2: La Técnica Precede a la Carga</h3>
+                <p>Uno de los errores más comunes que observamos es la obsesión por levantar más peso (ego lifting) a expensas de la forma. Para la hipertrofia, la calidad del estímulo es más importante que la cantidad de peso en la barra.</p>
+                <h4 class="sub-heading">Claves para una Técnica Enfocada en la Hipertrofia:</h4>
+                <ul>
+                    <li><strong>Rango de Movimiento Completo:</strong> Priorizamos siempre llevar el músculo a través de su rango de movimiento completo y seguro. Por ejemplo, en las sentadillas, buscamos la máxima profundidad que la movilidad del atleta permita. Esto estira el músculo bajo carga, un potente estímulo para el crecimiento.</li>
+                    <li><strong>Controlar la Negativa (Fase Excéntrica):</strong> Insistimos en no dejar que el peso caiga por la gravedad. Controlar el descenso aumenta el tiempo bajo tensión y el daño muscular, dos factores importantes para la hipertrofia.</li>
+                    <li><strong>Pausa en la Posición de Estiramiento:</strong> Añadir una breve pausa en la parte más baja del movimiento (cuando el músculo está más estirado), puede intensificar drásticamente el estímulo de crecimiento.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 3: La Frecuencia Óptima es de Dos Veces por Semana</h3>
+                <p>A menudo, los atletas intentan acelerar el progreso aumentando la frecuencia a 3 o más veces por semana, pero nuestra experiencia indica que esto suele ser contraproducente, llevando al estancamiento por fatiga.</p>
+                <h4 class="sub-heading">Calidad sobre Cantidad:</h4>
+                <ul>
+                    <li><strong>La Recuperación es Clave:</strong> El entrenamiento de piernas es extremadamente demandante para el sistema nervioso central (SNC). El crecimiento ocurre durante la recuperación, no durante el entrenamiento.</li>
+                    <li><strong>El Punto Óptimo:</strong> Dos sesiones de alta calidad por semana han demostrado ser mucho más efectivas que tres sesiones mediocres realizadas en estado de fatiga. Esto permite una recuperación completa y aplicar la máxima intensidad en cada entrenamiento.</li>
+                    <li><strong>Organización del Split:</strong> Recomendamos dividir las sesiones en, por ejemplo, un "Día de Cuádriceps" (con sentadillas) y un "Día de Isquiotibiales" (con peso muerto rumano), permitiendo un enfoque más preciso.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 4: La Importancia del Estrés Metabólico</h3>
+                <p>Si bien los levantamientos pesados en rangos de 5-8 repeticiones son la base de nuestros programas, enfatizamos la importancia de integrar el trabajo a repeticiones más altas para maximizar todos los mecanismos de crecimiento.</p>
+                <h4 class="sub-heading">Integrando el Estrés Metabólico ("Pump"):</h4>
+                <ul>
+                    <li><strong>Ejercicios de Aislamiento:</strong> Después de los levantamientos compuestos pesados, es ideal incluir ejercicios de aislamiento como <strong>extensiones de cuádriceps o curls femorales</strong>.</li>
+                    <li><strong>Rango de Repeticiones Altas:</strong> En estos ejercicios, se debe apuntar a un rango de <strong>15 a 20 repeticiones</strong>, enfocándose en sentir una fuerte congestión muscular.</li>
+                    <li><strong>Beneficios del "Pump":</strong> Este tipo de entrenamiento aumenta el estrés metabólico, que es otro mecanismo conocido para la hipertrofia, y puede mejorar la conexión mente-músculo.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar5" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 5: La Paciencia y la Consistencia Ganan la Carrera</h3>
+                <p>Finalmente, el pilar más importante de nuestra filosofía. El crecimiento muscular, especialmente en un punto débil, es un proceso lento. No existen atajos mágicos.</p>
+                <h4 class="sub-heading">La Mentalidad Correcta:</h4>
+                <ul>
+                    <li><strong>El Progreso es Lento:</strong> El desarrollo físico es una acumulación de pequeñas ganancias a lo largo de meses y años. Es fundamental tener expectativas realistas.</li>
+                    <li><strong>Enfócate en el Proceso:</strong> La clave del éxito es disfrutar del proceso de entrenar duro y ser disciplinado. No hay que obsesionarse con los resultados a corto plazo.</li>
+                    <li><strong>Visión a Largo Plazo:</strong> Los resultados significativos son la consecuencia inevitable de la consistencia a largo plazo. La clave es seguir haciendo el trabajo, semana tras semana.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Plantilla de Rutina Askesis: Split de 2 Días</h3>
+                <p>Basado en nuestros principios, esta es una estructura de entrenamiento de piernas eficaz y sostenible, dividida en un día enfocado en cuádriceps y otro en isquiotibiales.</p>
+                
+                <h4 class="sub-heading">Día 1: Enfoque en Cuádriceps (Ej. Lunes)</h4>
+                <ul>
+                    <li><strong>Sentadilla (Variante a elección):</strong> 3 series de 5-8 repeticiones.</li>
+                    <li><strong>Sentadillas Búlgaras:</strong> 3 series de 10-15 repeticiones por pierna.</li>
+                    <li><strong>Extensiones de Cuádriceps:</strong> 3 series de 15-20 repeticiones (enfocado en el "pump").</li>
+                </ul>
+
+                <h4 class="sub-heading">Día 2: Enfoque en Isquiotibiales y Glúteos (Ej. Jueves)</h4>
+                <ul>
+                    <li><strong>Peso Muerto Rumano (RDL):</strong> 3 series de 8-12 repeticiones.</li>
+                    <li><strong>Prensa (con pies altos para enfocar glúteos/isquios):</strong> 3 series de 10-15 repeticiones.</li>
+                    <li><strong>Curl Femoral Sentado:</strong> 3 series de 15-20 repeticiones (enfocado en el "pump").</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio de Individualización:</strong> Esta es una plantilla. En Askesis, adaptamos la selección de ejercicios a las necesidades, capacidades y objetivos de cada atleta para garantizar un progreso seguro y consistente.
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

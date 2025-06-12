@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Fuerza Rotacional y Anti-Rotacional</title>
+    <meta name="description" content="La guía definitiva sobre la fuerza del core en el plano transversal. Aprende a entrenar la fuerza rotacional y anti-rotacional para una potencia y estabilidad superiores.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Fuerza Rotacional
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-sync-alt mr-3 text-askesis-green"></i>Fuerza Rotacional: El Motor del Atleta
+        </h1>
+        <p class="section-subtitle">
+           La habilidad para generar potencia en el plano transversal es lo que define a los atletas de élite. Aprende a construir un core que no solo estabiliza, sino que transfiere fuerza de forma explosiva.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Anatomía Funcional</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Fuerza Anti-Rotacional</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Fuerza Rotacional</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: El Eslabón Perdido del Entrenamiento</h3>
+                <p>El gimnasio tradicional nos enseña a movernos principalmente hacia adelante, hacia atrás, arriba y abajo (plano sagital). Sin embargo, la mayoría de los movimientos atléticos (lanzar, golpear, cambiar de dirección) ocurren en el <strong>plano transversal</strong>, el plano de la rotación.</p>
+                <h4 class="sub-heading">Freno Primero, Motor Después</h4>
+                <p>El principio más importante del entrenamiento rotacional es que <strong>la capacidad de resistir la rotación (anti-rotación) debe ser desarrollada antes que la capacidad de crearla</strong>. Un core que no puede frenar una fuerza de torsión es un core que se lesionará al intentar generar una fuerza de torsión.</p>
+                <ul>
+                    <li><strong>Anti-Rotación (Estabilidad):</strong> Es la base. Enseña al core a actuar como un bloque rígido, permitiendo que la potencia generada por las caderas se transfiera eficazmente a través del torso.</li>
+                    <li><strong>Rotación (Potencia):</strong> Es la expresión de la fuerza. Una vez que la base es estable, se pueden realizar movimientos explosivos para desarrollar la potencia rotacional.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "No puedes construir un motor de Fórmula 1 sobre el chasis de un coche de calle. La fuerza anti-rotacional es el chasis reforzado que permite al motor de la fuerza rotacional desatar toda su potencia sin desintegrarse."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Anatomía Funcional: La Espiral del Core</h3>
+                <p>La fuerza rotacional no proviene de un solo músculo, sino de una "eslinga" o "espiral" de músculos que envuelven el torso.</p>
+                <h4 class="sub-heading">Los Músculos Clave de la Rotación</h4>
+                <ul>
+                    <li><strong>Oblicuos (Internos y Externos):</strong> Son los reyes de la rotación. El oblicuo externo de un lado trabaja en sinergia con el oblicuo interno del lado opuesto para crear la torsión del tronco.</li>
+                    <li><strong>Serrato Anterior:</strong> Este músculo, a menudo llamado el "músculo del boxeador", es crucial. Conecta las costillas con la escápula y es vital para la protracción de la escápula durante un puñetazo o un lanzamiento, transfiriendo la fuerza del core al brazo.</li>
+                    <li><strong>Glúteos y Aductores:</strong> La rotación no empieza en el abdomen, empieza en las caderas. Los glúteos y aductores inician la rotación de la pelvis que luego se transfiere hacia arriba.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Fuerza Anti-Rotacional: Construyendo el Freno</h3>
+                <p>Estos ejercicios enseñan al core a mantenerse rígido y resistir fuerzas que intentan torcerlo. Son la base de la estabilidad.</p>
+                 <h4 class="sub-heading">El Rey: Press Pallof</h4>
+                <ul>
+                    <li><strong>Cómo se hace:</strong> De pie, de lado a una polea o con una banda de resistencia anclada. Sostén el agarre con ambas manos en el centro de tu pecho. Extiende los brazos rectos al frente, resistiendo la tentación de la polea de girar tu torso. Mantén la posición y regresa de forma controlada.</li>
+                    <li><strong>¿Por qué funciona?:</strong> Aísla perfectamente la función anti-rotacional de los oblicuos y el core en su conjunto.</li>
+                </ul>
+                <h4 class="sub-heading">Otras Variantes Efectivas</h4>
+                 <ul>
+                    <li><strong>Remo Renegado (Renegade Row):</strong> En posición de plancha sobre mancuernas, realiza un remo con un brazo. El core debe trabajar al máximo para evitar que la cadera y el torso roten.</li>
+                     <li><strong>Acarreos Unilaterales (Suitcase Carry):</strong> Aunque es un ejercicio anti-flexión lateral, también tiene un componente anti-rotacional significativo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Fuerza Rotacional: Desatando el Motor</h3>
+                <p>Una vez que la base anti-rotacional es sólida, podemos entrenar la potencia de forma segura y explosiva.</p>
+                <h4 class="sub-heading">Leñadores (Wood Chops)</h4>
+                 <ul>
+                    <li><strong>Cómo se hace:</strong> Usando una polea alta, agarra el mango con ambas manos y tira de él en diagonal a través de tu cuerpo hacia la rodilla opuesta, girando desde las caderas y el torso. Controla el regreso. También se puede hacer de abajo hacia arriba ("Reverse Wood Chops").</li>
+                    <li><strong>¿Por qué funciona?:</strong> Entrena el patrón de rotación a través de un rango de movimiento completo y de forma controlada.</li>
+                </ul>
+                 <h4 class="sub-heading">Lanzamientos de Balón Medicinal (Medicine Ball Throws)</h4>
+                <ul>
+                    <li><strong>Cómo se hace:</strong> De pie, de lado a una pared sólida, sostén un balón medicinal a la altura de la cadera. Gira explosivamente y lanza el balón contra la pared con la máxima fuerza posible.</li>
+                     <li><strong>¿Por qué funciona?:</strong> Es el ejercicio de potencia rotacional por excelencia. Al soltar el balón, no hay fase de desaceleración, lo que permite una producción de potencia máxima.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Programación Inteligente</h3>
+                <p>El trabajo rotacional debe integrarse de forma específica, a menudo como un complemento al entrenamiento de fuerza principal.</p>
+                
+                <h4 class="sub-heading">Integración en tu Rutina</h4>
+                <ul>
+                    <li><strong>Como Activación/Calentamiento:</strong> El trabajo <strong>anti-rotacional</strong> (Press Pallof) es excelente como parte del calentamiento, especialmente antes de sentadillas y pesos muertos, para "encender" el core. 2-3 series de 10-12 repeticiones por lado.</li>
+                    <li><strong>Como Trabajo de Potencia:</strong> El trabajo <strong>rotacional explosivo</strong> (lanzamientos) debe hacerse después del calentamiento, pero antes del trabajo de fuerza principal, cuando el sistema nervioso está fresco. 3-4 series de 5-6 lanzamientos por lado.</li>
+                    <li><strong>Como Accesorio/Acondicionamiento:</strong> El trabajo de rotación controlado (Leñadores) o los ejercicios anti-rotacionales pueden hacerse al final de la sesión como trabajo de accesorios o acondicionamiento.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio de Programación Askesis:</strong> "Dedica al menos el doble de tiempo a entrenar la anti-rotación que la rotación. Una base estable te protegerá de lesiones y te permitirá generar una potencia mucho mayor cuando decidas apretar el gatillo."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

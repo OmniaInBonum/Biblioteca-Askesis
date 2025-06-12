@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Análisis Profundo del Peso Muerto</title>
+    <meta name="description" content="Un informe exhaustivo sobre el peso muerto: biomecánica, análisis muscular detallado, beneficios fisiológicos y hormonales, variantes principales y técnica de ejecución.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Análisis del Peso Muerto
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-bars-staggered mr-3 text-askesis-green"></i>El Peso Muerto: El Test Definitivo de Fuerza
+        </h1>
+        <p class="section-subtitle">
+           Un informe exhaustivo sobre el peso muerto. Desglosamos su biomecánica, el impacto fisiológico y las variantes clave para construir una fuerza funcional y una cadena posterior dominante.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Análisis Muscular</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Beneficios Sistémicos</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Variantes Clave</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Técnica y Errores</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Análisis Muscular: La Cadena Posterior en Acción</h3>
+                <p>El peso muerto es el ejercicio por excelencia para el desarrollo de la <strong>cadena posterior</strong>, el conjunto de músculos en la parte trasera del cuerpo que son los verdaderos motores de la potencia atlética.</p>
+                <h4 class="sub-heading">Motores Principales (Prime Movers)</h4>
+                <ul>
+                    <li><strong>Glúteo Mayor:</strong> Es el principal extensor de la cadera. Es responsable de la poderosa "explosión" final para bloquear el levantamiento y llevar la cadera hacia la barra.</li>
+                    <li><strong>Isquiosurales:</strong> Trabajan en sinergia con los glúteos para extender la cadera. Están bajo una tensión inmensa durante toda la fase inicial del levantamiento.</li>
+                    <li><strong>Erectores Espinales:</strong> Este grupo de músculos a lo largo de la columna vertebral trabaja isométricamente de forma brutal para mantener la espalda recta y evitar la flexión lumbar, actuando como una viga de acero.</li>
+                </ul>
+                <h4 class="sub-heading">Músculos Sinergistas y Estabilizadores</h4>
+                <ul>
+                    <li><strong>Cuádriceps:</strong> Inician el movimiento "empujando el suelo", proveyendo la fuerza inicial para despegar la barra del piso a través de la extensión de la rodilla.</li>
+                     <li><strong>Dorsal Ancho (Lats):</strong> Juegan un rol crucial. Se contraen isométricamente para mantener la barra pegada al cuerpo, lo que mejora la palanca y protege la espalda baja. "Activar los dorsales" es un cue fundamental.</li>
+                     <li><strong>Trapecios y Romboides:</strong> Estabilizan la cintura escapular y soportan la carga, especialmente en la parte superior del levantamiento. Son los responsables del desarrollo de una "espalda densa".</li>
+                     <li><strong>Core y Antebrazos:</strong> El core trabaja al máximo para mantener la rigidez del torso, mientras que los antebrazos y el agarre son puestos a prueba como en ningún otro ejercicio.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Beneficios Sistémicos: Forjando un Cuerpo Resiliente</h3>
+                <p>Levantar un objeto pesado del suelo es uno de los patrones de movimiento más primitivos y funcionales. Sus beneficios van mucho más allá de la simple fuerza.</p>
+                <h4 class="sub-heading">Impacto Hormonal y Metabólico</h4>
+                <ul>
+                    <li><strong>Respuesta Anabólica Masiva:</strong> Al igual que la sentadilla, el peso muerto recluta una cantidad enorme de masa muscular, provocando una potente respuesta hormonal aguda. Se ha observado un aumento significativo en la <strong>testosterona y la hormona del crecimiento (GH)</strong> post-entrenamiento, creando un ambiente propicio para el crecimiento en todo el cuerpo.</li>
+                     <li><strong>Eficiencia Neuromuscular:</strong> Este ejercicio enseña al sistema nervioso central (SNC) a reclutar un número masivo de unidades motoras de forma sincronizada. Esta mejora en la eficiencia neural se traduce en una mayor capacidad para expresar fuerza en cualquier otra actividad.</li>
+                </ul>
+                <h4 class="sub-heading">Beneficios Funcionales y de Salud</h4>
+                <ul>
+                    <li><strong>Desarrollo de Fuerza Funcional:</strong> Es el ejercicio que más se transfiere a la vida real y a otros deportes: levantar objetos pesados, mejorar la postura, y aumentar la potencia de salto y carrera.</li>
+                     <li><strong>Densidad Ósea y Postura:</strong> La carga pesada estimula el fortalecimiento óseo de la cadera y la columna. Además, fortalecer toda la cadena posterior es el antídoto más eficaz contra la mala postura generada por un estilo de vida sedentario.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Variantes Clave: Adaptando el Estímulo</h3>
+                <p>Las dos variantes principales de competición, Convencional y Sumo, no son simplemente estilos diferentes, sino ejercicios con demandas biomecánicas y enfoques musculares distintos.</p>
+                <h4 class="sub-heading">Peso Muerto Convencional</h4>
+                <ul>
+                    <li><strong>Características:</strong> Pies a la anchura de las caderas, agarre por fuera de las piernas. Mayor recorrido de la barra.</li>
+                    <li><strong>Biomecánica:</strong> Requiere una mayor flexión de cadera y una espalda más paralela al suelo en la posición inicial. Esto impone una demanda significativamente mayor sobre los <strong>erectores espinales y los isquiosurales</strong>.</li>
+                    <li><strong>Ideal para:</strong> Atletas con brazos largos y buena movilidad de cadera. Excelente para construir una espalda baja y unos isquiotibiales de acero.</li>
+                </ul>
+                 <h4 class="sub-heading">Peso Muerto Sumo</h4>
+                <ul>
+                    <li><strong>Características:</strong> Pies muy anchos, agarre por dentro de las piernas. Menor recorrido de la barra.</li>
+                    <li><strong>Biomecánica:</strong> El torso se mantiene mucho más vertical en la posición inicial. La demanda se transfiere desde la espalda baja hacia los <strong>cuádriceps, glúteos y aductores</strong>.</li>
+                    <li><strong>Ideal para:</strong> Atletas con torsos más largos y/o menor movilidad de cadera en flexión profunda. Es más técnico y requiere una gran apertura de cadera.</li>
+                </ul>
+                 <h4 class="sub-heading">Peso Muerto Rumano (RDL)</h4>
+                <ul>
+                     <li><strong>Características:</strong> No es un levantamiento desde el suelo. Se inicia desde arriba, bajando la barra con las rodillas casi rectas (sólo una ligera flexión).</li>
+                     <li><strong>Biomecánica:</strong> Es un movimiento puro de bisagra de cadera. Aísla casi por completo los <strong>isquiosurales y los glúteos</strong>, eliminando gran parte de la ayuda de los cuádriceps.</li>
+                     <li><strong>Ideal para:</strong> Hipertrofia de la cadena posterior y como ejercicio de asistencia para fortalecer el peso muerto convencional.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Técnica Perfecta y Errores Comunes</h3>
+                <p>El peso muerto es seguro y eficaz cuando se ejecuta con una técnica impecable. No hay margen para el error.</p>
+                <h4 class="sub-heading">Checklist de Ejecución (Convencional)</h4>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li><strong>Posición Inicial:</strong> Pies bajo las caderas, la barra sobre la mitad de tus pies. Agarra la barra sin moverla. Tus espinillas deben tocar la barra.</li>
+                    <li><strong>Tensión (Slack Pull):</strong> Antes de despegar, "tira de la barra" hasta que notes tensión. Escucharás un *click* a medida que la barra contacta con los discos. Activa los dorsales imaginando que intentas "doblar la barra" sobre tus espinillas.</li>
+                    <li><strong>Inicio del Empuje:</strong> Inicia el movimiento empujando el planeta lejos de ti con tus piernas. El pecho y la cadera deben subir al mismo tiempo. La espalda debe mantenerse completamente neutra.</li>
+                    <li><strong>Transición de la Rodilla:</strong> Una vez que la barra pasa las rodillas, la fase de empuje de piernas termina y comienza la extensión potente de la cadera.</li>
+                     <li><strong>Bloqueo (Lockout):</strong> Termina el movimiento extendiendo completamente las caderas, apretando los glúteos. No hiperextiendas la espalda baja.</li>
+                </ol>
+                <h4 class="sub-heading">Errores a Evitar</h4>
+                <ul>
+                    <li><strong>Espalda Redondeada:</strong> El error más peligroso. Indica que la carga es demasiado pesada o que no se está creando suficiente tensión antes de despegar.</li>
+                    <li><strong>La Cadera se Dispara:</strong> La cadera sube antes que el pecho. Convierte el levantamiento en un RDL con demasiado peso. Indica debilidad en los cuádriceps o una posición inicial incorrecta.</li>
+                    <li><strong>Barra Alejada del Cuerpo:</strong> Aumenta drásticamente el brazo de palanca y la tensión sobre la espalda baja. La barra debe rozar tus espinillas y muslos en todo momento.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

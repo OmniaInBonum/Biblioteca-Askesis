@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Forma Más Inteligente de Ganar Fuerza | Método Jeff Nippard</title>
+    <meta name="description" content="Análisis y guía práctica del método de entrenamiento de fuerza basado en velocidad y fatiga, popularizado por Jeff Nippard.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        h2.main-section-h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-blue); 
+            font-size: 2rem; 
+            font-weight: 700;
+            margin-bottom: 1rem; 
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active-tab { display: block; animation: fadeIn 0.5s ease-in-out; }
+
+        .day-navigation-sidebar {
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--askesis-orange) var(--askesis-dark);
+        }
+        .day-navigation-sidebar::-webkit-scrollbar { width: 8px; }
+        .day-navigation-sidebar::-webkit-scrollbar-track { background: var(--askesis-dark); }
+        .day-navigation-sidebar::-webkit-scrollbar-thumb { background-color: var(--askesis-orange); border-radius: 10px; border: 2px solid var(--askesis-dark); }
+        
+        .day-tab-button {
+            margin-bottom: 0.5rem;
+            transition: all 0.2s ease;
+        }
+        .day-tab-button.active-day-tab {
+            box-shadow: 0 2px 8px rgba(245, 130, 32, 0.3);
+            background-color: var(--askesis-orange) !important;
+            color: var(--askesis-text-white) !important;
+            border-color: var(--askesis-orange) !important;
+        }
+        
+        .day-content-item { display: none; }
+        .day-content-item.active-day-content { display: block; animation: fadeIn 0.5s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+            text-align: center;
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        .session-card .highlight { color: var(--askesis-blue); font-weight: bold; }
+
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+
+        .scroll-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1001;
+            cursor: pointer;
+            transition: opacity 0.4s, transform 0.4s, visibility 0.4s;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .scroll-to-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top-btn:hover {
+            background-color: #E07017;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Fuerza Inteligente: Método Nippard
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-brain mr-3 text-askesis-green"></i>La Forma Más Inteligente de Ganar Fuerza
+        </h1>
+        <p class="section-subtitle">
+           Un análisis del método de entrenamiento basado en la gestión de la fatiga a través de la velocidad de la repetición, explicado por Jeff Nippard. Aprende a autorregular tu entrenamiento para obtener mejores ganancias de fuerza con menos fatiga.
+        </p>
+
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="section1-content" role="tab" aria-selected="true">I. El Problema</button>
+            <button class="tab-button" data-tab="section2-content" role="tab">II. La Solución</button>
+            <button class="tab-button" data-tab="section3-content" role="tab">III. Aplicación Práctica</button>
+            <button class="tab-button" data-tab="section4-content" role="tab">IV. La Ciencia</button>
+        </div>
+        
+        <!-- SECCIÓN 1: EL PROBLEMA CON EL ENTRENAMIENTO TRADICIONAL -->
+        <div id="section1-content" class="tab-content" role="tabpanel">
+            <h2 class="main-section-h2"><i class="fas fa-exclamation-triangle mr-3"></i>Capítulo I: El Problema con los Métodos Tradicionales</h2>
+            <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <nav class="md:w-1/3 w-full day-navigation-sidebar bg-askesis-dark p-4 rounded-lg border border-askesis-border self-start md:sticky md:top-24"></nav>
+                <div class="md:w-2/3 w-full day-main-content-area">
+                    
+                    <div class="session-card day-content-item" id="fs-s1d1">
+                        <h3>1.1 La Rigidez de los Porcentajes</h3>
+                        <p>Los programas de fuerza clásicos se basan en porcentajes de tu 1RM (una repetición máxima). Por ejemplo, "haz 5 repeticiones con el 80% de tu 1RM".</p>
+                        <h4 class="sub-heading">¿Cuál es el inconveniente?</h4>
+                        <p>Tu 1RM no es estático. Varía día a día dependiendo de tu sueño, nutrición, estrés y recuperación general. Un día, el 80% puede sentirse ligero, pero otro día, tras una mala noche, puede sentirse como tu máximo.</p>
+                        <ul>
+                            <li><strong>Acumulación de Fatiga Innecesaria:</strong> En los días "malos", forzarte a cumplir con el porcentaje prescrito genera una fatiga desproporcionada que perjudica la recuperación y las sesiones futuras.</li>
+                            <li><strong>Oportunidades Perdidas:</strong> En los días "buenos", el porcentaje puede ser demasiado bajo, y no estás aprovechando tu potencial para levantar más y generar un estímulo mayor.</li>
+                        </ul>
+                    </div>
+
+                    <div class="session-card day-content-item" id="fs-s1d2">
+                        <h3>1.2 El Dilema de "Entrenar al Fallo"</h3>
+                        <p>Una creencia común es que para maximizar la fuerza, las series deben llevarse cerca o hasta el fallo muscular. Sin embargo, la ciencia reciente muestra una imagen diferente.</p>
+                        <h4 class="sub-heading">La Fatiga de las Últimas Repeticiones</h4>
+                        <p>Las últimas 1-2 repeticiones antes del fallo son las que generan la mayor cantidad de fatiga neuromuscular. Esta fatiga tiene un alto "costo" pero ofrece un beneficio de estímulo de fuerza muy bajo en comparación con las repeticiones anteriores.</p>
+                        <ul>
+                            <li><strong>Calidad sobre Cantidad:</strong> Las primeras repeticiones de una serie pesada, cuando estás fresco, son rápidas y explosivas. Estas son las repeticiones de "alta calidad" que realmente construyen la fuerza.</li>
+                            <li><strong>Reducción del Rendimiento:</strong> La fatiga excesiva en una serie perjudica el rendimiento en las series posteriores, reduciendo el volumen total de trabajo de alta calidad que puedes realizar.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: LA SOLUCIÓN: CORTES POR PÉRDIDA DE VELOCIDAD -->
+        <div id="section2-content" class="tab-content" role="tabpanel">
+             <h2 class="main-section-h2"><i class="fas fa-lightbulb mr-3"></i>Capítulo II: La Solución: Entrenar con "Cortes de Velocidad"</h2>
+             <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <nav class="md:w-1/3 w-full day-navigation-sidebar bg-askesis-dark p-4 rounded-lg border border-askesis-border self-start md:sticky md:top-24"></nav>
+                <div class="md:w-2/3 w-full day-main-content-area">
+
+                    <div class="session-card day-content-item" id="fs-s2d1">
+                        <h3>2.1 El Concepto Clave: Pérdida de Velocidad</h3>
+                        <p>En lugar de fijar un número de repeticiones, este método fija un <strong>"corte por pérdida de velocidad"</strong>. Esto significa que terminas la serie cuando la velocidad de tu repetición cae por debajo de un cierto umbral en comparación con tu primera repetición (la más rápida).</p>
+                        <h4 class="sub-heading">¿Cómo funciona?</h4>
+                        <p>La velocidad a la que levantas una carga es un indicador directo de cuánta fatiga has acumulado. Cuando te fatigas, inevitablemente levantas más lento.</p>
+                        <ul>
+                           <li><strong>Tu Primera Repetición:</strong> En una serie pesada, tu primera repetición siempre será la más rápida y potente. Esta establece la "velocidad de referencia".</li>
+                           <li><strong>Monitorizar la Ralentización:</strong> A medida que haces más repeticiones, la barra se moverá más lentamente.</li>
+                           <li><strong>El "Corte":</strong> La serie termina cuando la velocidad de una repetición es, por ejemplo, un 20% más lenta que tu primera repetición. No importa si hiciste 4, 5 o 6 repeticiones.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="session-card day-content-item" id="fs-s2d2">
+                        <h3>2.2 Los Beneficios de este Enfoque</h3>
+                        <p>Este método de autorregulación ofrece ventajas significativas sobre los programas rígidos.</p>
+                        <div class="info-box">
+                            <strong>Estudio Clave:</strong> Un estudio de Pareja-Blanco et al. (2017) comparó dos grupos. Uno terminaba las series con una pérdida de velocidad del 20% y el otro con un 40%. Ambos grupos ganaron la misma cantidad de músculo, pero <strong>el grupo del 20% ganó significativamente más fuerza</strong>, con casi la mitad de volumen de entrenamiento.
+                        </div>
+                        <ul>
+                            <li><strong>Maximiza las Repeticiones de Calidad:</strong> Te aseguras de que cada repetición que haces sea rápida y potente, el tipo exacto de repetición que construye la fuerza.</li>
+                            <li><strong>Minimiza la Fatiga Basura:</strong> Evitas las últimas repeticiones lentas y fatigosas que ofrecen poco estímulo para la fuerza pero que disparan la fatiga.</li>
+                            <li><strong>Autorregulación Automática:</strong> El método se ajusta naturalmente a tu estado diario. En un buen día, harás más repeticiones antes de alcanzar el corte. En un mal día, harás menos. El estímulo siempre es el óptimo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECCIÓN 3: APLICACIÓN PRÁCTICA -->
+        <div id="section3-content" class="tab-content" role="tabpanel">
+            <h2 class="main-section-h2"><i class="fas fa-cogs mr-3"></i>Capítulo III: Aplicación Práctica (Sin Tecnología)</h2>
+             <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <nav class="md:w-1/3 w-full day-navigation-sidebar bg-askesis-dark p-4 rounded-lg border border-askesis-border self-start md:sticky md:top-24"></nav>
+                <div class="md:w-2/3 w-full day-main-content-area">
+
+                    <div class="session-card day-content-item" id="fs-s3d1">
+                        <h3>3.1 Usando el RPE / RIR como Proxy</h3>
+                        <p>No necesitas un dispositivo de $300 para medir la velocidad de la barra. Puedes usar una herramienta que ya tienes: tu propia percepción del esfuerzo.</p>
+                        <ul>
+                           <li><strong>RPE (Rating of Perceived Exertion):</strong> Una escala del 1 al 10 sobre cuán difícil se sintió una serie. Un RPE 10 es el fallo absoluto.</li>
+                           <li><strong>RIR (Reps in Reserve):</strong> Cuántas repeticiones más crees que podrías haber hecho. RIR 2 significa que podrías haber hecho 2 repeticiones más antes de fallar. (RPE 8 = RIR 2).</li>
+                        </ul>
+                        <h4 class="sub-heading">La Equivalencia</h4>
+                        <p>La ciencia ha demostrado una fuerte correlación entre la pérdida de velocidad y el RIR:</p>
+                        <ul>
+                           <li>Una pérdida de velocidad del <strong>0-10%</strong> equivale a detener la serie con <strong>RIR 3-4</strong> (te quedaban 3-4 repeticiones).</li>
+                           <li>Una pérdida de velocidad del <strong>20-25%</strong> equivale a detener la serie con <strong>RIR 2-3</strong> (te quedaban 2-3 repeticiones).</li>
+                           <li>Una pérdida de velocidad del <strong>40-50%</strong> equivale a detener la serie con <strong>RIR 0-1</strong> (cerca del fallo).</li>
+                        </ul>
+                    </div>
+
+                    <div class="session-card day-content-item" id="fs-s3d2">
+                        <h3>3.2 Estructurando la Sesión</h3>
+                        <p>Así es como puedes aplicar este método en tu próxima sesión de sentadillas, press de banca o peso muerto.</p>
+                        <h4 class="sub-heading">Regla General para la Fuerza</h4>
+                         <p>Para la mayoría de los levantamientos de fuerza, el objetivo es <strong>detener cada serie cuando sientas que te quedan 2-3 repeticiones en el tanque (RIR 2-3)</strong>. Esto corresponde al punto óptimo (~20-25% de pérdida de velocidad).</p>
+                        <ol class="list-decimal pl-5 mt-4 space-y-2">
+                            <li><strong>Elige tu peso:</strong> Carga la barra con un peso que normalmente usarías para 5-8 repeticiones.</li>
+                            <li><strong>Enfócate en la primera repetición:</strong> Haz tu primera repetición lo más explosiva y rápida posible. Siente esa velocidad.</li>
+                            <li><strong>Continúa la serie:</strong> Haz las siguientes repeticiones intentando mantener esa misma velocidad.</li>
+                            <li><strong>Detén la serie:</strong> En el momento en que notes una <strong>ralentización significativa e involuntaria</strong> en la velocidad de la barra, y sientas que solo podrías hacer 2 o 3 repeticiones más, termina la serie.</li>
+                            <li><strong>Olvida el número de repeticiones:</strong> No importa si hiciste 4, 5 o 7 repeticiones. El número es el resultado, no el objetivo. El objetivo era mantener la calidad.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4: LA CIENCIA DETRÁS DEL MÉTODO -->
+        <div id="section4-content" class="tab-content" role="tabpanel">
+            <h2 class="main-section-h2"><i class="fas fa-flask mr-3"></i>Capítulo IV: ¿Por Qué Funciona Tan Bien?</h2>
+             <div class="flex flex-col md:flex-row gap-6 mt-6">
+                <nav class="md:w/1-3 w-full day-navigation-sidebar bg-askesis-dark p-4 rounded-lg border border-askesis-border self-start md:sticky md:top-24"></nav>
+                <div class="md:w-2/3 w-full day-main-content-area">
+
+                    <div class="session-card day-content-item" id="fs-s4d1">
+                        <h3>4.1 El Estímulo para la Fuerza</h3>
+                        <p>La fuerza es una habilidad neural. Se mejora al enseñarle al sistema nervioso a reclutar fibras musculares de la manera más rápida y eficiente posible.</p>
+                        <ul>
+                           <li><strong>Máximo Reclutamiento + Alta Velocidad:</strong> El estímulo óptimo para la fuerza ocurre cuando se combinan una alta carga (que requiere un alto reclutamiento de fibras) con una alta velocidad de contracción.</li>
+                           <li><strong>El Problema de la Fatiga:</strong> La fatiga reduce drásticamente la velocidad de contracción. Las repeticiones lentas al final de una serie, aunque el esfuerzo es máximo, no son un buen estímulo para la fuerza porque la velocidad es muy baja.</li>
+                           <li><strong>La Solución:</strong> Al detener la serie antes de que la velocidad caiga demasiado, te aseguras de que cada repetición que haces cumpla con los criterios de "alto reclutamiento + alta velocidad".</li>
+                        </ul>
+                    </div>
+
+                    <div class="session-card day-content-item" id="fs-s4d2">
+                        <h3>4.2 Gestión de la Fatiga y Recuperación</h3>
+                        <p>Entrenar de manera más inteligente no significa entrenar menos duro, sino evitar la fatiga que no contribuye a tus objetivos.</p>
+                         <ul>
+                           <li><strong>Menos Fatiga por Sesión:</strong> Al evitar las repeticiones "basura" al final de las series, terminas cada sesión sintiéndote más fresco.</li>
+                           <li><strong>Mejor Recuperación:</strong> Una menor fatiga permite una recuperación más rápida entre sesiones. Esto significa que puedes entrenar un movimiento con más frecuencia o recuperarte mejor para tu próxima sesión pesada.</li>
+                           <li><strong>Mayor Volumen de Calidad a Largo Plazo:</strong> Al gestionar mejor la fatiga, puedes acumular más volumen de entrenamiento de alta calidad a lo largo de una semana o un mes, lo que conduce a mejores ganancias a largo plazo.</li>
+                           <li><strong>Menor Riesgo de Lesión:</strong> La mayoría de las lesiones por técnica ocurren bajo alta fatiga, cuando la forma se rompe. Al detener las series antes, mantienes una técnica más sólida y segura.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <a href="#" class="scroll-to-top-btn" id="scrollTopBtn" title="Volver al inicio">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+            // Lógica del botón para volver arriba
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+
+            scrollTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+
+            // Lógica de navegación por pestañas
+            mainTabContents.forEach((mainContent) => {
+                const dayNavSidebar = mainContent.querySelector('.day-navigation-sidebar');
+                const dayMainContentArea = mainContent.querySelector('.day-main-content-area');
+                if (!dayNavSidebar || !dayMainContentArea) return;
+
+                const originalSessionCards = Array.from(dayMainContentArea.querySelectorAll('.day-content-item'));
+                dayNavSidebar.innerHTML = '';
+                
+                originalSessionCards.forEach((card) => {
+                    const dayId = card.id;
+                    const dayTitleElement = card.querySelector('h3');
+                    if (!dayTitleElement) return;
+
+                    const dayButton = document.createElement('button');
+                    dayButton.className = 'day-tab-button block w-full text-left p-3 rounded-md font-semibold transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-askesis-orange bg-askesis-dark text-askesis-light-gray border border-askesis-border';
+                    dayButton.setAttribute('data-day-target', dayId);
+                    dayButton.textContent = dayTitleElement.textContent;
+                    
+                    dayButton.addEventListener('click', () => {
+                        dayNavSidebar.querySelectorAll('.day-tab-button').forEach(btn => btn.classList.remove('active-day-tab'));
+                        dayMainContentArea.querySelectorAll('.day-content-item').forEach(item => item.classList.remove('active-day-content'));
+
+                        dayButton.classList.add('active-day-tab');
+                        const targetDayContent = dayMainContentArea.querySelector(`#${dayId}`);
+                        if (targetDayContent) {
+                            targetDayContent.classList.add('active-day-content');
+                        }
+                    });
+                    dayNavSidebar.appendChild(dayButton);
+                });
+            });
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    button.classList.add('active');
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                        
+                        const headerOffset = 80;
+                        const elementPosition = activeMainContent.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                             top: offsetPosition,
+                             behavior: "smooth"
+                        });
+
+                        const firstDayButton = activeMainContent.querySelector('.day-navigation-sidebar .day-tab-button');
+                        if (firstDayButton) {
+                            firstDayButton.click();
+                        }
+                    }
+                });
+            });
+            
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+
+</body>
+</html>

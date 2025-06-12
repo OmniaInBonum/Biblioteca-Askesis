@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Antebrazos y Fuerza de Agarre</title>
+    <meta name="description" content="La guía definitiva para desarrollar antebrazos masivos y una fuerza de agarre inquebrantable. Análisis de la anatomía, tipos de fuerza y los ejercicios más efectivos.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Antebrazos y Agarre
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-hand-rock mr-3 text-askesis-green"></i>Antebrazo y Agarre: El Eslabón Final
+        </h1>
+        <p class="section-subtitle">
+           Un agarre débil puede detener tu progreso en los levantamientos más importantes. Esta guía te enseñará la anatomía, los tipos de fuerza y los ejercicios clave para desarrollar antebrazos imponentes y una fuerza de agarre inquebrantable.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Anatomía Funcional</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Tipos de Fuerza de Agarre</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Hipertrofia de Antebrazo</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Fuerza de Agarre Funcional</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Anatomía Funcional: Los Músculos de la Mano y el Antebrazo</h3>
+                <p>El antebrazo es un complejo conjunto de músculos pequeños y grandes que controlan la muñeca y los dedos. Para un desarrollo completo, debemos entender sus funciones principales.</p>
+                <h4 class="sub-heading">Compartimento Anterior (Flexores)</h4>
+                <ul>
+                    <li><strong>Músculos Principales:</strong> Flexor radial del carpo, flexor cubital del carpo, palmar largo, y los flexores de los dedos.</li>
+                    <li><strong>Función Primaria:</strong> <strong>Flexión de la muñeca</strong> (doblarla hacia adelante) y <strong>flexión de los dedos</strong> (cerrar el puño). Son los principales responsables de la fuerza de agarre y del volumen en la parte interna del antebrazo.</li>
+                </ul>
+                <h4 class="sub-heading">Compartimento Posterior (Extensores)</h4>
+                <ul>
+                    <li><strong>Músculos Principales:</strong> Extensor radial largo y corto del carpo, extensor cubital del carpo, y los extensores de los dedos.</li>
+                     <li><strong>Función Primaria:</strong> <strong>Extensión de la muñeca</strong> (doblarla hacia atrás) y apertura de los dedos. Son cruciales para la salud de la muñeca y para prevenir desequilibrios musculares.</li>
+                </ul>
+                <h4 class="sub-heading">Compartimento Lateral</h4>
+                <ul>
+                     <li><strong>Músculo Principal:</strong> <strong>Braquiorradial</strong>. Es un músculo grande y potente que cruza la articulación del codo.</li>
+                     <li><strong>Función Primaria:</strong> Es un fuerte <strong>flexor del codo</strong>, especialmente con un agarre neutro (martillo) o prono (inverso). Contribuye significativamente al tamaño y la apariencia del antebrazo cerca del codo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Los 3 Tipos de Fuerza de Agarre</h3>
+                <p>La "fuerza de agarre" no es un concepto único. En Askesis, la dividimos en tres categorías funcionales, cada una de las cuales debe ser entrenada.</p>
+                <h4 class="sub-heading">1. Fuerza de Aplastamiento (Crushing Grip)</h4>
+                <ul>
+                    <li><strong>Definición:</strong> La capacidad de cerrar la mano con fuerza y apretar un objeto. Es la fuerza entre tus dedos y tu palma.</li>
+                    <li><strong>Aplicación:</strong> Apretando la barra durante un press de banca, cerrando un gripper de mano.</li>
+                </ul>
+                <h4 class="sub-heading">2. Fuerza de Soporte (Supporting Grip)</h4>
+                <ul>
+                    <li><strong>Definición:</strong> La habilidad de sostener un objeto o tu propio peso corporal durante un tiempo prolongado. Es una prueba de resistencia muscular.</li>
+                    <li><strong>Aplicación:</strong> Sostener la barra en la última repetición de un peso muerto, colgarse de una barra de dominadas, realizar un paseo del granjero.</li>
+                </ul>
+                <h4 class="sub-heading">3. Fuerza de Pinza (Pinch Grip)</h4>
+                <ul>
+                     <li><strong>Definición:</strong> La fuerza ejercida entre el pulgar y los otros dedos.</li>
+                     <li><strong>Aplicación:</strong> Sostener dos discos de pesas juntos con una sola mano. Es la forma de agarre más específica y a menudo la más débil.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Ejercicios para Hipertrofia del Antebrazo</h3>
+                <p>Para construir antebrazos más grandes, debemos aislar los grupos musculares con ejercicios específicos de flexión y extensión de muñeca, así como la flexión del codo con agarres específicos.</p>
+                <h4 class="sub-heading">Para los Flexores (Volumen Interno)</h4>
+                <ul>
+                    <li><strong>Curl de Muñeca con Barra/Mancuerna (Palmas Arriba):</strong> Sentado en un banco, apoya los antebrazos en tus muslos y realiza una flexión completa de la muñeca. Enfócate en un rango de movimiento completo, desde el estiramiento hasta la contracción.</li>
+                </ul>
+                <h4 class="sub-heading">Para los Extensores (Balance y Salud)</h4>
+                <ul>
+                    <li><strong>Curl de Muñeca Inverso (Palmas Abajo):</strong> Misma posición que el anterior, pero con las palmas hacia abajo. Necesitarás usar un peso significativamente menor. Es vital para la salud del codo y la prevención de la epicondilitis ("codo de tenista").</li>
+                </ul>
+                 <h4 class="sub-heading">Para el Braquiorradial (Amplitud Superior)</h4>
+                <ul>
+                     <li><strong>Curl Martillo y Curl Inverso:</strong> Como vimos en la guía del bíceps, estos ejercicios son los reyes para desarrollar el braquiorradial y dar una apariencia de mayor grosor al brazo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Ejercicios para Fuerza de Agarre Funcional</h3>
+                <p>La fuerza de agarre se construye mejor con movimientos pesados, integrados y de alta tensión.</p>
+                 <h4 class="sub-heading">Para la Fuerza de Soporte</h4>
+                <ul>
+                    <li><strong>Paseo del Granjero (Farmer's Walk):</strong> El ejercicio definitivo. Agarra las mancuernas o barras más pesadas que puedas y camina una distancia determinada. Desafía el agarre, el core, los trapecios y la estabilidad general.</li>
+                    <li><strong>Aguantes Colgado (Dead Hangs):</strong> Simplemente colgarse de una barra de dominadas por tiempo máximo. Es increíblemente efectivo y también descomprime la columna.</li>
+                    <li><strong>Peso Muerto sin Straps:</strong> Realizar tus series de peso muerto (especialmente las de calentamiento y las más ligeras) sin correas es el entrenamiento de agarre más específico que existe para este levantamiento.</li>
+                </ul>
+                <h4 class="sub-heading">Para la Fuerza de Aplastamiento y Pinza</h4>
+                 <ul>
+                     <li><strong>Uso de Agarres Gruesos (Fat Gripz):</strong> Añadir estos adaptadores a barras y mancuernas hace que sea mucho más difícil cerrar la mano, forzando un trabajo brutal del agarre en cualquier ejercicio.</li>
+                     <li><strong>Aguante de Discos (Plate Pinch):</strong> Sostén dos discos lisos juntos (lisos contra lisos) con una sola mano por tiempo. Es el mejor ejercicio para la fuerza de pinza.</li>
+                 </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Plantilla de Programación</h3>
+                <p>El entrenamiento de antebrazo y agarre debe ser inteligente y no interferir con la recuperación de tus sesiones principales.</p>
+                
+                <h4 class="sub-heading">Integración en tu Rutina</h4>
+                <ul>
+                    <li><strong>Trabajo de Hipertrofia (Aislamiento):</strong> Añade <strong>2-3 series de curl de muñeca</strong> y <strong>2-3 series de curl de muñeca inverso</strong> al final de tus días de brazo o de tracción (Pull Day), 1-2 veces por semana.</li>
+                    <li><strong>Trabajo de Fuerza de Soporte:</strong> Incorpora el <strong>Paseo del Granjero</strong> como un "finisher" al final de tu día de pierna o de peso muerto. Realiza 3-4 series de 20-30 metros. Los <strong>Dead Hangs</strong> se pueden hacer al final de cualquier sesión.</li>
+                    <li><strong>Práctica Pasiva:</strong> Simplemente <strong>apretando la barra con máxima intención</strong> en todos tus ejercicios (remos, presses, etc.) estarás entrenando tu fuerza de aplastamiento de forma constante.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio de Recuperación Askesis:</strong> "Ten cuidado con el volumen. Los músculos del antebrazo son pequeños y se usan en casi todos los ejercicios. Un exceso de trabajo directo puede afectar negativamente tu capacidad para sostener la barra en los levantamientos importantes. Menos es a menudo más."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

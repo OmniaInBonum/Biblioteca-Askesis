@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Entrenamiento por Zonas de Frecuencia Cardíaca</title>
+    <meta name="description" content="La guía definitiva para entrenar por zonas de frecuencia cardíaca. Aprende qué son, cómo calcularlas y cómo programarlas para objetivos específicos como VO2 máx y umbral de lactato.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Zonas de Frecuencia Cardíaca
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-tachometer-alt-fast mr-3 text-askesis-green"></i>Zonas de Frecuencia Cardíaca: El GPS de tu Fisiología
+        </h1>
+        <p class="section-subtitle">
+           Deja de adivinar si estás entrenando demasiado duro o demasiado suave. Aprende a usar las zonas de frecuencia cardíaca para entrenar con precisión, optimizar cada sesión y dirigir adaptaciones fisiológicas específicas.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios y Cálculo</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Zona 1: Recuperación Activa</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Zona 2: Base Aeróbica</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Zona 3: Tempo / Umbral</button>
+            <button class="tab-button" data-tab="pilar5" role="tab">Zonas 4 y 5: Máximo Rendimiento</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: ¿Qué son las Zonas y Cómo se Calculan?</h3>
+                <p>Las zonas de frecuencia cardíaca (FC) son rangos de intensidad, expresados como un porcentaje de tu Frecuencia Cardíaca Máxima (FCmáx). Cada zona desencadena adaptaciones fisiológicas distintas en el cuerpo.</p>
+                <h4 class="sub-heading">Paso 1: Estimar tu Frecuencia Cardíaca Máxima (FCmáx)</h4>
+                <ul>
+                    <li><strong>Fórmula Simple (y menos precisa):</strong> <strong>220 - tu edad</strong>. Es un punto de partida, pero puede tener un margen de error significativo.</li>
+                    <li><strong>Test de Campo (más preciso):</strong> Después de un buen calentamiento, realiza un esfuerzo máximo durante 3-4 minutos (ej: correr en una colina). Tu FC más alta durante ese esfuerzo será una buena aproximación de tu FCmáx real.</li>
+                </ul>
+                <h4 class="sub-heading">Paso 2: Calcular tus Zonas</h4>
+                <p>Una vez que tienes tu FCmáx, puedes calcular los rangos para cada zona. El modelo más común es el de 5 zonas:</p>
+                 <ul>
+                    <li><strong>Zona 1:</strong> 50-60% de tu FCmáx</li>
+                    <li><strong>Zona 2:</strong> 60-70% de tu FCmáx</li>
+                    <li><strong>Zona 3:</strong> 70-80% de tu FCmáx</li>
+                    <li><strong>Zona 4:</strong> 80-90% de tu FCmáx</li>
+                    <li><strong>Zona 5:</strong> 90-100% de tu FCmáx</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Ejemplo:</strong> Atleta de 30 años. FCmáx estimada = 220 - 30 = 190 ppm (pulsaciones por minuto). Su Zona 2 estaría entre 114 ppm (190 * 0.6) y 133 ppm (190 * 0.7).
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Zona 1 (50-60%): Recuperación Activa</h3>
+                <p>Esta es la zona de menor intensidad. Es el ritmo de una caminata ligera.</p>
+                <h4 class="sub-heading">Sensación y Características</h4>
+                <ul>
+                    <li><strong>Percepción del Esfuerzo:</strong> Muy ligero, puedes mantener una conversación sin ninguna dificultad.</li>
+                    <li><strong>Fuente de Energía Principal:</strong> Grasa.</li>
+                </ul>
+                <h4 class="sub-heading">Adaptaciones y Usos</h4>
+                 <ul>
+                    <li><strong>Uso Principal:</strong> Calentamientos, vueltas a la calma y, lo más importante, <strong>recuperación activa</strong> en los días de descanso.</li>
+                    <li><strong>Beneficios:</strong> Aumenta el flujo sanguíneo a los músculos sin generar fatiga adicional, ayudando a eliminar desechos metabólicos y acelerar la reparación de tejidos.</li>
+                </ul>
+                <h4 class="sub-heading">Ejemplos Prácticos</h4>
+                 <ul>
+                    <li>Caminata al aire libre o en cinta.</li>
+                    <li>Bicicleta estática con resistencia mínima.</li>
+                    <li>Elíptica a un ritmo muy suave.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Zona 2 (60-70%): La Base de la Resistencia</h3>
+                <p>Esta es la zona más importante para construir una base aeróbica sólida. Es el ritmo de un trote muy suave y conversacional.</p>
+                 <h4 class="sub-heading">Sensación y Características</h4>
+                 <ul>
+                    <li><strong>Percepción del Esfuerzo:</strong> Cómodo, podrías mantener este ritmo durante horas. Puedes hablar en frases completas.</li>
+                    <li><strong>Fuente de Energía Principal:</strong> Predominantemente grasa.</li>
+                </ul>
+                <h4 class="sub-heading">Adaptaciones y Usos</h4>
+                <ul>
+                    <li><strong>Uso Principal:</strong> Construir la base de resistencia cardiovascular.</li>
+                    <li><strong>Beneficios:</strong>
+                        <ul>
+                           <li>Aumenta la <strong>densidad mitocondrial</strong>: Construye más y mejores "centrales energéticas" en tus células musculares.</li>
+                           <li>Mejora la capacidad del cuerpo para utilizar la grasa como combustible, ahorrando el glucógeno muscular para esfuerzos más intensos.</li>
+                           <li>Fortalece el corazón, permitiéndole bombear más sangre con cada latido.</li>
+                        </ul>
+                    </li>
+                </ul>
+                 <h4 class="sub-heading">Ejemplos Prácticos</h4>
+                <ul>
+                    <li>Trote continuo y ligero donde puedas mantener una conversación.</li>
+                    <li>Sesiones largas (45-90 min) de remo a un ritmo constante y controlado.</li>
+                    <li>Ciclismo en terreno plano a un ritmo sostenido.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "La Zona 2 es el trabajo de base. Pasar el 80% de tu tiempo de cardio aquí construirá un motor aeróbico tan eficiente que hará que todos los demás esfuerzos se sientan más fáciles."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Zona 3 (70-80%): Tempo o "Dulcemente Desagradable"</h3>
+                <p>Esta es la zona de esfuerzo moderado. Es el ritmo de una carrera en la que te sientes rápido, pero controlado.</p>
+                <h4 class="sub-heading">Sensación y Características</h4>
+                <ul>
+                    <li><strong>Percepción del Esfuerzo:</strong> "Comfortably hard". La respiración es más profunda y puedes hablar, pero solo en frases cortas.</li>
+                    <li><strong>Fuente de Energía:</strong> Una mezcla equilibrada de carbohidratos (glucógeno) y grasa.</li>
+                </ul>
+                <h4 class="sub-heading">Adaptaciones y Usos</h4>
+                <ul>
+                    <li><strong>Uso Principal:</strong> Mejorar la capacidad de sostener un ritmo rápido durante un tiempo prolongado.</li>
+                    <li><strong>Beneficios:</strong> Comienza a mejorar la capacidad del cuerpo para procesar el lactato, preparándote para esfuerzos de mayor intensidad.</li>
+                </ul>
+                <h4 class="sub-heading">Ejemplos Prácticos</h4>
+                 <ul>
+                    <li>Correr a un ritmo "tempo" durante 20-30 minutos continuos.</li>
+                    <li>Intervalos largos, como 3 series de 10 minutos en Zona 3 con 5 minutos de recuperación en Zona 1.</li>
+                    <li>Series de 2000 metros en la máquina de remo a un ritmo desafiante pero sostenible.</li>
+                </ul>
+            </div>
+        </div>
+        
+         <div id="pilar5" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Zonas 4 y 5: El Pico del Rendimiento</h3>
+                <p>Estas son las zonas de alta intensidad, reservadas para los entrenamientos más duros.</p>
+                <h4 class="sub-heading">Zona 4 (80-90%): Umbral de Lactato</h4>
+                <ul>
+                    <li><strong>Sensación:</strong> Esfuerzo duro y difícil de mantener. La respiración es pesada y solo puedes pronunciar una o dos palabras.</li>
+                    <li><strong>Fisiología:</strong> Estás entrenando en o ligeramente por encima de tu <strong>umbral de lactato</strong>.</li>
+                    <li><strong>Beneficios:</strong> "Empujar" este umbral hacia arriba, permitiéndote sostener un ritmo más rápido durante más tiempo antes de que la fatiga se dispare.</li>
+                     <li><strong>Ejemplos Prácticos:</strong> Intervalos de 3-5 minutos en cinta, remo o bicicleta de asalto, con un descanso igual o ligeramente mayor al tiempo de trabajo. (Ej: 4x4 min en Z4, 4 min en Z1).</li>
+                </ul>
+                <h4 class="sub-heading">Zona 5 (90-100%): VO2 Máx</h4>
+                <ul>
+                    <li><strong>Sensación:</strong> Esfuerzo máximo, insostenible por más de unos pocos minutos. No puedes hablar.</li>
+                    <li><strong>Fisiología:</strong> Estás trabajando a tu máxima capacidad para transportar y utilizar oxígeno (tu <strong>VO2 máx</strong>).</li>
+                     <li><strong>Beneficios:</strong> Aumenta el "techo" de tu potencial aeróbico.</li>
+                     <li><strong>Ejemplos Prácticos:</strong> Intervalos cortos y explosivos de 30 segundos a 2 minutos. (Ej: 6x1 min en Z5, 2 min en Z1). Sprints en colina, intervalos en Assault Bike o remo son ideales.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Programación: El Modelo Piramidal (80/20)</h3>
+                <p>El modelo de programación más respaldado por la ciencia para atletas de resistencia y el que recomendamos para atletas de fuerza es el <strong>entrenamiento polarizado o piramidal</strong>.</p>
+                
+                <h4 class="sub-heading">La Regla del 80/20</h4>
+                <p>Consiste en pasar aproximadamente el <strong>80% de tu tiempo total de cardio en las Zonas 1 y 2</strong> (baja intensidad) y solo el <strong>20% en las Zonas 3, 4 y 5</strong> (alta intensidad).</p>
+                <ul>
+                    <li>Esto construye una base aeróbica masiva con una fatiga mínima, permitiendo que el trabajo de alta intensidad sea de muchísima mayor calidad y más efectivo.</li>
+                    <li>Evita la "trampa de la intensidad moderada" (pasar todo el tiempo en Zona 3), donde el entrenamiento es demasiado duro para una recuperación fácil, pero no lo suficientemente duro para provocar las mejores adaptaciones de alta intensidad.</li>
+                </ul>
+
+                <h4 class="sub-heading">Ejemplo de Semana (3 sesiones de cardio)</h4>
+                <ul>
+                    <li><strong>Sesión 1 (Larga y Lenta):</strong> 45-60 minutos en <strong>Zona 2</strong>.</li>
+                    <li><strong>Sesión 2 (Intensidad):</strong>
+                        <ul>
+                            <li>Calentamiento (10 min en Z1/Z2).</li>
+                            <li>Intervalos: 4-5 series de 3 minutos en <strong>Zona 4</strong> con 3 minutos de recuperación en <strong>Zona 1</strong>.</li>
+                            <li>Vuelta a la calma (10 min en Z1).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sesión 3 (Recuperación):</strong> 20-30 minutos en <strong>Zona 1</strong>, idealmente en un día de descanso de las pesas.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

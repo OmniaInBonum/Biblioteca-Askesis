@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Análisis Profundo de la Sentadilla</title>
+    <meta name="description" content="Un informe exhaustivo sobre la sentadilla: biomecánica, análisis muscular detallado, beneficios fisiológicos y hormonales, variantes principales y técnica de ejecución.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Análisis de la Sentadilla
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-running mr-3 text-askesis-green"></i>La Sentadilla: El Rey de los Ejercicios
+        </h1>
+        <p class="section-subtitle">
+           Un análisis profundo y detallado sobre el ejercicio más fundamental para la fuerza y el desarrollo humano. Desglosamos su biomecánica, beneficios sistémicos y las variantes clave para un progreso integral.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Análisis Muscular</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Beneficios Sistémicos</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Variantes Clave</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Técnica y Errores</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Análisis Muscular: ¿Qué Trabaja Realmente la Sentadilla?</h3>
+                <p>La sentadilla es un movimiento compuesto que involucra una gran cantidad de masa muscular de manera coordinada. Entender el rol de cada músculo es clave para optimizar la técnica y el desarrollo.</p>
+                <h4 class="sub-heading">Motores Principales (Prime Movers)</h4>
+                <ul>
+                    <li><strong>Cuádriceps Femoral:</strong> Es el principal extensor de la rodilla. Las cuatro cabezas (<strong>recto femoral, vasto lateral, vasto medial y vasto intermedio</strong>) trabajan intensamente, especialmente en la fase de ascenso desde la máxima profundidad.</li>
+                    <li><strong>Glúteo Mayor:</strong> Es el extensor de cadera más potente del cuerpo. Su activación es máxima al salir del punto más bajo de la sentadilla y al extender completamente la cadera en la parte superior del movimiento.</li>
+                </ul>
+                <h4 class="sub-heading">Músculos Sinergistas (Asistentes)</h4>
+                <ul>
+                    <li><strong>Isquiosurales:</strong> Aunque a menudo se piensa que son un motor principal, su rol es más complejo. Actúan como <strong>co-contracción</strong> para estabilizar la rodilla y asisten en la extensión de la cadera. Su activación aumenta en sentadillas más profundas y en variantes con mayor inclinación del torso (como la Low-Bar).</li>
+                     <li><strong>Aductores (especialmente el Aductor Mayor):</strong> Estos músculos de la parte interna del muslo son potentes extensores de cadera, especialmente en los rangos más profundos de la sentadilla.</li>
+                </ul>
+                <h4 class="sub-heading">Músculos Estabilizadores</h4>
+                <ul>
+                    <li><strong>Erectores Espinales:</strong> Mantienen la columna vertebral en una posición neutra y rígida durante todo el levantamiento, previniendo la flexión lumbar (espalda redondeada).</li>
+                     <li><strong>Core (Recto Abdominal, Oblicuos, Transverso):</strong> Crean presión intraabdominal (bracing) para formar un bloque rígido y proteger la columna, permitiendo una transferencia de fuerza eficiente desde el suelo.</li>
+                     <li><strong>Glúteo Medio y Menor:</strong> Estabilizan la pelvis y previenen el colapso de las rodillas hacia adentro (valgo).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Beneficios Sistémicos: El Impacto Fisiológico y Hormonal</h3>
+                <p>Más allá del desarrollo muscular, la sentadilla pesada provoca una cascada de respuestas fisiológicas y hormonales que benefician a todo el cuerpo.</p>
+                <h4 class="sub-heading">Respuesta Hormonal Anabólica</h4>
+                <ul>
+                    <li><strong>Liberación de Testosterona y Hormona del Crecimiento (GH):</strong> El entrenamiento con sentadillas pesadas, al involucrar una gran masa muscular y generar un alto estrés metabólico, ha demostrado provocar un aumento agudo y significativo en los niveles de hormonas anabólicas clave como la testosterona y la GH. Esta respuesta sistémica puede potenciar el ambiente anabólico general del cuerpo.</li>
+                </ul>
+                <h4 class="sub-heading">Salud Ósea y Conectiva</h4>
+                <ul>
+                    <li><strong>Aumento de la Densidad Mineral Ósea:</strong> La carga axial (vertical) que la sentadilla impone sobre la columna, caderas y fémures estimula a las células óseas (osteoblastos) a depositar más mineral, fortaleciendo los huesos y ayudando a prevenir la osteoporosis.</li>
+                     <li><strong>Fortalecimiento de Tejidos Conectivos:</strong> La tensión controlada fortalece los tendones y ligamentos de las rodillas y caderas, haciéndolos más resilientes a futuras lesiones.</li>
+                </ul>
+                 <h4 class="sub-heading">Beneficios Metabólicos y Cardiovasculares</h4>
+                <ul>
+                    <li><strong>Alto Gasto Calórico:</strong> Al ser un ejercicio que moviliza casi todo el cuerpo, la sentadilla es uno de los levantamientos que más calorías quema por serie.</li>
+                     <li><strong>Mejora de la Sensibilidad a la Insulina:</strong> El entrenamiento de fuerza pesado mejora la capacidad del cuerpo para gestionar el azúcar en sangre, un factor clave en la prevención de la diabetes tipo 2.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Variantes Clave: Adaptando la Sentadilla a tus Objetivos</h3>
+                <p>No existe una "mejor" sentadilla; cada variante tiene un propósito y un enfoque muscular distinto.</p>
+                <h4 class="sub-heading">Sentadilla con Barra Alta (High-Bar Squat)</h4>
+                <ul>
+                    <li><strong>Características:</strong> El torso se mantiene más vertical. Mayor flexión de rodilla y tobillo.</li>
+                    <li><strong>Enfoque Muscular:</strong> Desarrollo más equilibrado entre <strong>cuádriceps y glúteos</strong>. Es la variante más común en la halterofilia.</li>
+                </ul>
+                 <h4 class="sub-heading">Sentadilla con Barra Baja (Low-Bar Squat)</h4>
+                <ul>
+                    <li><strong>Características:</strong> Mayor inclinación del torso hacia adelante. La barra se apoya más abajo en la espalda.</li>
+                    <li><strong>Enfoque Muscular:</strong> Más dominante de la cadena posterior (<strong>glúteos, isquiosurales, espalda baja</strong>). Permite, generalmente, levantar más peso. Es la variante estándar en el powerlifting.</li>
+                </ul>
+                 <h4 class="sub-heading">Sentadilla Frontal (Front Squat)</h4>
+                <ul>
+                    <li><strong>Características:</strong> El torso está casi completamente vertical. La barra descansa sobre los deltoides anteriores.</li>
+                    <li><strong>Enfoque Muscular:</strong> Altamente dominante de <strong>cuádriceps</strong>. Exige una enorme fuerza del core y de la espalda alta para mantener la postura.</li>
+                </ul>
+                 <h4 class="sub-heading">Otras Variantes Esenciales</h4>
+                <ul>
+                    <li><strong>Sentadilla Goblet:</strong> Ideal para principiantes. Sostener una mancuerna o kettlebell al frente actúa como contrapeso y enseña a mantener el pecho erguido.</li>
+                     <li><strong>Sentadilla Búlgara:</strong> Un ejercicio unilateral fantástico para corregir desequilibrios de fuerza, mejorar la estabilidad y generar una gran hipertrofia en cuádriceps y glúteos.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Técnica Perfecta y Errores Comunes</h3>
+                <p>Una técnica impecable no solo maximiza los resultados, sino que es la mejor herramienta para la prevención de lesiones.</p>
+                <h4 class="sub-heading">Checklist de Ejecución Askesis</h4>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li><strong>Setup (Preparación):</strong> Coloca la barra correctamente, establece una base sólida con los pies (anchura de hombros o ligeramente mayor), y crea tensión en todo el cuerpo.</li>
+                    <li><strong>Bracing (Respiración):</strong> Realiza una inspiración profunda hacia el abdomen (no el pecho), y contrae el core como si fueras a recibir un golpe. Mantén esta presión durante toda la repetición.</li>
+                    <li><strong>Descenso Controlado:</strong> Inicia el movimiento flexionando caderas y rodillas simultáneamente. Mantén el control, "sentándote entre tus talones".</li>
+                    <li><strong>Profundidad:</strong> Busca romper la paralela (la articulación de la cadera por debajo de la de la rodilla), siempre que tu movilidad lo permita sin comprometer la neutralidad de la columna.</li>
+                     <li><strong>Ascenso Explosivo:</strong> Empuja el suelo con todo el pie y conduce con la espalda alta y la cadera al mismo tiempo. Piensa en "alejar el suelo de ti".</li>
+                </ol>
+                <h4 class="sub-heading">Errores a Evitar</h4>
+                <ul>
+                    <li><strong>Valgo de Rodilla (Knee Valgus):</strong> Las rodillas colapsan hacia adentro durante el ascenso. Indica debilidad en los glúteos (medio y menor).</li>
+                    <li><strong>Butt Wink:</strong> La pelvis rota hacia adentro en el fondo de la sentadilla, redondeando la espalda baja. Suele ser un problema de movilidad de tobillo o cadera.</li>
+                    <li><strong>Good Morning Squat:</strong> La cadera sube mucho más rápido que el pecho, convirtiendo el ascenso en un "buenos días". Indica debilidad en los cuádriceps.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

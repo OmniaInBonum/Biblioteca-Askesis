@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Sistema Vestibular y Equilibrio</title>
+    <meta name="description" content="La guía definitiva sobre el sistema vestibular y el equilibrio. Aprende a evaluar y entrenar tu 'sexto sentido' para una estabilidad y un rendimiento superiores.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Sistema Vestibular
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-brain mr-3 text-askesis-green"></i>El Sistema Vestibular: El Sexto Sentido del Atleta
+        </h1>
+        <p class="section-subtitle">
+           El equilibrio y la conciencia espacial no son un talento innato, son una habilidad entrenable. Aprende cómo funciona tu sistema de equilibrio y cómo potenciarlo para una estabilidad y un control motor superiores.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Evaluación</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Entrenamiento Estático</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Entrenamiento Dinámico</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: Tu GPS Interno</h3>
+                <p>El equilibrio no depende de un solo sentido. Es una compleja integración de información proveniente de tres fuentes principales, procesada por el cerebro (principalmente el cerebelo).</p>
+                <h4 class="sub-heading">Los Tres Pilares del Equilibrio</h4>
+                <ul>
+                    <li><strong>1. Sistema Visual:</strong> Tus ojos le dicen a tu cerebro dónde te encuentras en relación con tu entorno. Es el sistema dominante, y por eso es mucho más difícil mantener el equilibrio con los ojos cerrados.</li>
+                    <li><strong>2. Propiocepción:</strong> Es la red de sensores en tus músculos, tendones y articulaciones que le informan a tu cerebro de la posición de tu cuerpo en el espacio sin necesidad de mirar. Es tu "sentido del cuerpo".</li>
+                    <li><strong>3. Sistema Vestibular:</strong> Ubicado en tu oído interno, es tu giroscopio y acelerómetro biológico. Detecta la aceleración, la deceleración y la orientación de tu cabeza en relación con la gravedad. Es crucial para el equilibrio durante el movimiento rápido.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "Un atleta de élite no solo tiene músculos fuertes, sino que tiene un 'mapa' corporal increíblemente detallado y un sistema de equilibrio que se recalibra constantemente. Entrenar el equilibrio es entrenar la conexión entre tu cerebro y tu cuerpo."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Evaluación: ¿Cómo está tu Equilibrio?</h3>
+                <p>Antes de entrenar, es útil tener una línea base. Estos simples tests te darán una idea de tu capacidad de equilibrio actual.</p>
+                <h4 class="sub-heading">Test de Equilibrio a una Pierna</h4>
+                <ul>
+                    <li>Párate descalzo, levanta una pierna y dobla la rodilla a 90 grados. Intenta mantener la posición durante 30-60 segundos sin perder el equilibrio. Repite con la otra pierna.</li>
+                    <li><strong>Variación Avanzada (Test de Romberg modificado):</strong> Realiza el mismo test, pero esta vez con los <strong>ojos cerrados</strong>. Esto elimina el sistema visual y aísla la eficacia de tu sistema propioceptivo y vestibular. Es normal que el tiempo se reduzca drásticamente, pero si no puedes aguantar ni 10 segundos, indica un área de mejora importante.</li>
+                </ul>
+                <h4 class="sub-heading">Y-Balance Test (Simplificado)</h4>
+                <ul>
+                    <li>Párate sobre una pierna y, con el pie contrario, intenta alcanzar lo más lejos posible hacia adelante, hacia el lado posteromedial y hacia el lado posterolateral, sin perder el equilibrio. Grandes asimetrías entre una pierna y otra pueden indicar desequilibrios de estabilidad y movilidad.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Entrenamiento de Equilibrio Estático</h3>
+                <p>Estos ejercicios mejoran la capacidad de mantener una posición estable, fortaleciendo los pequeños músculos estabilizadores y mejorando la conexión neural.</p>
+                 <h4 class="sub-heading">Progresiones a una Pierna</h4>
+                 <ul>
+                    <li>Comienza con el aguante a una pierna sobre suelo firme. Una vez que domines los 60 segundos, progresa a hacerlo sobre una superficie inestable como un cojín, una almohada o un bosu.</li>
+                    <li>La siguiente progresión es realizar los aguantes sobre superficie inestable con los ojos cerrados.</li>
+                </ul>
+                <h4 class="sub-heading">Ejercicios de Calistenia Isométricos</h4>
+                <ul>
+                    <li><strong>Handstand (Pino):</strong> Sostener un pino contra la pared o libre es un ejercicio vestibular de élite. Requiere que tu cerebro realice microajustes constantes para mantener el centro de gravedad.</li>
+                    <li><strong>L-Sit / V-Sit:</strong> Estos ejercicios no solo requieren fuerza de core y compresión, sino también un tremendo control del equilibrio para no caer hacia adelante o hacia atrás.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Entrenamiento de Equilibrio Dinámico</h3>
+                <p>El equilibrio en el deporte rara vez es estático. Estos ejercicios entrenan la capacidad de mantener el control mientras te mueves a través de diferentes planos y posiciones.</p>
+                <h4 class="sub-heading">El Rey: Turkish Get-Up (TGU)</h4>
+                 <ul>
+                    <li>Este ejercicio con kettlebell es posiblemente el mejor movimiento de cuerpo completo para la estabilidad, la movilidad y la propiocepción. Te obliga a moverte de forma controlada y secuencial a través de múltiples planos mientras estabilizas una carga por encima de tu cabeza.</li>
+                </ul>
+                 <h4 class="sub-heading">Movimientos Unilaterales Complejos</h4>
+                <ul>
+                    <li><strong>Estocadas con Rotación:</strong> Realizar una estocada y añadir una rotación del torso con un balón medicinal o una pesa ligera. Desafía el equilibrio en los planos sagital y transversal simultáneamente.</li>
+                    <li><strong>Pistol Squats (Sentadilla a una pierna):</strong> Requiere una combinación extrema de fuerza, movilidad de tobillo y equilibrio dinámico.</li>
+                </ul>
+                 <h4 class="sub-heading">Pliometría Unilateral</h4>
+                 <ul>
+                     <li><strong>Saltos a una Pierna:</strong> Saltar y aterrizar sobre una sola pierna en diferentes direcciones (hacia adelante, hacia los lados). Entrena la capacidad de absorber fuerza y re-estabilizarse rápidamente.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Programación: Integración Inteligente</h3>
+                <p>El entrenamiento del equilibrio no requiere sesiones largas y agotadoras. Se beneficia de una práctica consistente y de alta calidad.</p>
+                
+                <h4 class="sub-heading">¿Cómo y Cuándo Integrarlo?</h4>
+                <ul>
+                    <li><strong>Como Parte del Calentamiento:</strong> Es el momento ideal. Añade 2-3 series de aguantes a una pierna o estocadas multidireccionales después de tu calentamiento general. Prepara tu sistema nervioso para la sesión principal.</li>
+                    <li><strong>Como "Fillers" (Rellenos):</strong> Entre las series de tus levantamientos principales (ej: entre series de press de banca), puedes realizar un ejercicio de equilibrio de bajo impacto, como un aguante a una pierna. Aprovecha el tiempo de descanso sin generar fatiga adicional.</li>
+                    <li><strong>En Días de Recuperación Activa:</strong> Un día dedicado a la movilidad y al equilibrio, realizando ejercicios como el Turkish Get-Up con un peso ligero, puede ser increíblemente beneficioso para la recuperación y el desarrollo de habilidades.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio de Programación Askesis:</strong> "La calidad es todo. Es mejor hacer 30 segundos de un aguante perfecto a una pierna que 2 minutos de intentos fallidos. Concéntrate, reduce la velocidad y siente cómo tu cuerpo hace los ajustes. El objetivo es el control, no el agotamiento."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

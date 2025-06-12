@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Tensión Mecánica vs. Estrés Metabólico</title>
+    <meta name="description" content="La guía definitiva sobre los motores de la hipertrofia. Aprende la diferencia entre tensión mecánica y estrés metabólico, y cómo programarlos para un crecimiento muscular máximo.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Motores de la Hipertrofia
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-cogs mr-3 text-askesis-green"></i>Tensión Mecánica vs. Estrés Metabólico
+        </h1>
+        <p class="section-subtitle">
+           Un análisis profundo de los dos mecanismos principales que impulsan el crecimiento muscular. Comprender cómo y cuándo priorizar cada uno es la clave para un desarrollo físico sin límites.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios de Hipertrofia</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Tensión Mecánica</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Estrés Metabólico</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Ejercicios y Técnicas</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: ¿Cómo Crece un Músculo?</h3>
+                <p>La hipertrofia muscular es el aumento del tamaño de las fibras musculares. La ciencia actual identifica dos mecanismos principales que actúan como señales para que este proceso ocurra, con un tercero que es más bien una consecuencia.</p>
+                <h4 class="sub-heading">Los 2+1 Motores del Crecimiento</h4>
+                <ul>
+                    <li><strong>1. Tensión Mecánica:</strong> Es la fuerza o tensión a la que son sometidas las fibras musculares al contraerse contra una resistencia. Es, con diferencia, el <strong>factor más importante</strong> para la hipertrofia.</li>
+                    <li><strong>2. Estrés Metabólico:</strong> Es la acumulación de subproductos metabólicos (como lactato e iones de hidrógeno) dentro del músculo debido a contracciones repetidas con poco descanso. Es la sensación de "ardor" y "congestión" (pump).</li>
+                    <li><strong>3. Daño Muscular:</strong> Son las microlesiones que ocurren en las fibras musculares durante el entrenamiento intenso. Hoy en día, se considera más una <strong>consecuencia</strong> del entrenamiento (especialmente de la tensión mecánica) que un motor primario del crecimiento por sí mismo.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "La tensión mecánica es el rey. El estrés metabólico es un poderoso aliado. Un programa de hipertrofia óptimo debe incluir ambos de manera inteligente. El daño muscular simplemente ocurrirá como resultado."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Tensión Mecánica: El Estímulo Principal</h3>
+                <p>Las células musculares poseen mecanorreceptores que "sienten" la tensión. Cuando esta tensión es suficientemente alta, se desencadenan cascadas de señalización (como la vía mTOR) que ordenan al músculo que crezca más fuerte y grande para poder soportar esa tensión en el futuro.</p>
+                <h4 class="sub-heading">¿Cómo se Maximiza la Tensión Mecánica?</h4>
+                <ul>
+                    <li><strong>Cargas Pesadas:</strong> Utilizar pesos que te permitan realizar entre 5 y 10 repeticiones por serie. Esto asegura el reclutamiento de las fibras musculares más grandes y con mayor potencial de crecimiento.</li>
+                    <li><strong>Rango de Movimiento Completo (ROM):</strong> Llevar un músculo a través de su rango completo de movimiento, especialmente en la posición de estiramiento bajo carga, ha demostrado ser un potentísimo estímulo para la hipertrofia.</li>
+                    <li><strong>Control Excéntrico:</strong> Controlar la fase negativa (la bajada) del levantamiento mantiene la tensión en el músculo durante más tiempo.</li>
+                    <li><strong>Intención de Máxima Velocidad:</strong> Incluso con un peso pesado que se mueve lento, la intención de moverlo lo más rápido posible maximiza el reclutamiento de unidades motoras y, por tanto, la tensión.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Estrés Metabólico: El Efecto "Pump"</h3>
+                <p>Cuando un músculo se contrae repetidamente con poco descanso, el flujo sanguíneo se ve restringido (oclusión), impidiendo la llegada de oxígeno y la eliminación de desechos. Esta acumulación de metabolitos causa el "ardor" y la hinchazón celular (el "pump"), que también actúan como una señal para el crecimiento.</p>
+                 <h4 class="sub-heading">¿Cómo se Maximiza el Estrés Metabólico?</h4>
+                 <ul>
+                    <li><strong>Altas Repeticiones:</strong> Utilizar pesos más ligeros que te permitan realizar entre 15 y 30 repeticiones por serie, llegando cerca del fallo muscular.</li>
+                    <li><strong>Descansos Cortos:</strong> Descansar entre 30 y 60 segundos entre series para impedir que los metabolitos se eliminen por completo.</li>
+                    <li><strong>Tensión Constante:</strong> Utilizar técnicas que no permitan al músculo descansar en ningún punto del rango de movimiento (ej: cables en lugar de mancuernas en las aperturas).</li>
+                    <li><strong>Técnicas de Intensidad:</strong> Las Drop Sets, Superseries y Myo-Reps son herramientas diseñadas específicamente para maximizar el estrés metabólico.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Ejercicios y Técnicas para Cada Estímulo</h3>
+                <p>La selección de ejercicios y técnicas nos permite priorizar un mecanismo sobre el otro.</p>
+                <h4 class="sub-heading">Para Maximizar la Tensión Mecánica</h4>
+                 <ul>
+                    <li><strong>Ejercicios Compuestos Pesados:</strong> Sentadillas, Peso Muerto, Press de Banca, Press Militar, Remos con Barra.</li>
+                    <li><strong>Énfasis en la Excéntrica:</strong> Bajar la carga de forma controlada durante 3-4 segundos.</li>
+                    <li><strong>Pausas en la Posición de Estiramiento:</strong> Pausar 1-2 segundos en el fondo de una sentadilla o un press de banca.</li>
+                </ul>
+                <h4 class="sub-heading">Para Maximizar el Estrés Metabólico</h4>
+                <ul>
+                    <li><strong>Ejercicios de Aislamiento:</strong> Curls de bíceps, extensiones de tríceps, elevaciones laterales, extensiones de cuádriceps, cruces en polea.</li>
+                    <li><strong>Técnicas de Intensidad:</strong> Drop Sets, Rest-Pause, Superseries.</li>
+                    <li><strong>Ejercicios con Tensión Constante:</strong> Cualquier movimiento realizado con cables o máquinas bien diseñadas.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Programación: Uniendo los Dos Mundos</h3>
+                <p>El programa de hipertrofia ideal no elige entre un estímulo y otro, sino que los integra de forma sinérgica.</p>
+                
+                <h4 class="sub-heading">Estructura Intra-Sesión (Dentro del Entrenamiento)</h4>
+                <p>Es el método más común y efectivo. Se estructura la sesión para empezar con el trabajo pesado y terminar con el trabajo de bombeo.</p>
+                <ul>
+                    <li><strong>Inicio de la Sesión:</strong> 1-2 ejercicios compuestos pesados, enfocados en la <strong>Tensión Mecánica</strong>. (Ej: Press de Banca, 4 series de 5-8 reps).</li>
+                    <li><strong>Mitad de la Sesión:</strong> 2-3 ejercicios secundarios en un rango de hipertrofia clásico. (Ej: Press Inclinado con Mancuernas, 3 series de 8-12 reps).</li>
+                    <li><strong>Final de la Sesión:</strong> 1-2 ejercicios de aislamiento o una técnica de intensidad para maximizar el <strong>Estrés Metabólico</strong>. (Ej: Cruces en polea, 3 series de 15-20 reps con una Drop Set en la última serie).</li>
+                </ul>
+                <h4 class="sub-heading">Estructura Inter-Sesión (A lo largo de la Semana)</h4>
+                <p>También conocido como Periodización Ondulante Diaria (DUP). Se dedica un día a cada tipo de estímulo para el mismo grupo muscular.</p>
+                 <ul>
+                    <li><strong>Día 1 (Ej: Lunes - Tren Superior):</strong> Enfocado en Tensión Mecánica. Presses pesados en rangos de 3-6 repeticiones.</li>
+                     <li><strong>Día 2 (Ej: Jueves - Tren Superior):</strong> Enfocado en Estrés Metabólico. Más aislamiento, máquinas, y rangos de 12-20 repeticiones con técnicas de intensidad.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Técnicas de Intensidad Avanzadas</title>
+    <meta name="description" content="La guía definitiva sobre técnicas de intensidad: Drop Sets, Rest-Pause, Myo-Reps y Superseries para romper estancamientos y maximizar la hipertrofia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Técnicas de Intensidad
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-bolt mr-3 text-askesis-green"></i>Técnicas de Intensidad Avanzadas
+        </h1>
+        <p class="section-subtitle">
+           Las herramientas de un atleta avanzado para romper estancamientos y maximizar la hipertrofia. Aprende a usar las Drop Sets, Rest-Pause, Myo-Reps y Superseries de forma inteligente y segura.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Drop Sets</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Rest-Pause</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Myo-Reps</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Superseries</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: ¿Cuándo y Por Qué Usar Estas Técnicas?</h3>
+                <p>Las técnicas de intensidad son herramientas avanzadas diseñadas para aumentar el estímulo sobre un músculo más allá de lo que se logra con series tradicionales. Su objetivo es maximizar uno de los mecanismos clave de la hipertrofia: el <strong>estrés metabólico</strong>.</p>
+                <h4 class="sub-heading">Advertencia Importante</h4>
+                <ul>
+                    <li><strong>No son para principiantes:</strong> Un atleta novato o intermedio progresará perfectamente con la sobrecarga progresiva estándar. Estas técnicas generan una fatiga muy alta y deben usarse con precaución.</li>
+                    <li><strong>Son para romper estancamientos:</strong> Su principal utilidad es proporcionar un nuevo estímulo cuando el progreso con métodos convencionales se ha detenido.</li>
+                    <li><strong>Uso estratégico, no constante:</strong> No deben ser la base de tu entrenamiento. Se aplican de forma selectiva y por períodos limitados para evitar el sobreentrenamiento.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "Las técnicas de intensidad son como el nitro en un coche de carreras: úsalo en el momento adecuado para ganar, pero no para ir a comprar el pan. La base siempre debe ser la fuerza y la sobrecarga progresiva."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Drop Sets (Series Descendentes)</h3>
+                <p>Es la técnica de intensidad más conocida. Consiste en llevar una serie al fallo muscular, reducir inmediatamente el peso y continuar realizando repeticiones hasta el siguiente fallo.</p>
+                <h4 class="sub-heading">Protocolo</h4>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li>Selecciona un peso con el que puedas hacer 10-12 repeticiones (RPE 10).</li>
+                    <li>Inmediatamente después de fallar, reduce el peso en un 20-30%.</li>
+                    <li>Sin descanso, realiza tantas repeticiones como puedas con el nuevo peso hasta volver a fallar.</li>
+                    <li>Opcional: Puedes realizar un segundo "drop" si la recuperación lo permite.</li>
+                </ol>
+                <h4 class="sub-heading">Ventajas y Desventajas</h4>
+                 <ul>
+                    <li><strong>Pros:</strong> Genera un estrés metabólico masivo y una gran congestión ("pump"), lo que puede inducir la hipertrofia.</li>
+                    <li><strong>Contras:</strong> Es muy fatigante, dificulta el seguimiento de la sobrecarga progresiva y el riesgo de que la técnica se degrade es alto.</li>
+                    <li><strong>Ideal para:</strong> Ejercicios de aislamiento en máquinas (extensiones de cuádriceps, curls en polea) donde el cambio de peso es rápido y seguro.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Rest-Pause (Pausa-Descanso)</h3>
+                <p>Esta técnica permite realizar más repeticiones con una carga pesada de las que podrías hacer en una serie tradicional, maximizando el reclutamiento de fibras de alto umbral.</p>
+                 <h4 class="sub-heading">Protocolo</h4>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li>Elige un peso con el que fallarías en 6-8 repeticiones.</li>
+                    <li>Realiza la serie hasta el fallo muscular (RPE 10).</li>
+                    <li>Deja el peso, descansa durante 10-20 segundos (5-7 respiraciones profundas).</li>
+                    <li>Vuelve a coger el mismo peso y realiza tantas repeticiones adicionales como puedas hasta el fallo.</li>
+                     <li>Opcional: Repetir el proceso una o dos veces más.</li>
+                </ol>
+                <h4 class="sub-heading">Ventajas y Desventajas</h4>
+                 <ul>
+                    <li><strong>Pros:</strong> Permite acumular un gran volumen de trabajo con cargas pesadas, un potente estímulo para la fuerza y la hipertrofia.</li>
+                    <li><strong>Contras:</strong> Extremadamente demandante para el SNC. Alto riesgo de lesión si la técnica se rompe debido a la fatiga.</li>
+                    <li><strong>Ideal para:</strong> Movimientos en máquinas (press de hombro en máquina, remo sentado) o ejercicios con mancuernas. Usar con extrema precaución en ejercicios con barra libre como el press de banca.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Myo-Reps: La Evolución Eficiente del Rest-Pause</h3>
+                <p>Las Myo-Reps son una forma más estructurada y autorregulada de Rest-Pause, popularizada por Borge Fagerli. El objetivo es conseguir muchas repeticiones efectivas (las últimas antes del fallo) con una mínima fatiga acumulada.</p>
+                <h4 class="sub-heading">Protocolo</h4>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li><strong>Serie de Activación:</strong> Realiza una serie inicial de 10-20 repeticiones, llegando muy cerca del fallo (RIR 1-2). Esta serie "activa" las fibras musculares.</li>
+                    <li><strong>Pausa Inicial:</strong> Descansa 10-15 segundos.</li>
+                    <li><strong>Mini-Series:</strong> Realiza una serie de 3-5 repeticiones. Vuelve a descansar 10-15 segundos.</li>
+                    <li><strong>Repetir:</strong> Continúa realizando estas mini-series de 3-5 repeticiones con sus pausas correspondientes hasta que ya no puedas completar las 3-5 repeticiones o la velocidad disminuya drásticamente.</li>
+                </ol>
+                <h4 class="sub-heading">Ventajas y Desventajas</h4>
+                 <ul>
+                    <li><strong>Pros:</strong> Muy eficiente en tiempo. Maximiza las repeticiones estimulantes (las que están cerca del fallo) y minimiza las "repeticiones basura" y la fatiga.</li>
+                    <li><strong>Contras:</strong> Requiere mucha disciplina para cortar las mini-series antes del fallo total y entender la autorregulación.</li>
+                    <li><strong>Ideal para:</strong> Prácticamente cualquier ejercicio de aislamiento y muchos movimientos en máquina.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Superseries</h3>
+                <p>Una superserie consiste en realizar dos ejercicios de forma consecutiva sin descanso (o con un descanso mínimo) entre ellos.</p>
+                <h4 class="sub-heading">Tipos de Superseries</h4>
+                <ul>
+                    <li><strong>Agonista-Antagonista:</strong> Se emparejan músculos opuestos (ej: curl de bíceps seguido de extensiones de tríceps). Es el tipo más eficiente, ya que mientras un músculo trabaja, el otro se recupera activamente.</li>
+                    <li><strong>Pre-Agotamiento:</strong> Se realiza un ejercicio de aislamiento seguido de un ejercicio compuesto para el mismo músculo (ej: aperturas con mancuernas seguido de press de banca). El objetivo es fatigar el músculo diana para que sea el eslabón débil en el movimiento compuesto.</li>
+                    <li><strong>Post-Agotamiento:</strong> Se invierte el orden (ej: press de banca seguido de aperturas). Después de agotar las fibras con el compuesto, se "remata" el músculo con un ejercicio de aislamiento.</li>
+                </ul>
+                 <div class="info-box">
+                    <strong>Principio de Programación Askesis:</strong> "Utiliza las técnicas de intensidad en el <strong>último ejercicio</strong> para un grupo muscular en tu sesión. Hacerlo al principio comprometerá tu fuerza y rendimiento en los levantamientos principales. Limita su uso a <strong>1-2 ejercicios por entrenamiento</strong> como máximo."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

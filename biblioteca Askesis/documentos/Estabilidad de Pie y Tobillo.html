@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Estabilidad de Pie y Tobillo</title>
+    <meta name="description" content="La guía definitiva para construir una base fuerte. Aprende a evaluar y entrenar la estabilidad del pie y el tobillo para prevenir lesiones y mejorar tu rendimiento.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Estabilidad de Pie y Tobillo
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-shoe-prints mr-3 text-askesis-green"></i>La Base de la Fuerza: Pie y Tobillo
+        </h1>
+        <p class="section-subtitle">
+           Toda la fuerza que generas se transmite a través del suelo. Un pie débil e inestable es una "fuga de energía" que limita tu potencial y aumenta el riesgo de lesiones en rodillas, caderas y espalda.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios: La Fundación</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Anatomía Funcional</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Evaluación Funcional</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Ejercicios de Activación</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: ¿Por Qué Entrenar tus Pies?</h3>
+                <p>El pie humano es una obra maestra de la ingeniería biomecánica, diseñado para ser tanto una estructura rígida para la propulsión como un adaptador flexible para terrenos irregulares. Sin embargo, el calzado moderno a menudo debilita sus estructuras intrínsecas.</p>
+                <h4 class="sub-heading">La Cadena Cinética Ascendente</h4>
+                <ul>
+                    <li>El cuerpo funciona como una cadena interconectada. Un problema en la base (el pie) inevitablemente causará compensaciones y problemas más arriba.</li>
+                    <li><strong>Pie Plano Funcional:</strong> Un arco que colapsa durante el movimiento (pronación excesiva) provoca una rotación interna de la tibia, lo que a su vez puede causar el temido <strong>valgo de rodilla</strong> (rodillas hacia adentro) durante una sentadilla.</li>
+                    <li><strong>Fuga de Fuerza:</strong> Una base inestable es como intentar disparar un cañón desde una canoa. No puedes transmitir eficazmente la fuerza que generan tus caderas y piernas al suelo, lo que limita tu fuerza máxima.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "Entrenar los pies no es opcional. Es el paso fundamental para desbloquear tu verdadero potencial de fuerza, mejorar tu técnica en los levantamientos y construir un cuerpo a prueba de lesiones desde los cimientos."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Anatomía Funcional: El Trípode y los Arcos</h3>
+                <p>Para entender la estabilidad, debemos pensar en el "trípode del pie" y en los arcos que lo soportan.</p>
+                <h4 class="sub-heading">El Trípode del Pie</h4>
+                <p>El peso de tu cuerpo debe distribuirse equitativamente entre tres puntos de contacto principales:</p>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li>La base del dedo gordo del pie.</li>
+                    <li>La base del dedo meñique.</li>
+                    <li>El centro del talón.</li>
+                </ol>
+                <p class="mt-4">Mantener estos tres puntos firmemente plantados en el suelo es la base de la estabilidad.</p>
+                <h4 class="sub-heading">Los Arcos del Pie</h4>
+                 <ul>
+                    <li><strong>Arco Longitudinal Medial:</strong> Es el arco principal y más conocido. Está soportado por los músculos intrínsecos del pie y, crucialmente, por el <strong>músculo tibial posterior</strong>.</li>
+                    <li><strong>Arco Longitudinal Lateral y Arco Transverso:</strong> Arcos más pequeños pero igualmente importantes para la absorción y distribución de impactos.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Evaluación Funcional: ¿Cómo Está tu Base?</h3>
+                <p>Realiza estos simples tests descalzo para evaluar la estabilidad y la salud de tus pies y tobillos.</p>
+                 <h4 class="sub-heading">Test 1: Observación del Arco en Sentadilla</h4>
+                <ul>
+                    <li>Ponte de pie con los pies a la anchura de los hombros. Realiza una sentadilla profunda (sin peso).</li>
+                    <li><strong>Observa:</strong> ¿Tus arcos se colapsan hacia adentro? ¿Tus tobillos pronan excesivamente? Si es así, indica debilidad en los músculos intrínsecos y/o en el tibial posterior.</li>
+                </ul>
+                <h4 class="sub-heading">Test 2: Equilibrio a una Pierna</h4>
+                <ul>
+                    <li>Levanta una pierna y mantén el equilibrio durante 30 segundos.</li>
+                    <li><strong>Observa:</strong> ¿Puedes mantener el trípode del pie estable o tu tobillo se tambalea constantemente? ¿Sientes que los músculos de tu pie trabajan activamente para mantener el arco? Una gran inestabilidad señala una pobre conexión neuromuscular.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Ejercicios de Activación: Despertando el Pie</h3>
+                <p>El primer paso es re-aprender a activar los músculos intrínsecos del pie. El "Short Foot" es el ejercicio fundamental para esto.</p>
+                <h4 class="sub-heading">El Ejercicio "Short Foot"</h4>
+                 <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li>Siéntate descalzo con el pie plano en el suelo.</li>
+                    <li>Manteniendo los tres puntos del trípode en contacto con el suelo, intenta "acortar" tu pie contrayendo los músculos del arco. Imagina que intentas acercar la base del dedo gordo hacia tu talón, sin doblar los dedos.</li>
+                    <li>Deberías sentir cómo tu arco se levanta. Tus dedos deben permanecer relajados y planos en el suelo.</li>
+                    <li>Mantén la contracción durante 5-10 segundos y relaja. Realiza 10-15 repeticiones.</li>
+                 </ol>
+                 <h4 class="sub-heading">Otras Activaciones</h4>
+                <ul>
+                    <li><strong>Separación de Dedos:</strong> Intenta separar los dedos de los pies lo máximo posible. Mejora el control motor.</li>
+                     <li><strong>Recoger una Toalla (Towel Curls):</strong> Coloca una toalla en el suelo y, usando solo los dedos de tus pies, intenta arrugarla y traerla hacia ti.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Programación y Fortalecimiento</h3>
+                <p>Una vez que puedes activar los músculos, es hora de fortalecerlos.</p>
+                
+                <h4 class="sub-heading">Integración en tu Rutina</h4>
+                <ul>
+                    <li><strong>Como Calentamiento:</strong> Realiza 5-10 minutos de los ejercicios de activación (Short Foot, etc.) antes de cada sesión de tren inferior. Esto "enciende" los estabilizadores antes de cargar peso.</li>
+                    <li><strong>Entrenamiento Descalzo:</strong> Cuando sea seguro (ej: en casa o en una zona designada), realiza parte de tu calentamiento o ejercicios de movilidad descalzo. Esto proporciona una retroalimentación sensorial inestimable.</li>
+                    <li><strong>Ejercicios de Fortalecimiento:</strong> Añade estos al final de tu sesión 1-2 veces por semana.</li>
+                </ul>
+
+                <h4 class="sub-heading">Rutina de Fortalecimiento</h4>
+                 <ul>
+                    <li><strong>Elevaciones de Talón a una Pierna (con énfasis en el arco):</strong> 3 series de 10-15 repeticiones. Al subir, enfócate en empujar a través del dedo gordo y mantener el arco activo.</li>
+                    <li><strong>Caminata de puntillas y de talones:</strong> 2-3 series de 20-30 metros cada una.</li>
+                    <li><strong>Aguante de Short Foot durante sentadillas con peso corporal:</strong> Intenta mantener la contracción del arco durante todo el movimiento.</li>
+                </ul>
+                 <div class="info-box">
+                    <strong>Principio de Programación Askesis:</strong> "La fuerza del pie se construye con consistencia, no con intensidad. Integra estos pequeños ejercicios en tus rutinas diarias y calistenia. Con el tiempo, una base estable se convertirá en tu segunda naturaleza, y tu rendimiento en los levantamientos principales lo reflejará."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

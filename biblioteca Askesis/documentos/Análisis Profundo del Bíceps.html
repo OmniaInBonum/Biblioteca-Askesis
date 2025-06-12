@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Análisis Profundo del Bíceps</title>
+    <meta name="description" content="Un informe exhaustivo sobre el desarrollo del bíceps braquial: anatomía de sus dos cabezas y el braquial, biomecánica y los ejercicios más efectivos para maximizar la altura y la amplitud.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Análisis del Bíceps
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-hand-fist mr-3 text-askesis-green"></i>El Bíceps: Guía de Desarrollo Total
+        </h1>
+        <p class="section-subtitle">
+           Un análisis profundo de la anatomía y biomecánica del bíceps braquial y el braquial. Aprende a seleccionar los ejercicios correctos para atacar todas las áreas y maximizar la fuerza y el volumen de tus brazos.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Anatomía Funcional</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Cabeza Larga (La Altura)</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Cabeza Corta (La Amplitud)</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">M. Braquial (El Fundamento)</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Anatomía Funcional: Más que un Solo Músculo</h3>
+                <p>Para construir brazos imponentes, es crucial entender que el "bíceps" visible es en realidad un complejo de músculos con funciones distintas. El entrenamiento debe ser multifacético para estimular todas las áreas.</p>
+                <h4 class="sub-heading">Los Músculos Flexores del Codo</h4>
+                <ul>
+                    <li><strong>Bíceps Braquial - Cabeza Larga (Long Head):</strong> Se origina en la parte superior de la escápula, cruza la articulación del hombro y contribuye a la "cima" o "altura" del bíceps.</li>
+                    <li><strong>Bíceps Braquial - Cabeza Corta (Short Head):</strong> Se origina en una parte diferente de la escápula (apófisis coracoides) y no tiene tanto efecto en el movimiento del hombro. Contribuye a la "amplitud" o grosor del bíceps.</li>
+                    <li><strong>Músculo Braquial (Brachialis):</strong> Se encuentra debajo del bíceps braquial. Es el flexor del codo más fuerte y puro. Desarrollarlo empuja al bíceps hacia arriba, aumentando significativamente el tamaño total del brazo.</li>
+                </ul>
+                <h4 class="sub-heading">Funciones Clave</h4>
+                 <ul>
+                    <li><strong>Flexión del Codo:</strong> La función principal de los tres músculos. Es el acto de "hacer un curl".</li>
+                    <li><strong>Supinación del Antebrazo:</strong> El bíceps braquial es el supinador más potente. Es el movimiento de girar la palma de la mano desde una posición neutra (pulgar arriba) a una posición hacia arriba.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "Un desarrollo completo de los flexores del brazo exige variar la posición del hombro (para enfocar las cabezas del bíceps) y el agarre (para involucrar al braquial)."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>La Cabeza Larga: Forjando la "Altura"</h3>
+                <p>Debido a su origen anatómico, la cabeza larga del bíceps se encuentra en su posición más estirada (y con mayor potencial de crecimiento) cuando el brazo se sitúa por detrás del torso (hombro en extensión).</p>
+                <h4 class="sub-heading">Ejercicios con Pesas (Hombro en Extensión)</h4>
+                <ul>
+                    <li><strong>Curl Inclinado con Mancuernas (Incline Dumbbell Curl):</strong> Este es el rey para aislar la cabeza larga. Al recostarse en un banco inclinado (unos 45-60 grados), los brazos cuelgan detrás del cuerpo, estirando la cabeza larga al máximo.</li>
+                    <li><strong>Curl con Polea Baja (Brazos Atrás):</strong> De pie, da un paso adelante de la polea y realiza el curl manteniendo el brazo superior fijo detrás de tu torso.</li>
+                </ul>
+                <h4 class="sub-heading">Opciones con Peso Corporal y Anillas</h4>
+                <ul>
+                     <li><strong>Dominadas Supinas (Chin-ups):</strong> El agarre supino y la posición de estiramiento total en la parte inferior del movimiento proporcionan un excelente estímulo para la cabeza larga del bíceps, además de trabajar la espalda.</li>
+                     <li><strong>Curl Inclinado con Peso Corporal:</strong> Sentado en el suelo con las manos apoyadas detrás de ti. Levanta la cadera y flexiona los codos para llevar el pecho hacia las manos. Es una variante avanzada que requiere gran control.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>La Cabeza Corta: Construyendo la Amplitud</h3>
+                <p>Para enfatizar la cabeza corta, que añade grosor y amplitud al brazo, debemos realizar los curls con el brazo posicionado por delante del cuerpo (hombro en flexión). Esta posición acorta la cabeza larga, permitiendo que la cabeza corta tome un rol más protagónico.</p>
+                <h4 class="sub-heading">Ejercicios con Pesas (Hombro en Flexión)</h4>
+                <ul>
+                    <li><strong>Curl Predicador (Preacher Curl):</strong> Ya sea con barra, mancuerna o en máquina, este ejercicio fija el brazo al frente, aislando de manera brutal la cabeza corta del bíceps.</li>
+                    <li><strong>Curl Araña (Spider Curl):</strong> Realizado sobre el extremo de un banco inclinado, con el pecho apoyado. Los brazos cuelgan rectos hacia abajo, lo que aísla eficazmente la cabeza corta.</li>
+                </ul>
+                <h4 class="sub-heading">Opciones con Peso Corporal y Anillas</h4>
+                <ul>
+                    <li><strong>Curl Pelícano en Anillas (Pelican Curls):</strong> Un ejercicio avanzado de calistenia que replica la posición del curl predicador. Se inicia con los brazos extendidos al frente y se baja el cuerpo hacia adelante, flexionando los codos. Proporciona un estiramiento excéntrico inigualable.</li>
+                     <li><strong>Curl con Peso Corporal en Barra Baja:</strong> Tumbado boca arriba debajo de una barra fija (en un rack de sentadillas), agárrala con las manos y realiza un curl levantando tu cuerpo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>El Braquial: La Fuerza Oculta que da Tamaño</h3>
+                <p>El músculo braquial es un flexor puro del codo; no participa en la supinación. Para aislarlo y reducir la ayuda del bíceps, debemos utilizar un agarre neutro o prono.</p>
+                 <h4 class="sub-heading">Ejercicios con Pesas (Agarre Neutro y Prono)</h4>
+                <ul>
+                    <li><strong>Curl Martillo (Hammer Curl):</strong> Es el ejercicio principal para el braquial. Se realiza con un agarre neutro (palmas enfrentadas) y también trabaja el músculo braquiorradial del antebrazo.</li>
+                    <li><strong>Curl Inverso (Reverse Curl):</strong> Realizado con un agarre prono (palmas hacia abajo). Este es un ejercicio avanzado que aísla fuertemente el braquial y desarrolla los extensores del antebrazo. Requiere usar menos peso.</li>
+                </ul>
+                 <h4 class="sub-heading">Opciones con Peso Corporal y Anillas</h4>
+                 <ul>
+                    <li><strong>Dominadas con Agarre Neutro/Paralelo:</strong> Al igual que las chin-ups, este es un gran constructor de masa general, pero el agarre neutro pone un mayor énfasis en el músculo braquial y braquiorradial.</li>
+                    <li><strong>Curls en Anillas (Ring Curls):</strong> Desde una posición de remo invertido, manteniendo el cuerpo recto, se realiza una flexión de codo llevando las anillas hacia la cara. Es altamente escalable ajustando la inclinación del cuerpo.</li>
+                 </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Plantilla de Programación (Día de Tracción)</h3>
+                <p>Un programa de bíceps completo y eficaz debe incluir ejercicios que ataquen las tres áreas funcionales. Esto se integra perfectamente en un día de tracción (Pull Day).</p>
+                
+                <h4 class="sub-heading">Estructura del "Pull Day"</h4>
+                <ul>
+                    <li><strong>Dominadas Supinas o con Agarre Neutro:</strong> 3-4 series (Ejercicio principal que pre-fatiga los flexores).</li>
+                    <li><strong>Remos (Ejercicio Secundario de Espalda):</strong> 3-4 series.</li>
+                    <li><strong>Curl Inclinado con Mancuernas o Curl Pelícano:</strong> 3 series de 8-12 repeticiones (Énfasis: Cabeza larga o corta, alternar cada mesociclo).</li>
+                    <li><strong>Curl Martillo o Curls en Anillas:</strong> 3 series de 10-15 repeticiones (Énfasis: Braquial).</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio de Ejecución Askesis:</strong> "Controla la fase excéntrica (la bajada) en todos los curls. Un descenso controlado de 2-3 segundos puede generar un estímulo de hipertrofia significativamente mayor que simplemente dejar caer el peso."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

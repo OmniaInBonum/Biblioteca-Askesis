@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Cardio y Acondicionamiento Metabólico</title>
+    <meta name="description" content="La guía definitiva sobre cardio para atletas de fuerza. Analizamos HIIT vs. LISS, el efecto de interferencia y cómo programar el cardio para no afectar tus ganancias.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Cardio y Acondicionamiento
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-heart-pulse mr-3 text-askesis-green"></i>Cardio: El Motor del Atleta de Fuerza
+        </h1>
+        <p class="section-subtitle">
+           El acondicionamiento cardiovascular no es el enemigo de la fuerza; es su aliado. Una guía para integrar el cardio de forma inteligente, mejorar tu capacidad de trabajo y acelerar tu recuperación sin sacrificar ganancias.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios Fundamentales</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">HIIT (Alta Intensidad)</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">LISS (Baja Intensidad)</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">HIIT vs. LISS</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: ¿Por Qué un Atleta de Fuerza Necesita Cardio?</h3>
+                <p>El entrenamiento de fuerza y el cardiovascular no son mundos opuestos. Un acondicionamiento metabólico adecuado es la base sobre la que se construye un rendimiento de élite.</p>
+                <h4 class="sub-heading">Beneficios Clave</h4>
+                <ul>
+                    <li><strong>Mejora de la Capacidad de Trabajo:</strong> Un corazón más fuerte y eficiente bombea más sangre oxigenada. Esto significa que puedes recuperarte más rápido entre series pesadas, permitiéndote realizar más volumen de calidad en menos tiempo.</li>
+                    <li><strong>Recuperación Acelerada:</strong> El cardio de baja intensidad aumenta el flujo sanguíneo a los músculos trabajados, ayudando a eliminar los desechos metabólicos y a entregar nutrientes para la reparación, lo que puede reducir el dolor muscular (DOMS).</li>
+                    <li><strong>Salud Cardiovascular:</strong> Este es el beneficio más obvio pero también el más importante para la longevidad. Un corazón fuerte es la base de un atleta saludable.</li>
+                </ul>
+                <h4 class="sub-heading">El "Efecto de Interferencia"</h4>
+                <ul>
+                     <li>A nivel celular, el entrenamiento de fuerza activa la vía <strong>mTOR</strong> (señalización para el crecimiento muscular), mientras que el cardio de alta intensidad y larga duración activa la vía <strong>AMPK</strong> (señalización para la resistencia).</li>
+                     <li>Un exceso de cardio (especialmente de alta intensidad) puede atenuar las señales de mTOR, "interfiriendo" con las adaptaciones de fuerza e hipertrofia.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "El objetivo del cardio para un atleta de fuerza no es convertirse en maratonista. Es mejorar el 'motor' para poder entrenar más duro, recuperarse más rápido y vivir más tiempo. La dosis y el tipo son la clave."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>HIIT: Entrenamiento de Intervalos de Alta Intensidad</h3>
+                <p>El HIIT consiste en ráfagas cortas de esfuerzo máximo (90-100% de tu capacidad) seguidas de períodos de recuperación activa o pasiva.</p>
+                <h4 class="sub-heading">Ventajas</h4>
+                <ul>
+                    <li><strong>Eficiencia de Tiempo:</strong> Puedes lograr un gran estímulo cardiovascular en tan solo 10-20 minutos.</li>
+                    <li><strong>Mejora del VO2 Máx:</strong> Es extremadamente eficaz para aumentar la capacidad máxima de tu cuerpo para transportar y utilizar oxígeno.</li>
+                    <li><strong>EPOC Elevado:</strong> Aumenta la tasa metabólica durante horas después del ejercicio (Efecto Post-combustión), lo que puede contribuir a la pérdida de grasa.</li>
+                </ul>
+                <h4 class="sub-heading">Desventajas para Atletas de Fuerza</h4>
+                 <ul>
+                    <li><strong>Alta Fatiga Sistémica:</strong> El HIIT es muy demandante para el sistema nervioso central (SNC), lo que puede afectar la recuperación y el rendimiento en tus levantamientos pesados si se abusa de él.</li>
+                    <li><strong>Mayor Riesgo de Lesión:</strong> La naturaleza explosiva de los movimientos aumenta el riesgo si no se tiene una buena base o técnica.</li>
+                    <li><strong>Mayor Potencial de Interferencia:</strong> Debido a su alta intensidad, es el tipo de cardio que más puede activar la vía AMPK, interfiriendo con las ganancias de fuerza.</li>
+                </ul>
+                 <h4 class="sub-heading">Ejemplos de Sesiones HIIT</h4>
+                <ul>
+                    <li><strong>Sprints en Colina:</strong> 8-10 series de 15 segundos de sprint máximo, seguidos de 45-60 segundos de caminata lenta para bajar.</li>
+                    <li><strong>Bicicleta de Asalto (Assault Bike):</strong> Protocolo Tabata - 8 rondas de 20 segundos de esfuerzo máximo y 10 segundos de descanso.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>LISS: Estado Estacionario de Baja Intensidad</h3>
+                <p>El LISS implica mantener un ritmo cardíaco constante y moderado (alrededor del 60-70% de tu máximo) durante un período prolongado.</p>
+                 <h4 class="sub-heading">Ventajas</h4>
+                <ul>
+                    <li><strong>Baja Fatiga Sistémica:</strong> Es muy fácil de recuperar y no afecta negativamente al SNC.</li>
+                    <li><strong>Promueve la Recuperación Activa:</strong> Es la mejor herramienta para mejorar el flujo sanguíneo y acelerar la recuperación muscular.</li>
+                    <li><strong>Mínima Interferencia:</strong> Prácticamente no interfiere con las vías de señalización de la fuerza y la hipertrofia.</li>
+                    <li><strong>Sostenibilidad:</strong> Es mental y físicamente más fácil de mantener a largo plazo.</li>
+                </ul>
+                <h4 class="sub-heading">Desventajas</h4>
+                 <ul>
+                    <li><strong>Consume Mucho Tiempo:</strong> Las sesiones suelen durar entre 30 y 60 minutos para ser efectivas.</li>
+                    <li><strong>Menor Impacto en el VO2 Máx:</strong> No es tan potente como el HIIT para mejorar la capacidad aeróbica máxima.</li>
+                    <li><strong>Bajo EPOC:</strong> La quema de calorías termina prácticamente cuando finaliza el ejercicio.</li>
+                </ul>
+                 <h4 class="sub-heading">Ejemplos de Sesiones LISS</h4>
+                <ul>
+                    <li><strong>Caminadora con Inclinación:</strong> 30-45 minutos a una velocidad de 5-6 km/h y una inclinación del 10-12%.</li>
+                    <li><strong>Bicicleta Estática o Elíptica:</strong> 30-45 minutos manteniendo un ritmo constante que te permita mantener una conversación.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>HIIT vs. LISS: ¿Cuál es Mejor para Ti?</h3>
+                <p>La respuesta depende de tu objetivo principal, tu capacidad de recuperación y tu tiempo disponible.</p>
+                <div class="info-box">
+                    <strong>Para la pérdida de grasa, ambos funcionan.</strong> El factor determinante es el déficit calórico total. El HIIT quema más calorías por minuto, pero el LISS es más fácil de realizar con más frecuencia y durante más tiempo. La mejor opción es la que puedas cumplir de forma consistente.
+                </div>
+                <h4 class="sub-heading">Recomendación de Askesis para Atletas de Fuerza</h4>
+                <p>Nuestra recomendación general es priorizar el <strong>LISS como la herramienta principal de acondicionamiento</strong>. Su bajo impacto en la recuperación lo convierte en el aliado perfecto para un programa de fuerza intenso.</p>
+                <p class="mt-4">El <strong>HIIT debe ser utilizado de forma estratégica y limitada</strong>. Lo vemos como una herramienta de "pico" o para atletas avanzados que necesitan mejorar su capacidad de trabajo en ráfagas cortas (ej: Crossfitters). No recomendamos más de 1-2 sesiones cortas de HIIT por semana.</p>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Programación Inteligente: Cómo Integrar el Cardio</h3>
+                <p>La clave es programar el cardio de manera que complemente, y no canibalice, tu entrenamiento de fuerza.</p>
+                
+                <h4 class="sub-heading">Las Reglas de Oro</h4>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li><strong>La Fuerza es la Prioridad:</strong> Realiza siempre tu sesión de pesas antes que el cardio si los haces el mismo día.</li>
+                    <li><strong>Separa el Cardio de los Días de Pierna:</strong> Intenta no hacer una sesión intensa de cardio el día antes, el mismo día, o el día después de un entrenamiento pesado de piernas.</li>
+                    <li><strong>Días de Descanso Activo:</strong> Los días de descanso son el momento perfecto para una sesión de LISS, ya que promueve la recuperación sin añadir estrés.</li>
+                </ol>
+
+                <h4 class="sub-heading">Ejemplo de Programación (Split Torso/Pierna de 4 Días)</h4>
+                <ul>
+                    <li><strong>Lunes (Torso Superior):</strong> Sesión de pesas + 15 min LISS post-entreno.</li>
+                    <li><strong>Martes (Tren Inferior):</strong> Solo sesión de pesas.</li>
+                    <li><strong>Miércoles (Descanso Activo):</strong> 30-45 minutos de LISS (caminata, bicicleta suave).</li>
+                    <li><strong>Jueves (Torso Superior):</strong> Sesión de pesas + 10 min HIIT post-entreno (opcional, si la recuperación lo permite).</li>
+                    <li><strong>Viernes (Tren Inferior):</strong> Solo sesión de pesas.</li>
+                    <li><strong>Sábado (Descanso Activo):</strong> 30-45 minutos de LISS.</li>
+                    <li><strong>Domingo:</strong> Descanso total.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

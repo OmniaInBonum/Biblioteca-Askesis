@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Fuerza de Tendones y Ligamentos</title>
+    <meta name="description" content="La guía definitiva para construir tendones y ligamentos más fuertes. Aprende sobre protocolos de carga, nutrición y estrategias para una resiliencia a prueba de lesiones.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Fuerza de Tendones y Ligamentos
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-link mr-3 text-askesis-green"></i>Fuerza de Tendones: La Armadura del Atleta
+        </h1>
+        <p class="section-subtitle">
+           Tus músculos son el motor, pero tus tendones y ligamentos son la transmisión. Una transmisión débil limita tu potencia. Aprende la ciencia y las estrategias para construir un tejido conectivo a prueba de balas.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios del Tejido Conectivo</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Mecanismo de Adaptación</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Protocolos: Isométricos</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Protocolos: Excéntricos</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Soporte Nutricional</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: Músculo vs. Tejido Conectivo</h3>
+                <p>Para entrenar los tendones de forma eficaz, primero debemos entender en qué se diferencian de los músculos.</p>
+                <h4 class="sub-heading">Características del Tejido Conectivo</h4>
+                <ul>
+                    <li><strong>Composición:</strong> Están compuestos principalmente de <strong>colágeno</strong>, una proteína fibrosa increíblemente resistente, y elastina. Los tendones conectan el músculo al hueso, mientras que los ligamentos conectan hueso con hueso.</li>
+                    <li><strong>Flujo Sanguíneo (Vascularización):</strong> A diferencia de los músculos, los tendones y ligamentos tienen un <strong>flujo sanguíneo muy bajo</strong>. Esto significa que reciben menos oxígeno y nutrientes, y se reparan y adaptan a un ritmo mucho más lento que el tejido muscular.</li>
+                    <li><strong>Adaptación a la Carga:</strong> Mientras que el músculo responde a un amplio rango de estímulos, el tejido conectivo responde mejor a cargas pesadas y prolongadas.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "Tus músculos pueden volverse más fuertes mucho más rápido que tus tendones. Ignorar el acondicionamiento del tejido conectivo es la principal causa de tendinitis y lesiones crónicas en atletas de fuerza. Debes entrenar la transmisión, no solo el motor."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Mecanismo de Adaptación: Mecanotransducción</h3>
+                <p>La mecanotransducción es el proceso por el cual las células (en este caso, los tenocitos en los tendones) convierten una señal mecánica (tensión) en una respuesta celular (síntesis de colágeno).</p>
+                <h4 class="sub-heading">¿Cómo se Fortalece un Tendón?</h4>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li><strong>Señal Mecánica:</strong> Aplicas una carga específica y controlada sobre el tendón (a través de un ejercicio).</li>
+                    <li><strong>Respuesta Celular:</strong> Los tenocitos detectan esta tensión y activan la maquinaria celular para producir nuevas fibras de colágeno.</li>
+                    <li><strong>Remodelación:</strong> Con el tiempo y la recuperación, estas nuevas fibras se alinean y se integran, haciendo que el tendón sea más grueso, más rígido y más capaz de soportar cargas mayores.</li>
+                </ol>
+                <h4 class="sub-heading">La Importancia del Tiempo de Carga</h4>
+                <p>A diferencia del músculo, que responde a estímulos rápidos y explosivos, la señal para la síntesis de colágeno parece ser más dependiente de la <strong>duración de la carga</strong>. Protocolos que mantienen el tendón bajo tensión durante más tiempo son particularmente efectivos.</p>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Protocolos de Carga: Isométricos para Salud Tendinosa</h3>
+                <p>El entrenamiento isométrico es una herramienta de primera línea para el manejo del dolor tendinoso (tendinopatías) y la construcción de resiliencia.</p>
+                 <h4 class="sub-heading">Isométricos Cedentes (Yielding Isometrics)</h4>
+                <ul>
+                    <li><strong>Protocolo para Alivio del Dolor:</strong> La investigación, especialmente del Dr. Ebonie Rio, ha demostrado que las contracciones isométricas de <strong>larga duración (30-45 segundos)</strong> con una carga moderada (suficiente para sentir el trabajo pero sin dolor agudo) tienen un efecto analgésico que puede durar varias horas. Se recomiendan 4-5 series.</li>
+                    <li><strong>Mecanismo:</strong> Se cree que esta contracción sostenida reduce la excitación del sistema nervioso central y disminuye las señales de dolor que llegan al cerebro desde el tendón.</li>
+                </ul>
+                 <h4 class="sub-heading">Aplicación Práctica</h4>
+                 <ul>
+                    <li><strong>Tendinopatía Rotuliana (Rodilla del saltador):</strong> Aguante en sentadilla isométrica contra una pared o en una máquina de extensión de cuádriceps.</li>
+                    <li><strong>Tendinopatía de Aquiles:</strong> Aguante isométrico en elevación de talón en una máquina o en el borde de un escalón.</li>
+                     <li><strong>Epicondilitis (Codo de tenista):</strong> Aguante isométrico en extensión de muñeca con una mancuerna ligera.</li>
+                 </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Protocolos de Carga: Excéntricos Pesados para Remodelación</h3>
+                <p>Las contracciones excéntricas (la fase de alargamiento del músculo bajo carga) son particularmente efectivas para estimular la síntesis de colágeno y remodelar el tejido conectivo.</p>
+                <h4 class="sub-heading">Excéntricos Pesados y Lentos</h4>
+                 <ul>
+                    <li><strong>Protocolo de Alfredson (para tendón de Aquiles):</strong> Este es el protocolo clásico. Consiste en realizar elevaciones de talón (fase concéntrica) con la pierna no afectada, y luego transferir todo el peso a la pierna afectada para realizar una bajada (fase excéntrica) muy lenta y controlada de 3-4 segundos. Se realizan 3 series de 15 repeticiones, dos veces al día.</li>
+                    <li><strong>Principio General:</strong> El concepto se puede aplicar a cualquier tendón. La clave es enfatizar la fase excéntrica del movimiento con una carga pesada y un tempo muy lento. Para la tendinopatía rotuliana, esto se puede hacer en una sentadilla a una pierna o en una prensa de piernas.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Soporte Nutricional: La Materia Prima del Colágeno</h3>
+                <p>El mejor protocolo de carga del mundo no servirá de mucho si no proporcionas al cuerpo los bloques de construcción que necesita para crear nuevo tejido conectivo.</p>
+                
+                <h4 class="sub-heading">El Protocolo de Nutrición Pre-Entrenamiento</h4>
+                <p>La investigación del Dr. Keith Baar ha demostrado que el momento de la ingesta de nutrientes es clave debido al bajo flujo sanguíneo de los tendones. La estrategia es consumir los nutrientes específicos <strong>30-60 minutos ANTES</strong> del entrenamiento, para que estén circulando en la sangre y puedan ser "empujados" hacia los tendones durante el ejercicio.</p>
+                <ul>
+                    <li><strong>1. Gelatina o Colágeno Hidrolizado:</strong> La fuente directa de los aminoácidos (glicina, prolina) necesarios para sintetizar colágeno. Dosis: <strong>15 gramos</strong>.</li>
+                    <li><strong>2. Vitamina C:</strong> Es un cofactor esencial en la síntesis de colágeno; sin ella, el proceso no puede ocurrir eficientemente. Dosis: <strong>50 miligramos</strong>.</li>
+                    <li><strong>3. Hidratación:</strong> Beber agua es crucial, ya que una fascia y tendones sanos están bien hidratados.</li>
+                </ul>
+                 <div class="info-box">
+                    <strong>Programación Práctica Askesis:</strong> "30-60 minutos antes de tu sesión de rehabilitación o de tu entrenamiento normal, consume un batido con 15g de gelatina sin sabor y una fuente de vitamina C (como zumo de naranja o un suplemento). Luego, realiza tu trabajo de isométricos o excéntricos. Esta es la forma más eficaz de entregar los nutrientes directamente al tejido que quieres reparar y fortalecer."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Calentamiento y Activación para el Máximo Rendimiento</title>
+    <meta name="description" content="La guía definitiva sobre cómo estructurar un calentamiento eficaz. Aprende los principios y los protocolos específicos para sentadilla, peso muerto, press de banca y más.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Calentamiento y Activación
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-fire mr-3 text-askesis-green"></i>Calentamiento: Preparación para la Batalla
+        </h1>
+        <p class="section-subtitle">
+           Un calentamiento no es una opción, es una parte integral del entrenamiento. Esta guía te enseñará los principios y protocolos para preparar tu cuerpo, prevenir lesiones y maximizar el rendimiento en cada sesión.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios (R.A.M.P.)</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Sentadilla</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Peso Muerto</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Press de Pecho</button>
+            <button class="tab-button" data-tab="pilar5" role="tab">Press de Hombro</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Tracciones (Espalda)</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>El Sistema R.A.M.P.: Un Protocolo Universal</h3>
+                <p>En Askesis, estructuramos todos nuestros calentamientos siguiendo el sistema R.A.M.P., un acrónimo que asegura cubrir todas las bases para una preparación óptima.</p>
+                <h4 class="sub-heading">R - Raise (Elevar)</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Aumentar la temperatura corporal, el ritmo cardíaco y el flujo sanguíneo a los músculos.</li>
+                    <li><strong>Cómo:</strong> 5-10 minutos de actividad cardiovascular de baja intensidad como bicicleta estática, remo, caminadora con inclinación o saltar la cuerda.</li>
+                </ul>
+                <h4 class="sub-heading">A - Activate (Activar)</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Despertar los músculos clave que se van a utilizar en la sesión y mejorar la conexión mente-músculo.</li>
+                     <li><strong>Cómo:</strong> Ejercicios de bajo impacto, a menudo con bandas de resistencia, para "encender" los músculos estabilizadores y principales. (Ej: Glute bridges antes de sentadillas, band pull-aparts antes de press de banca).</li>
+                </ul>
+                <h4 class="sub-heading">M - Mobilize (Movilizar)</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Aumentar el rango de movimiento activo de las articulaciones que estarán involucradas en el entrenamiento, a través de estiramientos dinámicos.</li>
+                     <li><strong>Cómo:</strong> Movimientos controlados y fluidos que llevan a las articulaciones a través de su rango de movimiento completo. (Ej: Círculos de cadera, rotaciones torácicas, balanceos de piernas). <strong>Nunca estiramientos estáticos pasivos antes de entrenar fuerza.</strong></li>
+                </ul>
+                 <h4 class="sub-heading">P - Potentiate (Potenciar)</h4>
+                <ul>
+                    <li><strong>Objetivo:</strong> Preparar el sistema nervioso para los levantamientos pesados, practicando el patrón de movimiento específico del primer ejercicio.</li>
+                     <li><strong>Cómo:</strong> Realizar series de aproximación (ramp-up sets) del ejercicio principal, comenzando con la barra vacía o un peso muy ligero y aumentando gradualmente la carga hasta llegar al peso de trabajo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Protocolo para Sentadilla y Variantes</h3>
+                <p>El objetivo es movilizar tobillos y caderas, y activar glúteos y core.</p>
+                <h4 class="sub-heading">Movilidad Específica</h4>
+                <ul>
+                    <li><strong>Movilidad de Tobillo:</strong> 10-15 repeticiones por lado. De pie frente a una pared, intenta tocarla con la rodilla sin que se levante el talón.</li>
+                    <li><strong>Sentadilla Profunda Asistida (Goblet Squat Hold):</strong> 2-3 series de 30 segundos. Sostén una pesa ligera y aguanta en el fondo de la sentadilla, usando los codos para empujar las rodillas hacia afuera.</li>
+                     <li><strong>Círculos de Cadera:</strong> 10 círculos en cada dirección por pierna.</li>
+                </ul>
+                <h4 class="sub-heading">Activación Neuromuscular</h4>
+                <ul>
+                    <li><strong>Puentes de Glúteo (Glute Bridges):</strong> 2 series de 15 repeticiones. Enfócate en apretar los glúteos en la parte superior.</li>
+                    <li><strong>Caminata Lateral con Banda:</strong> 2 series de 15 pasos por lado. Coloca una banda alrededor de las rodillas para activar el glúteo medio.</li>
+                </ul>
+                 <h4 class="sub-heading">Potenciación</h4>
+                <ul>
+                     <li>Realizar 3-5 series de aproximación de sentadillas, aumentando el peso progresivamente hasta el peso de trabajo.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Protocolo para Peso Muerto y Variantes</h3>
+                 <p>El objetivo es activar toda la cadena posterior (glúteos, isquios) y preparar la espalda para mantener una posición rígida.</p>
+                <h4 class="sub-heading">Movilidad Específica</h4>
+                <ul>
+                    <li><strong>Bisagra de Cadera con Pica (Dowel Hinge):</strong> 2 series de 10 repeticiones. Sostén una pica tocando tu cabeza, espalda alta y sacro, para aprender a moverte desde la cadera manteniendo la espalda neutra.</li>
+                    <li><strong>Gato-Camello (Cat-Cow):</strong> 2 series de 10 repeticiones para movilizar la columna vertebral.</li>
+                </ul>
+                <h4 class="sub-heading">Activación Neuromuscular</h4>
+                <ul>
+                    <li><strong>Bird-Dog:</strong> 2 series de 10 repeticiones por lado. Activa el core y los extensores de la espalda de forma cruzada.</li>
+                    <li><strong>Tirón de Banda al Pecho (Band Pull-Apart):</strong> 2 series de 15 repeticiones. Crucial para "encender" la espalda alta y los dorsales, que deben estar activos durante el peso muerto.</li>
+                </ul>
+                 <h4 class="sub-heading">Potenciación</h4>
+                <ul>
+                     <li>Realizar series de aproximación de Peso Muerto Rumano (RDL) con la barra vacía, y luego progresar en peso desde el suelo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Protocolo para Press de Pecho y Empujes</h3>
+                <p>El foco es la salud del hombro, la activación del pectoral y la estabilidad escapular.</p>
+                <h4 class="sub-heading">Movilidad Específica</h4>
+                <ul>
+                    <li><strong>Pasos de Banda (Band Dislocates):</strong> 2 series de 10-15 repeticiones. Con una banda elástica, llévala desde el frente de tu cuerpo hasta la espalda baja, con los brazos extendidos.</li>
+                    <li><strong>Rotaciones de Hombro Externas e Internas con Banda:</strong> 2 series de 15 repeticiones por lado con una banda muy ligera.</li>
+                </ul>
+                <h4 class="sub-heading">Activación Neuromuscular</h4>
+                <ul>
+                    <li><strong>Tirón de Banda al Pecho (Band Pull-Apart):</strong> 2 series de 20 repeticiones. El mejor ejercicio para la salud del hombro y activar la espalda alta.</li>
+                    <li><strong>Flexiones Escapulares (Scapular Push-ups):</strong> 2 series de 15 repeticiones. Enseña a protraer y retraer la escápula.</li>
+                </ul>
+                 <h4 class="sub-heading">Potenciación</h4>
+                <ul>
+                     <li>Realizar 3-5 series de aproximación de press de banca, enfocándose en la retracción escapular desde la primera repetición con la barra vacía.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar5" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Protocolo para Press de Hombro y Empujes Verticales</h3>
+                <p>Prioridad en la movilidad torácica y la estabilización del manguito rotador.</p>
+                 <h4 class="sub-heading">Movilidad Específica</h4>
+                <ul>
+                    <li><strong>Wall Slides:</strong> 2 series de 10 repeticiones. De pie contra una pared, desliza los brazos hacia arriba manteniendo el contacto, para mejorar la movilidad del hombro y la activación del serrato.</li>
+                    <li><strong>Rotaciones Torácicas en Cuadrupedia:</strong> 10 repeticiones por lado para liberar la espalda alta.</li>
+                </ul>
+                <h4 class="sub-heading">Activación Neuromuscular</h4>
+                <ul>
+                    <li><strong>Face Pulls con Banda:</strong> 2 series de 20 repeticiones. Activa el deltoides posterior y los rotadores externos, estabilizando el hombro.</li>
+                    <li><strong>Press de Hombro con Kettlebell (Bottoms-up):</strong> Sostener una kettlebell ligera boca abajo y presionarla mejora la estabilidad del manguito rotador.</li>
+                </ul>
+                 <h4 class="sub-heading">Potenciación</h4>
+                <ul>
+                     <li>Realizar series de aproximación del press militar, prestando especial atención al "bracing" del core en cada repetición.</li>
+                </ul>
+            </div>
+        </div>
+        
+         <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Protocolo para Tracciones (Espalda, Bíceps)</h3>
+                <p>El objetivo es activar los dorsales y la espalda alta, y preparar los codos y el agarre.</p>
+                 <h4 class="sub-heading">Movilidad Específica</h4>
+                <ul>
+                    <li><strong>Colgarse de una Barra (Dead Hang):</strong> 2-3 series de 20-30 segundos para descomprimir la columna y estirar los dorsales.</li>
+                    <li><strong>Pasos de Banda (Band Dislocates):</strong> 2 series de 15 repeticiones.</li>
+                </ul>
+                <h4 class="sub-heading">Activación Neuromuscular</h4>
+                <ul>
+                    <li><strong>Escápulas Activas (Scapular Pull-ups):</strong> 2 series de 10-15 repeticiones. Enseña a iniciar la dominada con la espalda y no con los brazos.</li>
+                    <li><strong>Remo con Banda:</strong> 2 series de 20 repeticiones, enfocándose en apretar las escápulas.</li>
+                    <li><strong>Face Pulls con Banda:</strong> 2 series de 20 repeticiones.</li>
+                </ul>
+                 <h4 class="sub-heading">Potenciación</h4>
+                <ul>
+                     <li>Realizar series de aproximación del ejercicio principal (ej. remo con barra o jalón al pecho) con pesos ligeros. Si el ejercicio principal son las dominadas, se pueden hacer series con ayuda de una banda.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

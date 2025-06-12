@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: La Conexión Fascial y el Movimiento</title>
+    <meta name="description" content="Una inmersión profunda en la red fascial. Aprende cómo la salud de tu fascia impacta la movilidad, la fuerza y el dolor, y las técnicas para optimizarla.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Conexión Fascial
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-network-wired mr-3 text-askesis-green"></i>La Conexión Fascial: El Tejido del Movimiento
+        </h1>
+        <p class="section-subtitle">
+           La fascia es la red de tejido conectivo que lo envuelve todo: músculos, huesos y órganos. Entenderla y cuidarla es fundamental para la movilidad, la transmisión de fuerza y la prevención del dolor crónico.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios de la Fascia</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Fascia y Movimiento</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Técnica: Foam Rolling</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Técnica: Flossing</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: ¿Qué es la Fascia?</h3>
+                <p>Imagina un traje tridimensional que envuelve cada fibra muscular, cada músculo, cada órgano y conecta todo el cuerpo en una red continua. Eso es la fascia. No es un tejido pasivo; es un <strong>órgano sensorial y contráctil</strong>, rico en terminaciones nerviosas.</p>
+                <h4 class="sub-heading">Propiedades Clave</h4>
+                <ul>
+                    <li><strong>Tensegridad:</strong> El sistema fascial da al cuerpo su estructura a través de un equilibrio de tensión y compresión, como los cables de un puente colgante. Un problema en un punto de la red puede manifestarse en otro lugar distante.</li>
+                    <li><strong>Plasticidad y Remodelación:</strong> La fascia se adapta a las tensiones a las que se somete. El sedentarismo o los movimientos repetitivos pueden hacerla más densa y rígida, mientras que el movimiento variado la mantiene elástica y saludable.</li>
+                    <li><strong>Hidratación:</strong> Una fascia sana está bien hidratada. El líquido entre sus capas (hialuronano) permite que los músculos se deslicen suavemente unos sobre otros. La deshidratación y la inmovilidad hacen que este líquido se vuelva más viscoso, creando "adherencias".</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "No entrenamos músculos aislados, entrenamos cadenas de movimiento a través de la red fascial. La salud de esta red determina la calidad de nuestro movimiento."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>El Rol de la Fascia en el Movimiento y el Dolor</h3>
+                <p>Una fascia saludable es fundamental para el rendimiento y el bienestar. Cuando se vuelve disfuncional, puede ser una fuente importante de problemas.</p>
+                <h4 class="sub-heading">Transmisión de Fuerza</h4>
+                <p>La fascia actúa como un sistema de poleas y palancas, transmitiendo la fuerza generada por los músculos a través de todo el cuerpo. Una red fascial rígida o con adherencias es ineficiente, lo que resulta en una "fuga" de fuerza y un menor rendimiento.</p>
+                <h4 class="sub-heading">Movilidad y Flexibilidad</h4>
+                <p>La sensación de "rigidez" a menudo no está en el músculo en sí, sino en la fascia que lo rodea. Las adherencias entre las capas fasciales impiden que los músculos se deslicen libremente, restringiendo el rango de movimiento.</p>
+                <h4 class="sub-heading">Fuente de Dolor</h4>
+                 <p>La fascia superficial tiene una densidad de receptores de dolor (nociceptores) mucho mayor que el músculo. Muchos dolores crónicos y "puntos gatillo" que se atribuyen al músculo son, en realidad, problemas en la red fascial deshidratada o inflamada.</p>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Técnica: Foam Rolling (Autoliberación Miofascial)</h3>
+                <p>El foam roller es una herramienta para aplicar presión sobre el tejido blando, con el objetivo de mejorar su hidratación y reducir la tensión.</p>
+                 <h4 class="sub-heading">¿Cómo Funciona?</h4>
+                 <p>La presión del rodillo actúa como una esponja: primero exprime el líquido viejo de la fascia y, al liberar la presión, permite que nuevo líquido rico en nutrientes la rehidrate. También estimula mecanorreceptores que le indican al sistema nervioso que reduzca el tono (la tensión) de esa área.</p>
+                <h4 class="sub-heading">Protocolo de Aplicación</h4>
+                <ul>
+                    <li><strong>Lento y Controlado:</strong> Rueda muy lentamente sobre el músculo. Moverse rápido no da tiempo al sistema nervioso a responder.</li>
+                    <li><strong>Busca Puntos de Tensión:</strong> Cuando encuentres un punto particularmente sensible, detente y mantén una presión moderada durante 20-30 segundos, respirando profundamente.</li>
+                    <li><strong>Añade Movimiento Activo:</strong> Una vez sobre el punto de tensión, puedes añadir movimiento a la articulación cercana (ej: flexionar y extender la rodilla mientras ruedas el cuádriceps) para mejorar el deslizamiento de las capas fasciales.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Técnica: Voodoo Flossing</h3>
+                <p>El "flossing" consiste en envolver firmemente una articulación o un grupo muscular con una banda elástica gruesa y luego mover la articulación a través de su rango de movimiento.</p>
+                <h4 class="sub-heading">Mecanismos de Acción</h4>
+                <ul>
+                    <li><strong>Compresión y Cizallamiento:</strong> La fuerte compresión de la banda "exprime" el tejido y, al mover la articulación, se crea una fuerza de cizallamiento que ayuda a romper adherencias entre las capas de piel, fascia y músculo.</li>
+                    <li><strong>Reperfusión Sanguínea:</strong> La compresión restringe temporalmente el flujo sanguíneo. Al quitar la banda, se produce una oleada de sangre fresca en la zona, lo que puede ayudar a eliminar la inflamación y acelerar la recuperación.</li>
+                    <li><strong>Estimulación Propioceptiva:</strong> La intensa compresión bombardea al cerebro con nueva información sensorial, lo que puede ayudar a "resetear" las señales de dolor y mejorar la conciencia de la articulación.</li>
+                </ul>
+                 <h4 class="sub-heading">Protocolo de Aplicación</h4>
+                 <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li>Envuelve la zona con una tensión del 50-70%, superponiendo la banda en cada vuelta.</li>
+                    <li>Mueve la articulación a través de su rango de movimiento completo y activo durante 1-2 minutos.</li>
+                    <li>Quita la banda. La zona debe sentirse notablemente más libre. <strong>Nunca dejes la banda puesta por más de 2 minutos.</strong></li>
+                </ol>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Programación: Integración en tu Rutina</h3>
+                <p>El trabajo fascial es una práctica de mantenimiento y preparación, no un entrenamiento en sí mismo.</p>
+                
+                <h4 class="sub-heading">Como Parte del Calentamiento</h4>
+                <ul>
+                    <li><strong>Foam Rolling:</strong> 5-10 minutos antes de la movilidad dinámica. Úsalo para "despertar" los tejidos y reducir la rigidez en las áreas que vas a trabajar. No pases demasiado tiempo en un solo punto.</li>
+                    <li><strong>Flossing:</strong> 1-2 minutos en una articulación específica que se sienta particularmente restringida (ej: tobillos antes de sentadillas, codos antes de press).</li>
+                </ul>
+                <h4 class="sub-heading">Como Parte de la Vuelta a la Calma o en Días de Descanso</h4>
+                 <ul>
+                    <li><strong>Foam Rolling:</strong> Puedes realizar una sesión más larga y detallada (15-20 minutos), enfocándote en relajar los músculos trabajados en los días anteriores. Esto puede ayudar a reducir el DOMS y mejorar la recuperación.</li>
+                </ul>
+                 <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "La movilidad dinámica y el movimiento variado son la mejor medicina para tu fascia. Usa el foam roller y el flossing como herramientas quirúrgicas para abordar áreas problemáticas específicas, pero recuerda que el movimiento es el rey."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

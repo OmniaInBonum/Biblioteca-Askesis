@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Análisis Profundo del Tríceps</title>
+    <meta name="description" content="Un informe exhaustivo sobre el desarrollo del tríceps braquial: anatomía de sus tres cabezas, biomecánica y los ejercicios más efectivos para maximizar la masa y la fuerza.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Análisis del Tríceps
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-cogs mr-3 text-askesis-green"></i>El Tríceps: Guía de Desarrollo Total
+        </h1>
+        <p class="section-subtitle">
+           Un análisis profundo de la anatomía y biomecánica del tríceps braquial. Aprende a seleccionar los ejercicios correctos para atacar sus tres cabezas y maximizar la fuerza y el volumen de tus brazos.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Anatomía Funcional</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Cabeza Larga</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Cabezas Lateral y Medial</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Ejercicios Compuestos</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Anatomía Funcional: Las Tres Cabezas del Tríceps</h3>
+                <p>El nombre "tríceps" significa literalmente "tres cabezas". Comprender la función única de cada una es el primer paso para un entrenamiento inteligente y completo. Aunque todas comparten la función principal de <strong>extender el codo</strong>, sus orígenes distintos dictan cómo podemos enfatizarlas.</p>
+                <h4 class="sub-heading">Las Tres Cabezas del Tríceps Braquial</h4>
+                <ul>
+                    <li><strong>Cabeza Larga (Long Head):</strong> Es la más grande de las tres y la única que <strong>cruza dos articulaciones: el codo y el hombro</strong>. Se origina en la escápula. Debido a esto, no solo extiende el codo, sino que también asiste en la extensión y aducción del hombro. Esta característica es la clave para su entrenamiento específico.</li>
+                    <li><strong>Cabeza Lateral (Lateral Head):</strong> Ubicada en la parte exterior del brazo, es la que más contribuye a la apariencia de "herradura" del tríceps. Se origina en el húmero.</li>
+                    <li><strong>Cabeza Medial (Medial Head):</strong> Se encuentra debajo de las otras dos cabezas y, aunque es menos visible, es fundamental para la fuerza de extensión en todas las posiciones. También se origina en el húmero.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "Para un desarrollo completo del tríceps, no basta con hacer un solo tipo de extensión. Se debe entrenar el músculo desde diferentes ángulos de hombro para asegurar que las tres cabezas reciban un estímulo óptimo."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>La Cabeza Larga: El Secreto del Volumen</h3>
+                <p>Dado que la cabeza larga cruza la articulación del hombro, se encuentra en su posición más estirada (y por tanto, con mayor potencial de estímulo hipertrófico) cuando el brazo está elevado por encima de la cabeza (flexión de hombro).</p>
+                <h4 class="sub-heading">Ejercicios con Pesas (Hombro en Flexión)</h4>
+                <ul>
+                    <li><strong>Extensiones por Encima de la Cabeza:</strong> Este es el movimiento por excelencia para la cabeza larga. Puede realizarse con mancuernas, polea y cuerda, o con una barra EZ.</li>
+                    <li><strong>Press Francés (Skull Crusher):</strong> Al bajar la barra por detrás de la cabeza en lugar de hacia la frente, se aumenta la flexión del hombro y, por ende, el estiramiento y activación de la cabeza larga.</li>
+                </ul>
+                <h4 class="sub-heading">Opciones con Peso Corporal y Anillas</h4>
+                <ul>
+                     <li><strong>Extensiones de Tríceps en Suelo o Banco:</strong> También conocidas como "Bodyweight Skull Crushers". Colocando las manos sobre una superficie y bajando la cabeza por delante de ellas, se imita perfectamente el movimiento de press francés, estirando la cabeza larga.</li>
+                     <li><strong>Extensiones de Tríceps en Anillas:</strong> Una versión avanzada y superior por la inestabilidad. Permite un rango de movimiento más profundo y natural para las muñecas.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Las Cabezas Lateral y Medial: Forjando la Herradura</h3>
+                <p>Las cabezas lateral y medial se estimulan de manera óptima cuando los brazos están a los lados del cuerpo (posición neutra del hombro). Estos ejercicios son excelentes para construir la densidad y esa distintiva forma de herradura.</p>
+                <h4 class="sub-heading">Ejercicios con Pesas (Hombro en Posición Neutra)</h4>
+                <ul>
+                    <li><strong>Extensiones en Polea (Pushdowns):</strong> Es el ejercicio de aislamiento más versátil. El uso de diferentes agarres (cuerda, barra recta, barra en V) permite variar el estímulo.</li>
+                    <li><strong>Patada de Tríceps (Triceps Kickback):</strong> Si se hace de forma estricta, es un excelente ejercicio para una contracción máxima al final del rango.</li>
+                </ul>
+                <h4 class="sub-heading">Opciones con Peso Corporal y Anillas</h4>
+                 <ul>
+                    <li><strong>Fondos en Banco o Caja (Bench Dips):</strong> Un ejercicio muy accesible que carga eficazmente las cabezas lateral y medial. La dificultad se puede ajustar elevando los pies.</li>
+                    <li><strong>Flexiones Diamante (Diamond Push-ups):</strong> Al colocar las manos juntas formando un diamante, se obliga a los codos a permanecer pegados al cuerpo, concentrando la tensión de la extensión en el tríceps.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Ejercicios Compuestos: La Base de la Fuerza</h3>
+                <p>El tríceps es un músculo secundario clave en todos los movimientos de empuje. Los ejercicios compuestos son fundamentales para construir una base de fuerza que permitirá luego un trabajo de aislamiento más efectivo.</p>
+                 <h4 class="sub-heading">Movimientos de Empuje Fundamentales</h4>
+                <ul>
+                    <li><strong>Fondos en Paralelas o Anillas (Dips):</strong> Uno de los mejores constructores de masa para el tríceps. Mantener el torso más vertical pone un mayor énfasis en el tríceps en comparación con el pecho. Las anillas añaden un componente de estabilización que intensifica el trabajo.</li>
+                    <li><strong>Press de Banca con Agarre Cerrado (Close-Grip Bench Press):</strong> Al reducir la anchura del agarre (aproximadamente a la anchura de los hombros), se aumenta drásticamente la demanda sobre el tríceps. Es un ejercicio fantástico para la fuerza bruta.</li>
+                    <li><strong>Flexiones (Push-ups):</strong> Cualquier variante de flexión con los codos relativamente pegados al cuerpo (como las flexiones militares o "chaturanga") será un excelente estímulo para el tríceps.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Plantilla de Programación (Día de Empuje)</h3>
+                <p>Un programa de tríceps eficaz debe incluir al menos un ejercicio compuesto y dos ejercicios de aislamiento que trabajen el músculo desde diferentes ángulos de hombro.</p>
+                
+                <h4 class="sub-heading">Estructura del "Push Day"</h4>
+                <ul>
+                    <li><strong>Fondos en Paralelas o Anillas (con lastre si es posible):</strong> 3 series de 6-10 repeticiones (Fuerza base, masa general).</li>
+                    <li><strong>Press de Banca Inclinado con Mancuernas:</strong> 3 series de 8-12 repeticiones (Estímulo secundario de tríceps).</li>
+                    <li><strong>Extensiones por Encima de la Cabeza con Anillas o en Suelo:</strong> 3 series de 10-15 repeticiones (Énfasis: Cabeza larga, hipertrofia mediada por estiramiento).</li>
+                    <li><strong>Flexiones Diamante o Extensiones en Polea con Cuerda:</strong> 2-3 series al fallo o 12-20 repeticiones (Énfasis en cabezas lateral y medial, estrés metabólico).</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio de Sobrecarga Askesis:</strong> No importa cuántos ejercicios hagas si no buscas la sobrecarga progresiva. El objetivo es volverse más fuerte con el tiempo, ya sea aumentando el peso, las repeticiones o mejorando la calidad de cada contracción.
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

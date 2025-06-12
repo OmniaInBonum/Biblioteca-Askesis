@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Composición de Fibras Musculares</title>
+    <meta name="description" content="La guía definitiva sobre los tipos de fibras musculares. Aprende a identificar tu perfil dominante y a orientar tu entrenamiento para la fuerza o la resistencia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Fibras Musculares
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-dna mr-3 text-askesis-green"></i>La Ciencia de las Fibras Musculares
+        </h1>
+        <p class="section-subtitle">
+           Tu genética determina en gran medida tu potencial atlético. Comprender tu composición de fibras musculares te permite individualizar tu entrenamiento para explotar tus fortalezas naturales y atacar tus debilidades.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Los Tipos de Fibras</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Genética vs. Entrenamiento</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Identifica tu Perfil</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Entrenar para Resistencia</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Entrenar para Potencia</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: El Espectro de Fibras Musculares</h3>
+                <p>Tus músculos están compuestos por diferentes tipos de fibras, cada una con características únicas de contracción, resistencia a la fatiga y potencial de crecimiento.</p>
+                <h4 class="sub-heading">Fibras Tipo I (Contracción Lenta / Oxidativas)</h4>
+                <ul>
+                    <li><strong>Apariencia:</strong> Rojas, debido a su alta densidad de capilares y mioglobina (transportadora de oxígeno).</li>
+                    <li><strong>Características:</strong> Se contraen lentamente, producen poca fuerza, pero son <strong>extremadamente resistentes a la fatiga</strong>. Utilizan el oxígeno para generar energía (metabolismo aeróbico).</li>
+                    <li><strong>Atleta Típico:</strong> Maratonistas, ciclistas de larga distancia.</li>
+                </ul>
+                <h4 class="sub-heading">Fibras Tipo IIa (Contracción Rápida / Oxidativas-Glucolíticas)</h4>
+                <ul>
+                    <li><strong>Apariencia:</strong> Rosadas/Rojas.</li>
+                    <li><strong>Características:</strong> Son las fibras "híbridas". Se contraen rápidamente y producen una fuerza considerable, pero también tienen una buena capacidad aeróbica. Son altamente adaptables al entrenamiento.</li>
+                    <li><strong>Atleta Típico:</strong> Jugadores de fútbol, baloncesto, luchadores. Atletas que necesitan ráfagas de potencia repetidas.</li>
+                </ul>
+                 <h4 class="sub-heading">Fibras Tipo IIx (Contracción Rápida / Glucolíticas)</h4>
+                <ul>
+                    <li><strong>Apariencia:</strong> Blancas, por su bajo suministro de sangre.</li>
+                    <li><strong>Características:</strong> Se contraen de forma <strong>extremadamente rápida y potente</strong>, pero se fatigan muy rápidamente. Utilizan el glucógeno almacenado para obtener energía (metabolismo anaeróbico). Tienen el mayor potencial de hipertrofia.</li>
+                    <li><strong>Atleta Típico:</strong> Powerlifters, velocistas de 100m, halterófilos.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Genética vs. Entrenamiento: ¿Se Puede Cambiar?</h3>
+                <p>La proporción general de fibras tipo I vs. tipo II en tus músculos está determinada en gran medida por tu genética. Sin embargo, el entrenamiento puede inducir cambios significativos dentro de los tipos de fibras, especialmente en las de contracción rápida.</p>
+                <h4 class="sub-heading">El Fenómeno del "Fiber Type Shifting"</h4>
+                <ul>
+                    <li><strong>De IIx a IIa:</strong> Es la adaptación más común. Con casi cualquier tipo de entrenamiento (tanto de resistencia como de fuerza), las fibras IIx, que son muy potentes pero poco eficientes, se convierten en fibras IIa. Adquieren más resistencia a la fatiga sin perder gran parte de su capacidad de fuerza.</li>
+                    <li><strong>De IIa a I (o viceversa):</strong> Este tipo de conversión es mucho más rara y requiere volúmenes de entrenamiento extremos y muy específicos durante años (ej: entrenamiento de maratón de élite). Para la mayoría de los atletas, no es una consideración práctica.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "No puedes cambiar las cartas que te han tocado, pero sí puedes aprender a jugarlas de la mejor manera posible. Conocer tu predisposición genética te permite enfocar tu entrenamiento para maximizar tu potencial natural."
+                </div>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Test Práctico: Identifica tu Perfil Dominante</h3>
+                <p>Aunque la única forma 100% precisa de conocer tu composición es una biopsia muscular (invasiva e impráctica), podemos hacer una estimación bastante fiable con un simple test de rendimiento.</p>
+                 <h4 class="sub-heading">El Test de Repeticiones al 80%</h4>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li>Elige un ejercicio compuesto principal (ej: Press de Banca, Sentadilla).</li>
+                    <li>Determina tu 1RM (Repetición Máxima) real o estimado para ese ejercicio.</li>
+                    <li>Después de un calentamiento completo, carga la barra con el <strong>80% de tu 1RM</strong>.</li>
+                    <li>Realiza tantas repeticiones como sea posible (AMRAP) con una técnica perfecta.</li>
+                </ol>
+                <h4 class="sub-heading">Interpretación de Resultados</h4>
+                 <ul>
+                    <li><strong>Menos de 7 repeticiones:</strong> Perfil de <strong>dominancia de fibras de contracción rápida (Tipo II)</strong>. Eres explosivo y fuerte, pero te fatigas rápidamente.</li>
+                    <li><strong>Entre 8 y 12 repeticiones:</strong> Perfil <strong>mixto</strong>. Tienes un buen equilibrio entre fuerza y resistencia.</li>
+                    <li><strong>Más de 12 repeticiones:</strong> Perfil de <strong>dominancia de fibras de contracción lenta (Tipo I)</strong>. Eres muy resistente a la fatiga, pero te puede costar más desarrollar la fuerza máxima.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Programación para Atletas de Resistencia (Dominancia Tipo I)</h3>
+                <p>Si tu perfil es dominante en fibras lentas, tu entrenamiento debe reflejarlo para maximizar el crecimiento.</p>
+                <h4 class="sub-heading">Principios para la Hipertrofia</h4>
+                 <ul>
+                    <li><strong>El Volumen es tu Amigo:</strong> Tus músculos pueden manejar (y necesitan) más volumen total de entrenamiento para crecer.</li>
+                    <li><strong>Rangos de Repeticiones Altos:</strong> Respondes excepcionalmente bien a rangos de <strong>15-30 repeticiones</strong> por serie.</li>
+                    <li><strong>Descansos Cortos:</strong> Períodos de descanso de 30 a 60 segundos entre series mantendrán tus fibras lentas bajo tensión y maximizarán el estrés metabólico.</li>
+                     <li><strong>Técnicas de Intensidad:</strong> Las Drop Sets y las Superseries son herramientas excelentes para ti.</li>
+                </ul>
+                <h4 class="sub-heading">Consideraciones para la Fuerza</h4>
+                <p>Aún debes entrenar pesado para mejorar la fuerza máxima, pero tu progreso en el 1RM puede ser más lento. Sé paciente y enfócate en la sobrecarga progresiva a través de las repeticiones y el volumen.</p>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Programación para Atletas de Potencia (Dominancia Tipo II)</h3>
+                <p>Si eres dominante en fibras rápidas, tu entrenamiento debe centrarse en la calidad, la intensidad y la explosividad.</p>
+                
+                <h4 class="sub-heading">Principios para la Fuerza y Potencia</h4>
+                <ul>
+                    <li><strong>La Intensidad es Reina:</strong> Respondes de maravilla a las cargas pesadas (85-100% 1RM) y a los rangos de <strong>1 a 5 repeticiones</strong>.</li>
+                    <li><strong>Intención de Máxima Velocidad:</strong> Cada repetición, sin importar el peso, debe realizarse con la intención de ser lo más explosiva posible.</li>
+                    <li><strong>Descansos Largos:</strong> Necesitas de 3 a 5 minutos de descanso entre series pesadas para permitir que tu sistema nervioso se recupere completamente.</li>
+                    <li><strong>Bajo Volumen:</strong> No necesitas un volumen excesivo. La calidad supera a la cantidad. Demasiado volumen puede llevar rápidamente al sobreentrenamiento.</li>
+                </ul>
+                <h4 class="sub-heading">Consideraciones para la Hipertrofia</h4>
+                <p>Aunque tu mayor potencial de crecimiento está en las fibras tipo II, también te beneficiarás de rangos de 6 a 12 repeticiones. El trabajo de aislamiento debe ser limitado y de alta calidad para no acumular fatiga innecesaria.</p>
+                 <div class="info-box">
+                    <strong>Programación Híbrida Askesis:</strong> "Independientemente de tu perfil, un programa completo debe entrenar todo el espectro de fibras. Un atleta dominante en Tipo II debe incluir días de mayor repetición para la salud articular y la resistencia, y un atleta de Tipo I debe entrenar pesado para mejorar su pico de fuerza."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

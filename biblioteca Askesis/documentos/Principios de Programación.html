@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Principios de Programación del Entrenamiento</title>
+    <meta name="description" content="La guía maestra sobre cómo estructurar un entrenamiento eficaz. Aprende sobre volumen, intensidad, frecuencia, sobrecarga progresiva, autorregulación y los mejores splits de entrenamiento.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Principios de Programación
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-sitemap mr-3 text-askesis-green"></i>Programación: El Cerebro detrás de la Fuerza
+        </h1>
+        <p class="section-subtitle">
+           Esta es la guía maestra que une todos los conceptos. Aprende los principios fundamentales para diseñar un programa de entrenamiento que garantice resultados consistentes, seguros y a largo plazo.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Las Variables Clave</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Sobrecarga Progresiva</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Autorregulación</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Estructura (Splits)</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Periodización y Deload</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Las 3 Variables Fundamentales del Entrenamiento</h3>
+                <p>Todo programa de entrenamiento, sin importar su complejidad, se puede reducir a la manipulación de tres variables clave. Dominar su interacción es el primer paso para una programación inteligente.</p>
+                <h4 class="sub-heading">Volumen</h4>
+                <ul>
+                    <li><strong>¿Qué es?:</strong> La cantidad total de trabajo realizado. Se calcula comúnmente como <strong>Series x Repeticiones x Peso</strong>. Una forma más práctica es contar el número de series efectivas por grupo muscular por semana.</li>
+                    <li><strong>Recomendación General:</strong> La ciencia sugiere que un volumen de <strong>10 a 20 series efectivas semanales por grupo muscular</strong> es el punto óptimo para la hipertrofia en la mayoría de los atletas.</li>
+                </ul>
+                <h4 class="sub-heading">Intensidad</h4>
+                <ul>
+                    <li><strong>¿Qué es?:</strong> Se refiere a dos cosas: la carga utilizada (% de tu 1RM) y el grado de esfuerzo (qué tan cerca del fallo llegas).</li>
+                     <li><strong>Para Fuerza:</strong> Se prioriza la alta intensidad de carga (85-100% 1RM) con un esfuerzo submáximo (RPE 7-9).</li>
+                     <li><strong>Para Hipertrofia:</strong> Se utiliza un rango de intensidades más amplio (60-85% 1RM), a menudo con un esfuerzo más cercano al fallo (RPE 8-10).</li>
+                </ul>
+                <h4 class="sub-heading">Frecuencia</h4>
+                <ul>
+                    <li><strong>¿Qué es?:</strong> Cuántas veces entrenas un grupo muscular por semana.</li>
+                     <li><strong>Principio Clave:</strong> La investigación muestra que para un volumen total igual, es más efectivo dividirlo en <strong>2 o más sesiones por semana</strong> que hacerlo todo en una sola sesión (la típica rutina "bro-split"). Esto permite una mayor calidad por sesión y estimula la síntesis de proteínas con más frecuencia.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Sobrecarga Progresiva: El Principio Innegociable</h3>
+                <p>El cuerpo humano es una máquina de adaptación. Para que siga creciendo y haciéndose más fuerte, el estímulo debe aumentar con el tiempo. Esto se llama sobrecarga progresiva. Si no la aplicas, te estancarás.</p>
+                <h4 class="sub-heading">Más Allá de Añadir Más Peso</h4>
+                <p>Añadir peso a la barra es la forma más obvia, pero no la única. Un buen programa integra múltiples formas de progresión:</p>
+                <ul>
+                    <li><strong>Aumentar las Repeticiones:</strong> Hacer más repeticiones con el mismo peso. (Ej: pasar de 3x8 a 3x9 con 100kg).</li>
+                    <li><strong>Aumentar las Series:</strong> Añadir una serie extra para un grupo muscular. (Ej: pasar de 3x8 a 4x8 con 100kg).</li>
+                     <li><strong>Aumentar el Peso:</strong> La progresión clásica. (Ej: pasar de 3x8 con 100kg a 3x8 con 102.5kg).</li>
+                     <li><strong>Mejorar la Técnica:</strong> Realizar el mismo peso y repeticiones con mejor control, mayor rango de movimiento o menos esfuerzo percibido.</li>
+                     <li><strong>Reducir el Descanso:</strong> Hacer el mismo trabajo en menos tiempo (aumenta la densidad).</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "No te obsesiones con una sola forma de progresar. Un atleta inteligente utiliza todas las herramientas a su disposición. El objetivo es simple: cada semana, intenta ser un poco mejor que la anterior."
+                </div>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Autorregulación: Escuchando a tu Cuerpo (RPE y RIR)</h3>
+                <p>Los programas rígidos basados en porcentajes fallan porque no tienen en cuenta tus fluctuaciones diarias de fuerza. La autorregulación es la solución: ajustar el entrenamiento del día a tu estado real.</p>
+                <h4 class="sub-heading">Las Herramientas: RPE y RIR</h4>
+                <ul>
+                    <li><strong>RPE (Rating of Perceived Exertion / Escala de Esfuerzo Percibido):</strong> Una escala del 1 al 10 que mide la dificultad de una serie. Un RPE 10 es el fallo absoluto, no podías hacer ni una repetición más. Un RPE 9 significa que te quedaba una repetición en el tanque.</li>
+                    <li><strong>RIR (Reps in Reserve / Repeticiones en Recámara):</strong> Es la forma inversa de pensar en el RPE. Un RIR 2 significa que te quedaban 2 repeticiones en el tanque (lo que equivale a un RPE 8).</li>
+                </ul>
+                 <h4 class="sub-heading">¿Por Qué Usarlo?</h4>
+                <ul>
+                    <li><strong>Entrenamiento Adaptativo:</strong> En un buen día, quizás hagas 10 repeticiones para llegar a un RIR 2. En un mal día, quizás solo hagas 8. En ambos casos, el estímulo relativo fue el mismo y el adecuado para ese día.</li>
+                     <li><strong>Gestión de la Fatiga:</strong> Permite acumular volumen de alta calidad sin pasarse de rosca, minimizando la "fatiga basura" y el riesgo de lesión.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Estructurando la Semana: Los Mejores Splits</h3>
+                <p>Un "split" es simplemente cómo divides tus entrenamientos a lo largo de la semana. La elección ideal depende de tu experiencia y disponibilidad.</p>
+                <h4 class="sub-heading">Full Body (Cuerpo Completo) - 3x/semana</h4>
+                <ul>
+                    <li><strong>Ideal para:</strong> Principiantes.</li>
+                    <li><strong>Pros:</strong> Alta frecuencia por músculo (3x), excelente para el aprendizaje motor, muy eficiente en tiempo.</li>
+                    <li><strong>Contras:</strong> Las sesiones pueden ser largas y muy demandantes a medida que te haces más fuerte.</li>
+                </ul>
+                 <h4 class="sub-heading">Torso/Pierna (Upper/Lower) - 4x/semana</h4>
+                <ul>
+                    <li><strong>Ideal para:</strong> Intermedios.</li>
+                    <li><strong>Pros:</strong> Frecuencia óptima (2x por músculo), permite más volumen por sesión que un Full Body, buena gestión de la fatiga.</li>
+                    <li><strong>Contras:</strong> Requiere 4 días de entrenamiento a la semana.</li>
+                </ul>
+                <h4 class="sub-heading">Empuje/Tirón/Pierna (Push/Pull/Legs) - 5-6x/semana</h4>
+                <ul>
+                    <li><strong>Ideal para:</strong> Intermedios y Avanzados.</li>
+                    <li><strong>Pros:</strong> Frecuencia óptima (2x si se repite el ciclo), permite un altísimo enfoque y volumen por sesión en músculos sinérgicos.</li>
+                    <li><strong>Contras:</strong> Requiere alta disponibilidad de tiempo y una buena capacidad de recuperación.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Periodización y Descargas (Deloads)</h3>
+                <p>No se puede progresar de forma lineal para siempre. La periodización es la planificación a largo plazo del entrenamiento, y las descargas son una parte crucial de ella.</p>
+                <h4 class="sub-heading">Mesociclos: Bloques de Entrenamiento</h4>
+                 <ul>
+                    <li>Un <strong>mesociclo</strong> es un bloque de entrenamiento (normalmente de 3 a 6 semanas) con un enfoque específico.</li>
+                    <li><strong>Ejemplo:</strong> Un mesociclo de 4 semanas podría estructurarse así:
+                        <ul>
+                            <li><strong>Semana 1:</strong> Volumen moderado, RIR 3.</li>
+                            <li><strong>Semana 2:</strong> Aumentar volumen/intensidad, RIR 2-3.</li>
+                            <li><strong>Semana 3:</strong> Pico de volumen/intensidad, RIR 1-2 (semana más dura).</li>
+                            <li><strong>Semana 4:</strong> <strong>Semana de Descarga (Deload).</strong></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4 class="sub-heading">La Semana de Descarga (Deload)</h4>
+                 <ul>
+                     <li><strong>¿Qué es?:</strong> Una semana planificada de entrenamiento de baja intensidad y bajo volumen.</li>
+                     <li><strong>¿Por qué es crucial?:</strong> Permite que la fatiga acumulada (muscular, articular y del SNC) se disipe por completo. No te haces más débil; vuelves más fuerte y preparado para el siguiente bloque de sobrecarga. Es una estrategia proactiva para prevenir el sobreentrenamiento y las lesiones.</li>
+                     <li><strong>Cómo hacerlo:</strong> Reduce el número de series a la mitad y baja la intensidad a un RIR 4-5 (muy lejos del fallo).</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "El progreso no es una línea recta hacia arriba, sino una serie de picos y valles controlados. La descarga no es un signo de debilidad, es una marca de un atleta inteligente que planifica para la longevidad."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

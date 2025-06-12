@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Entrenamiento en Ayunas y Rendimiento</title>
+    <meta name="description" content="Un análisis científico y sin dogmas sobre los pros y contras de entrenar en ayunas. Aprende sobre su impacto en la fuerza, hipertrofia, quema de grasa y rendimiento.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Entrenamiento en Ayunas
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-stopwatch mr-3 text-askesis-green"></i>Entrenamiento en Ayunas: ¿Mito o Herramienta?
+        </h1>
+        <p class="section-subtitle">
+           Un análisis científico y sin dogmas sobre los pros y contras de entrenar sin haber comido. Descubre el impacto real en tu rendimiento, composición corporal y salud hormonal.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios Fisiológicos</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Beneficios Potenciales</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Riesgos y Consideraciones</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">El Veredicto Final</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Protocolo de Aplicación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Principios: ¿Qué Sucede en tu Cuerpo al Ayunar?</h3>
+                <p>El ayuno intermitente no es una dieta, sino un <strong>patrón de alimentación</strong> que alterna ventanas de ayuno y ventanas de ingesta. Durante la ventana de ayuno, tu cuerpo entra en un estado hormonal único.</p>
+                <h4 class="sub-heading">El Entorno Hormonal del Ayuno</h4>
+                <ul>
+                    <li><strong>Insulina Baja:</strong> Al no haber ingesta de carbohidratos, los niveles de insulina se desploman. La insulina es una hormona de "almacenamiento"; cuando está baja, el cuerpo puede acceder más fácilmente a sus reservas de grasa para usarlas como energía.</li>
+                    <li><strong>Aumento de Catecolaminas:</strong> El cuerpo libera más adrenalina y noradrenalina. Esto aumenta el estado de alerta y la movilización de ácidos grasos.</li>
+                    <li><strong>Aumento de Glucagón:</strong> Es la hormona opuesta a la insulina. Su función es liberar la energía almacenada (glucógeno y grasa) para mantener los niveles de azúcar en sangre.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>En resumen:</strong> El estado de ayuno cambia el interruptor metabólico del cuerpo de "quemar el desayuno" a "quemar las reservas corporales".
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Beneficios Potenciales (y su Contexto Real)</h3>
+                <p>El entrenamiento en ayunas se asocia con varios beneficios muy citados. Es crucial entenderlos en su contexto científico.</p>
+                <h4 class="sub-heading">Aumento de la Hormona del Crecimiento (HGH)</h4>
+                <p>El ayuno provoca picos significativos de HGH. Sin embargo, este pico es de corta duración y su principal función en este estado es <strong>preservar la masa muscular</strong> y movilizar la grasa, no necesariamente construir más músculo. Sin un estímulo de entrenamiento y proteínas disponibles, este pico de HGH no se traduce en mayor hipertrofia.</p>
+                <h4 class="sub-heading">Mayor Oxidación de Grasas</h4>
+                <p>Es cierto que durante una sesión de cardio en ayunas se queman un mayor porcentaje de calorías provenientes de la grasa. <strong>PERO</strong>, la investigación es clara: la pérdida de grasa total a lo largo de 24 horas depende del <strong>déficit calórico total</strong>, no del momento en que se queman las grasas. El cuerpo es muy bueno compensando más tarde si el total de calorías es el mismo.</p>
+                <h4 class="sub-heading">Autofagia y Sensibilidad a la Insulina</h4>
+                <ul>
+                     <li><strong>Autofagia:</strong> El ayuno prolongado activa este proceso de "limpieza celular", que tiene beneficios para la salud y la longevidad. Sin embargo, el entrenamiento en sí mismo ya es un potente activador de la autofagia.</li>
+                    <li><strong>Sensibilidad a la Insulina:</strong> Este es uno de los beneficios más sólidos. El ayuno intermitente mejora la capacidad de las células para responder a la insulina, lo cual es excelente para la salud metabólica y la composición corporal a largo plazo.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Riesgos y Consideraciones para el Atleta</h3>
+                <p>El entrenamiento en ayunas no está exento de inconvenientes, especialmente cuando el rendimiento es la máxima prioridad.</p>
+                 <h4 class="sub-heading">Disminución del Rendimiento</h4>
+                <ul>
+                    <li><strong>Para Actividades de Alta Intensidad:</strong> En entrenamientos que dependen del glucógeno (sprints, levantamientos pesados, sesiones de hipertrofia de alto volumen), el rendimiento <strong>casi siempre disminuirá</strong> por la falta de combustible disponible. Menos repeticiones o menos peso equivalen a un menor estímulo.</li>
+                    <li><strong>Para Actividades de Baja Intensidad:</strong> En el cardio LISS, la caída del rendimiento es mínima o inexistente.</li>
+                </ul>
+                <h4 class="sub-heading">Aumento del Catabolismo Muscular</h4>
+                <ul>
+                    <li>El ayuno es un estado inherentemente <strong>catabólico</strong> (de descomposición). El entrenamiento en ayunas aumenta la tasa de degradación de proteínas musculares (MPB). Si no se consume proteína rápidamente después de la sesión, el balance neto de proteínas será negativo, lo que significa que podrías perder músculo.</li>
+                    <li>El cortisol, la hormona del estrés, también tiende a ser más elevado durante el entrenamiento en ayunas, lo que puede contribuir al catabolismo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>El Veredicto Final: ¿Es Mejor para la Fuerza y la Hipertrofia?</h3>
+                <p>La ecuación que determina el crecimiento muscular es simple: <strong>Balance Neto de Proteínas = Síntesis de Proteínas Musculares (MPS) - Degradación de Proteínas Musculares (MPB)</strong>.</p>
+                <ul>
+                    <li>El entrenamiento estimula la MPS.</li>
+                    <li>El entrenamiento en ayunas aumenta tanto la MPS (por el ejercicio) como la MPB (por el ayuno).</li>
+                </ul>
+                <p class="mt-4">La ciencia es concluyente: siempre que el <strong>consumo total de proteínas y calorías a lo largo del día sea el mismo</strong>, los estudios no muestran diferencias significativas en las ganancias de músculo y fuerza entre entrenar en ayunas o alimentado. La ventana de nutrición post-entrenamiento se vuelve absolutamente crítica en el entrenamiento en ayunas para detener el catabolismo.</p>
+                <div class="info-box">
+                    <strong>Conclusión de Askesis:</strong> "El entrenamiento en ayunas no es una estrategia mágicamente superior para la composición corporal. Es una <strong>herramienta de preferencia personal y conveniencia</strong>. Si te sientes bien, te permite ser más consistente y se ajusta a tu horario, es una opción viable. Si tu rendimiento cae o te sientes mal, no hay ninguna razón basada en la ciencia para forzarte a hacerlo."
+                </div>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Protocolo de Aplicación Segura y Eficaz</h3>
+                <p>Si decides entrenar en ayunas, seguir este protocolo minimizará los riesgos y maximizará los beneficios.</p>
+                
+                <h4 class="sub-heading">¿Qué tipo de entrenamiento es más adecuado?</h4>
+                 <ul>
+                    <li><strong>Ideal:</strong> Cardio de baja intensidad (LISS), movilidad, yoga.</li>
+                    <li><strong>Aceptable con precaución:</strong> Entrenamiento de fuerza de volumen moderado (no más de 60-75 minutos).</li>
+                    <li><strong>No recomendado:</strong> Sesiones de alta intensidad muy largas (HIIT de +20 min), tests de 1RM, entrenamientos de resistencia de larga duración.</li>
+                </ul>
+
+                <h4 class="sub-heading">El Protocolo de 3 Pasos</h4>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li><strong>(Opcional pero recomendado) Pre-Entrenamiento:</strong> 15-30 minutos antes de la sesión, consume 5-10 gramos de <strong>Aminoácidos de Cadena Ramificada (BCAA)</strong> o Aminoácidos Esenciales (EAA). Esto ayuda a mitigar la degradación muscular sin generar una respuesta insulínica significativa.</li>
+                    <li><strong>Entrenamiento:</strong> Mantén la sesión enfocada y eficiente. La hidratación con agua y electrolitos (sin azúcar) es crucial.</li>
+                    <li><strong>(No negociable) Post-Entrenamiento:</strong> Dentro de los <strong>60-90 minutos</strong> posteriores a la finalización de tu entrenamiento, consume una comida completa que contenga:
+                        <ul>
+                            <li><strong>30-40 gramos de proteína de alta calidad</strong> (suero de leche, huevos, pollo, etc.) para detener el catabolismo e iniciar la síntesis de proteínas.</li>
+                             <li><strong>Carbohidratos de digestión moderada a rápida</strong> (arroz, patatas, fruta) para reponer el glucógeno muscular.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

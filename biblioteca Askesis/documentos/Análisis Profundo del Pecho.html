@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Análisis Profundo del Pecho</title>
+    <meta name="description" content="Un informe exhaustivo sobre el desarrollo del pectoral: anatomía, biomecánica y los ejercicios más efectivos con pesas y peso corporal para un desarrollo completo.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Análisis del Pecho
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-gem mr-3 text-askesis-green"></i>El Pecho: Guía de Desarrollo Integral
+        </h1>
+        <p class="section-subtitle">
+           Un análisis profundo de la anatomía, biomecánica y los ejercicios clave para esculpir un pectoral fuerte, estético y funcional, abarcando todas sus divisiones.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Anatomía Funcional</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Pectoral Superior</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Pectoral Medio e Inferior</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Función de Aducción</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Anatomía Funcional: Más Allá de un Músculo Plano</h3>
+                <p>El pectoral es un músculo grande en forma de abanico, compuesto por distintas cabezas o porciones, cada una con una orientación de fibras diferente. Esto significa que para un desarrollo completo, debemos utilizar diferentes ángulos de ataque.</p>
+                <h4 class="sub-heading">Divisiones del Pectoral Mayor</h4>
+                <ul>
+                    <li><strong>Porción Clavicular (Pectoral Superior):</strong> Las fibras se originan en la clavícula y se dirigen hacia abajo. Su función principal es la <strong>flexión del hombro</strong>, como levantar el brazo hacia adelante y hacia arriba. Es la clave para un pecho "lleno".</li>
+                    <li><strong>Porción Esternocostal (Pectoral Medio e Inferior):</strong> Es la porción más grande, con fibras que van desde el esternón de forma más horizontal (media) y hacia arriba (inferior). Su función principal es la <strong>aducción horizontal del brazo</strong> (juntar los brazos al frente).</li>
+                </ul>
+                <h4 class="sub-heading">Músculos Sinergistas</h4>
+                 <ul>
+                    <li><strong>Deltoides Anterior:</strong> Es un asistente clave en todos los movimientos de press.</li>
+                    <li><strong>Tríceps Braquial:</strong> Es responsable de la extensión final del codo en todos los empujes. Un tríceps débil limitará la fuerza del pecho.</li>
+                     <li><strong>Serrato Anterior y Pectoral Menor:</strong> Músculos más pequeños pero cruciales para la salud y estabilidad de la escápula durante el movimiento.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "Entrenar el pecho de forma inteligente significa pensar en la dirección de las fibras. Para el pectoral superior, empuja en un ángulo inclinado. Para el resto del pecho, empuja en un plano horizontal o declinado."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pectoral Superior: Construyendo el "Estante"</h3>
+                <p>La porción clavicular es a menudo la más rezagada, y su desarrollo es esencial para una apariencia completa y estética. Para atacarla eficazmente, debemos utilizar presses en un plano inclinado.</p>
+                <h4 class="sub-heading">Ejercicios con Pesas (Press Inclinado)</h4>
+                <ul>
+                    <li><strong>Press Inclinado con Barra o Mancuernas:</strong> Es el ejercicio fundamental. Un ángulo de inclinación de <strong>30 a 45 grados</strong> ha demostrado ser el punto óptimo para maximizar la activación de las fibras superiores sin que el deltoides anterior domine en exceso.</li>
+                    <li><strong>Técnica Clave:</strong> Mantén la retracción y depresión escapular (pecho arriba, hombros atrás y abajo) para proteger la articulación. El agarre no debe ser excesivamente ancho.</li>
+                </ul>
+                <h4 class="sub-heading">Opciones con Peso Corporal</h4>
+                <ul>
+                     <li><strong>Flexiones Declinadas (Decline Push-ups):</strong> Al elevar los pies sobre un banco o caja, el cuerpo adopta un ángulo inclinado que replica el del press inclinado, aumentando la demanda sobre el pectoral superior. Cuanto más altos los pies, mayor el énfasis.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pectoral Medio e Inferior: La Base de la Masa y Fuerza</h3>
+                <p>Esta es la porción más grande y fuerte del pecho. Se entrena de manera óptima con movimientos de empuje en un plano plano o ligeramente declinado.</p>
+                <h4 class="sub-heading">Ejercicios con Pesas (Press Plano)</h4>
+                <ul>
+                    <li><strong>Press de Banca Plano con Barra:</strong> El "rey" de los empujes del torso. Es el mejor ejercicio para medir y construir la fuerza bruta del pectoral en su conjunto.</li>
+                    <li><strong>Press de Banca Plano con Mancuernas:</strong> Permite un mayor rango de movimiento y una aducción más completa al final, lo que puede ser superior para la hipertrofia. También exige más estabilización.</li>
+                </ul>
+                <h4 class="sub-heading">Opciones con Peso Corporal y Anillas</h4>
+                 <ul>
+                    <li><strong>Flexiones Estándar (Push-ups):</strong> El ejercicio de peso corporal más fundamental. Para maximizar la activación del pecho, utiliza un rango de movimiento completo y enfócate en "juntar las manos" en la contracción.</li>
+                    <li><strong>Fondos en Paralelas o Anillas (Dips):</strong> Un constructor de masa excepcional. Para enfocar el pecho, inclina el torso hacia adelante y permite que los codos se abran ligeramente. Las anillas, por su inestabilidad, añaden una demanda brutal al pecho.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>La Función de Aducción: Apretando para Crecer</h3>
+                <p>Mientras que los presses son excelentes para la sobrecarga, la función principal del pectoral medio e inferior es la aducción horizontal (juntar el brazo hacia la línea media del cuerpo). Para aislar esta función, necesitamos ejercicios de tipo "apertura" o "fly".</p>
+                 <h4 class="sub-heading">Ejercicios de Aislamiento y Aducción</h4>
+                <ul>
+                    <li><strong>Aperturas con Mancuernas (Dumbbell Flyes):</strong> El clásico ejercicio de aislamiento. La clave es no usar demasiado peso y enfocarse en sentir un buen estiramiento en la parte inferior, sin bajar en exceso para no estresar el hombro.</li>
+                    <li><strong>Cruce de Poleas (Cable Crossovers):</strong> Consideramos esta una opción superior a las mancuernas. La polea proporciona una tensión constante en todo el rango de movimiento, especialmente en la posición de máxima contracción, donde la mancuerna pierde tensión.</li>
+                </ul>
+                 <h4 class="sub-heading">Opciones con Peso Corporal y Anillas</h4>
+                 <ul>
+                    <li><strong>Flexiones con un "Squeeze":</strong> Durante una flexión normal, al llegar a la posición más alta, contrae activamente el pecho como si intentaras arrastrar tus manos una hacia la otra. Esto aumenta la activación de la aducción.</li>
+                     <li><strong>Aperturas en Anillas (Ring Flyes):</strong> El ejercicio de aislamiento de pecho más avanzado y eficaz de la calistenia. Permite un estiramiento profundo y una contracción máxima bajo una tensión inmensa. Se puede escalar ajustando la inclinación del cuerpo.</li>
+                 </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Plantilla de Programación (Día de Empuje)</h3>
+                <p>Un programa completo para el pecho debe incluir un press principal, un press inclinado y un movimiento de apertura/aducción.</p>
+                
+                <h4 class="sub-heading">Estructura del "Push Day"</h4>
+                <ul>
+                    <li><strong>Press de Banca Plano con Barra:</strong> 3-4 series de 5-8 repeticiones (Fuerza y masa general).</li>
+                    <li><strong>Press Inclinado con Mancuernas:</strong> 3 series de 8-12 repeticiones (Énfasis: Pectoral Superior).</li>
+                    <li><strong>Fondos en Paralelas o Flexiones:</strong> 3 series al fallo o en rango de 8-15 repeticiones (Énfasis: Pectoral inferior y tríceps).</li>
+                    <li><strong>Cruce de Poleas o Aperturas en Anillas:</strong> 3 series de 12-20 repeticiones (Énfasis: Aducción y estrés metabólico).</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio de Ejecución Askesis:</strong> "En cada repetición de press, no pienses solo en empujar el peso hacia arriba. Piensa en 'empujar tus bíceps uno contra el otro'. Este simple cue mental aumentará drásticamente la activación y contracción del pectoral."
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

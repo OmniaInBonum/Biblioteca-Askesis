@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: El Camino a la Lean Planche</title>
+    <meta name="description" content="Nuestra guía definitiva para dominar la Lean Planche, la progresión fundamental para alcanzar la Full Planche. Principios, técnica, programación y ejercicios de asistencia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Guía de Lean Planche
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-fighter-jet mr-3 text-askesis-green"></i>Guía Definitiva de Lean Planche
+        </h1>
+        <p class="section-subtitle">
+           El Lean Planche no es solo un paso intermedio; es el ejercicio fundamental para construir la fuerza y el acondicionamiento necesarios para la Full Planche. Aquí te enseñamos a dominarlo.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Fundamentos</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">La Progresión Lógica</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Técnica y Activación</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Programación</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Ejercicios de Asistencia</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Fundamentos de la Planche</h3>
+                <p>La <strong>Lean Planche</strong> (o plancha inclinada) es una posición isométrica donde el cuerpo se mantiene paralelo al suelo, con los brazos rectos, pero los pies permanecen en contacto con el suelo. La dificultad se ajusta variando el grado de inclinación hacia adelante.</p>
+                <h4 class="sub-heading">¿Por Qué es tan Importante?</h4>
+                <ul>
+                    <li><strong>Acondicionamiento Específico:</strong> Prepara los codos, muñecas y hombros para la inmensa tensión de la Full Planche. Ignorar este paso es una receta para la lesión.</li>
+                    <li><strong>Fuerza de Empuje Horizontal:</strong> Desarrolla una fuerza masiva en los hombros (deltoides anterior), pecho y tríceps en un patrón de empuje único.</li>
+                    <li><strong>Control Escapular:</strong> Enseña el concepto de <strong>protracción escapular</strong> bajo carga, que es la clave para la estabilidad de la Planche.</li>
+                    <li><strong>Activación del Core:</strong> Exige una contracción brutal del core para mantener el cuerpo en una línea recta y evitar que la cadera se hunda.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "La Lean Planche no es un ejercicio que se 'salta'. Es el laboratorio donde se forja la fuerza, se perfecciona la técnica y se acondicionan las articulaciones. Es el 90% del camino hacia la Full Planche."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>La Progresión Lógica: Construyendo la Base Primero</h3>
+                <p>En Askesis, entendemos que el camino hacia la Planche sigue dos vías paralelas que se refuerzan mutuamente: el <strong>Acondicionamiento de Fuerza</strong> y las <strong>Progresiones de Habilidad</strong>. Es un error ver la Lean Planche como un simple peldaño; es la carretera sobre la que se construyen todos los demás hitos.</p>
+                
+                <h4 class="sub-heading">1. Acondicionamiento de Fuerza: La Lean Planche como Pilar</h4>
+                <p>La <strong>Lean Planche es tu principal ejercicio de fuerza</strong> desde el día uno. No es una progresión que se supera y se abandona. Es la herramienta que usarás constantemente para construir la fuerza bruta en tus hombros y acondicionar tus muñecas y codos. La dificultad no proviene de levantar los pies, sino de <strong>aumentar gradualmente la inclinación (el "lean")</strong> hacia adelante, aplicando así una sobrecarga progresiva.</p>
+
+                <h4 class="sub-heading">2. Progresiones de Habilidad Isométrica: Los Hitos del Camino</h4>
+                <p>Estas son las posturas isométricas que alcanzas a medida que tu fuerza base (construida con la Lean Planche) aumenta. Sirven como pruebas de tu progreso.</p>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li><strong>Plancha de Rana (Frog Stand):</strong> El punto de partida para el equilibrio y la fuerza básica de la muñeca.</li>
+                    <li><strong>Plancha Agrupada (Tuck Planche):</strong> El primer nivel real donde los pies dejan el suelo. Las rodillas están pegadas al pecho, minimizando la palanca.</li>
+                    <li><strong>Plancha Agrupada Avanzada (Advanced Tuck):</strong> Se extiende la cadera, manteniendo las rodillas dobladas. La espalda está plana.</li>
+                    <li><strong>Plancha a horcajadas (Straddle Planche):</strong> Las piernas se abren para acortar la palanca. Es la primera variación con piernas extendidas.</li>
+                    <li><strong>Full Planche:</strong> La expresión final de la habilidad, con piernas juntas y extendidas.</li>
+                </ol>
+                 <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "Usa la <strong>Lean Planche</strong> para hacerte más fuerte. Usa las <strong>progresiones isométricas</strong> (Tuck, Straddle, etc.) para medir y expresar esa fuerza."
+                </div>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Técnica y Activación: Los Puntos Clave</h3>
+                <p>Una Lean Planche perfecta no se mide por el tiempo de aguante, sino por la calidad de la posición. Estos son los puntos no negociables.</p>
+                <h4 class="sub-heading">Checklist de la Forma Perfecta</h4>
+                <ul>
+                    <li><strong>Protracción Escapular Máxima:</strong> Separa tus escápulas y empuja el suelo tan fuerte como puedas, creando una ligera curva en la parte superior de la espalda. ¡Nunca dejes que tus escápulas se junten!</li>
+                    <li><strong>Codos Bloqueados y Rotados:</strong> Los codos deben estar completamente extendidos y la "fosa" del codo debe apuntar hacia adelante. Esto protege la articulación y maximiza la transferencia de fuerza.</li>
+                    <li><strong>Retroversión Pélvica Posterior (PPT):</strong> Aprieta los glúteos y mete la pelvis "hacia adentro". Esto aplana la espalda baja y activa el core. Evita a toda costa que la cadera se hunda o que la espalda se arquee.</li>
+                    <li><strong>La Inclinación (Lean):</strong> El factor clave. Inclínate hacia adelante hasta que sientas que tus hombros están directamente sobre tus manos o ligeramente más adelante. Cuanta más inclinación, más difícil es el ejercicio.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Programación Inteligente para el Progreso</h3>
+                <p>La Planche es una habilidad que responde mejor a la frecuencia y la calidad que al volumen basura. La recuperación es fundamental.</p>
+                <h4 class="sub-heading">Estructurando tu Entrenamiento</h4>
+                <ul>
+                    <li><strong>Frecuencia:</strong> Recomendamos entrenar la Planche <strong>2 o 3 veces por semana</strong>, nunca en días consecutivos.</li>
+                    <li><strong>Volumen Isométrico (Holds):</strong> Apunta a un total de <strong>30 a 60 segundos de tiempo total de aguante</strong> por sesión. Esto se puede dividir en series más cortas. Por ejemplo, 5 series de 10 segundos de aguante.</li>
+                    <li><strong>Intensidad:</strong> Elige una inclinación que puedas aguantar con forma perfecta durante un máximo de 10-15 segundos. Si puedes aguantar más, necesitas inclinarte más.</li>
+                    <li><strong>Integración con Dinámicos:</strong> Combina los aguantes isométricos con ejercicios dinámicos (ver siguiente pestaña) para un desarrollo más completo.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Ejercicios de Asistencia y Acondicionamiento</h3>
+                <p>Para romper estancamientos y fortalecer los eslabones débiles, es crucial incorporar ejercicios de asistencia específicos.</p>
+                
+                <h4 class="sub-heading">Ejercicios Dinámicos</h4>
+                <ul>
+                    <li><strong>Pseudo Planche Push-ups:</strong> Flexiones con las manos colocadas a la altura de la cintura. Cuanto más cerca de la cadera, más se asemeja a la Planche. Fortalece el patrón de empuje.</li>
+                    <li><strong>Planche Leans con Deslizamiento:</strong> Desde una posición de plancha, desliza los pies hacia adelante y hacia atrás, moviéndote a través de la posición de Lean Planche. Mejora el control y la fuerza dinámica.</li>
+                </ul>
+                 <h4 class="sub-heading">Ejercicios de Acondicionamiento</h4>
+                <ul>
+                    <li><strong>Acondicionamiento de Muñeca:</strong> Realiza estiramientos y círculos de muñeca antes y después de cada sesión para mantener la salud articular.</li>
+                    <li><strong>Sostén en L-Sit:</strong> Desarrolla la fuerza de compresión abdominal y la depresión escapular, ambas transferibles a la Planche.</li>
+                    <li><strong>Flexiones en Pica/Pino:</strong> Aumentan la fuerza general de empuje vertical, lo que tiene una alta transferencia a la fuerza de hombros necesaria para la Planche.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio de Integración Askesis:</strong> Dedica el 70% de tu esfuerzo a practicar la progresión isométrica principal (Lean Planche) y el 30% a los ejercicios de asistencia para construir una base de fuerza sólida y a prueba de lesiones.
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

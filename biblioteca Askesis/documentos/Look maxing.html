@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Guía del Maxing para un Glow Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F8FF;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .flowchart-node {
+            border: 2px solid #0073E6;
+            background-color: #CCE5FF;
+            color: #004AAD;
+            min-height: 120px;
+        }
+        .flowchart-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            position: relative;
+        }
+        .flowchart-connector::after {
+            content: '▼';
+            font-size: 2rem;
+            color: #0073E6;
+            position: absolute;
+            transform: translateY(50%);
+        }
+        @media (min-width: 768px) {
+            .flowchart-connector::after {
+                content: '►';
+                transform: translateX(50%);
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center my-8 md:my-16">
+            <h1 class="text-4xl md:text-6xl font-black text-[#004AAD] tracking-tight">Maxing: La Guía Definitiva para tu "Glow Up"</h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Una exploración visual de la transformación personal en la era digital, desde la mejora física hasta el bienestar mental.</p>
+        </header>
+
+        <main class="space-y-12">
+            
+            <section id="intro" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="card p-8">
+                    <h2 class="text-3xl font-bold text-[#004AAD]">¿Qué es un "Glow Up"?</h2>
+                    <p class="mt-4 text-gray-600">El término "glow up" se refiere a una transformación personal notablemente positiva. Es un viaje de auto-mejora que irradia desde adentro hacia afuera, abarcando no solo la apariencia física, sino también un aumento en la confianza y una evolución del estilo de vida. No es una moda pasajera, sino la celebración de un pulido personal que encuentra un eco masivo en la era digital.</p>
+                </div>
+                <div class="card p-8 text-center bg-gradient-to-br from-[#0073E6] to-[#004AAD] text-white">
+                    <h3 class="text-2xl font-semibold">Presión por la Perfección</h3>
+                    <p class="text-8xl font-black my-4">72%</p>
+                    <p class="text-lg">de los estudiantes reportan sentir presión por alcanzar un "look perfecto" debido a los estándares de las redes sociales. Esto subraya la importancia de un enfoque equilibrado y saludable hacia la auto-mejora.</p>
+                </div>
+            </section>
+
+            <section id="definitions" class="card p-8">
+                <h2 class="text-3xl font-bold text-center text-[#004AAD] mb-6">El Universo del "Maxing"</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-4xl mx-auto">El "Maxing" es la acción de "maximizar" un aspecto específico de la vida. Aunque sus orígenes en ciertas comunidades online son problemáticos y requieren un enfoque crítico, el término se ha expandido para describir diferentes formas de auto-mejora intensiva.</p>
+                <div class="overflow-x-auto">
+                    <table class="w-full min-w-max text-left">
+                        <thead>
+                            <tr class="border-b-2 border-[#0073E6]">
+                                <th class="p-4 text-lg font-bold text-[#004AAD]">Tipo de Maxing</th>
+                                <th class="p-4 text-lg font-bold text-[#004AAD]">Objetivo Principal</th>
+                                <th class="p-4 text-lg font-bold text-[#004AAD]">Áreas de Enfoque Clave</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-semibold">Looksmaxing</td>
+                                <td class="p-4">Maximizar el atractivo físico y la confianza.</td>
+                                <td class="p-4">Cuidado de la piel, fitness, grooming, estilo, rasgos faciales.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-semibold">Healthmaxing</td>
+                                <td class="p-4">Optimizar la salud física y mental.</td>
+                                <td class="p-4">Nutrición, ejercicio, sueño, manejo del estrés, suplementos.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-semibold">Auramaxing</td>
+                                <td class="p-4">Proyectar una presencia y energía magnética.</td>
+                                <td class="p-4">Comunicación no verbal, lenguaje corporal, carisma.</td>
+                            </tr>
+                             <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-semibold">Softmaxing</td>
+                                <td class="p-4">Potenciar la salud mental y habilidades sociales.</td>
+                                <td class="p-4">Autoconciencia, manejo de emociones, terapia, empatía.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-semibold">Skillmaxing</td>
+                                <td class="p-4">Adquirir y combinar habilidades estratégicamente.</td>
+                                <td class="p-4">Aprendizaje, apilamiento de habilidades, mentoría.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <section id="looksmaxing-flowchart">
+                <h2 class="text-3xl font-bold text-center text-[#004AAD] mb-8">El Plan Maestro del Looksmaxing: 5 Niveles para la Transformación</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="card flowchart-node w-full flex flex-col justify-center items-center p-4 text-center">
+                            <div class="text-4xl mb-2">①</div>
+                            <h3 class="font-bold">Cimientos</h3>
+                            <p class="text-sm">Nutrición, Sueño, Hidratación, Skincare Básico.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center md:hidden">
+                        <div class="flowchart-connector"></div>
+                    </div>
+                    <div class="hidden md:flex items-center justify-center">
+                        <div class="flowchart-connector"></div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="card flowchart-node w-full flex flex-col justify-center items-center p-4 text-center">
+                             <div class="text-4xl mb-2">②</div>
+                            <h3 class="font-bold">Físico</h3>
+                            <p class="text-sm">Entrenamiento de Fuerza y Cardio.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center md:hidden">
+                        <div class="flowchart-connector"></div>
+                    </div>
+                    <div class="hidden md:flex items-center justify-center">
+                        <div class="flowchart-connector"></div>
+                    </div>
+                     <div class="flex flex-col items-center">
+                        <div class="card flowchart-node w-full flex flex-col justify-center items-center p-4 text-center">
+                            <div class="text-4xl mb-2">③</div>
+                            <h3 class="font-bold">Grooming</h3>
+                            <p class="text-sm">Skincare Avanzado, Cuidado Capilar y Dental.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center md:hidden">
+                        <div class="flowchart-connector"></div>
+                    </div>
+                    <div class="hidden md:flex items-center justify-center">
+                        <div class="flowchart-connector"></div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="card flowchart-node w-full flex flex-col justify-center items-center p-4 text-center">
+                            <div class="text-4xl mb-2">④</div>
+                            <h3 class="font-bold">Estética Facial</h3>
+                            <p class="text-sm">Mewing, Gua Sha (con perspectiva crítica).</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center md:hidden">
+                        <div class="flowchart-connector"></div>
+                    </div>
+                    <div class="hidden md:flex items-center justify-center">
+                        <div class="flowchart-connector"></div>
+                    </div>
+                     <div class="flex flex-col items-center">
+                        <div class="card flowchart-node w-full flex flex-col justify-center items-center p-4 text-center">
+                            <div class="text-4xl mb-2">⑤</div>
+                            <h3 class="font-bold">Estilo</h3>
+                            <p class="text-sm">Descubrir tu estilo, construir un armario versátil.</p>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+            
+            <section id="visualizations" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-center text-[#004AAD] pt-6">Pilares del "Glow Up" Holístico</h3>
+                    <p class="text-center text-gray-600 px-6 pb-2">Un "glow up" auténtico requiere un equilibrio entre diferentes áreas. No se trata solo de la apariencia, sino de un desarrollo integral.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="holisticGlowUpChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-center text-[#004AAD] pt-6">Distribución Semanal de Ejercicio</h3>
+                     <p class="text-center text-gray-600 px-6 pb-2">Una rutina de fitness equilibrada combina el entrenamiento de fuerza para construir músculo y el cardio para la salud cardiovascular.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="workoutSplitChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-center text-[#004AAD] pt-6">La Dualidad de la Auto-Mejora</h3>
+                    <p class="text-center text-gray-600 px-6 pb-2">El "maxing" ofrece beneficios claros, pero conlleva riesgos de obsesión y presión. La clave es el equilibrio y la motivación interna.</p>
+                    <div class="chart-container h-80 md:h-96">
+                        <canvas id="risksVsBenefitsChart"></canvas>
+                    </div>
+                </div>
+                <div class="card lg:col-span-1 flex flex-col justify-center p-8 bg-gradient-to-br from-yellow-300 to-orange-400 text-gray-900">
+                    <h3 class="text-2xl font-bold text-center">Una Mirada Crítica</h3>
+                     <p class="mt-4">Es fundamental abordar estas tendencias con escepticismo. La falta de evidencia científica para técnicas como el "mewing" y los orígenes problemáticos de la terminología "-maxxing" en foros misóginos son aspectos que no deben ser ignorados. Un "glow up" saludable prioriza el bienestar real sobre la validación externa y los estándares irreales.</p>
+                </div>
+            </section>
+
+            <footer class="text-center py-8 border-t-2 border-[#66B3FF] mt-16">
+                 <h2 class="text-2xl font-bold text-[#004AAD]">Hacia un "Glow Up" Equilibrado y Saludable</h2>
+                 <p class="mt-4 text-gray-600 max-w-3xl mx-auto">La transformación real lleva tiempo. Personaliza tu viaje, sé paciente y celebra los pequeños progresos. El objetivo final no es la perfección, sino sentirte genuinamente bien contigo mismo de una manera auténtica y duradera.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+        const FONT_COLOR = '#1f2937'; 
+        const GRID_COLOR = '#e5e7eb';
+        const PALETTE = {
+            blue1: '#004AAD',
+            blue2: '#0073E6',
+            blue3: '#66B3FF',
+            blue4: '#CCE5FF',
+            yellow: '#FBBF24',
+            orange: '#FB923C',
+            gray: '#6B7280'
+        };
+
+        const wrapLabel = (label, maxWidth = 16) => {
+            if (label.length <= maxWidth) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+
+        const SHARED_CHART_OPTIONS = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: FONT_COLOR,
+                        font: { size: 14 }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        const renderHolisticGlowUpChart = () => {
+            const ctx = document.getElementById('holisticGlowUpChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        wrapLabel('Looksmaxing (Apariencia)'), 
+                        wrapLabel('Healthmaxing (Salud)'), 
+                        wrapLabel('Softmaxing (Mente/Social)'), 
+                        wrapLabel('Auramaxing (Presencia)'), 
+                        wrapLabel('Skillmaxing (Habilidades)')
+                    ],
+                    datasets: [{
+                        label: 'Importancia en un Glow Up Integral',
+                        data: [8, 10, 9, 7, 8],
+                        backgroundColor: 'rgba(0, 115, 230, 0.2)',
+                        borderColor: PALETTE.blue2,
+                        pointBackgroundColor: PALETTE.blue2,
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: PALETTE.blue2
+                    }]
+                },
+                options: {
+                    ...SHARED_CHART_OPTIONS,
+                    scales: {
+                        r: {
+                            angleLines: { color: GRID_COLOR },
+                            grid: { color: GRID_COLOR },
+                            pointLabels: { 
+                                color: FONT_COLOR,
+                                font: { size: 12 }
+                            },
+                            ticks: {
+                                backdropColor: 'rgba(255, 255, 255, 0.75)',
+                                color: FONT_COLOR
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        const renderWorkoutSplitChart = () => {
+            const ctx = document.getElementById('workoutSplitChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+                    datasets: [
+                        {
+                            label: 'Días de Fuerza',
+                            data: [3, 4, 3, 4],
+                            backgroundColor: PALETTE.blue1,
+                            borderColor: PALETTE.blue1,
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Días de Cardio',
+                            data: [2, 2, 3, 2],
+                            backgroundColor: PALETTE.blue3,
+                            borderColor: PALETTE.blue3,
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    ...SHARED_CHART_OPTIONS,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Días por Semana', color: FONT_COLOR },
+                            ticks: { color: FONT_COLOR },
+                            grid: { color: GRID_COLOR }
+                        },
+                        x: {
+                            ticks: { color: FONT_COLOR },
+                            grid: { color: 'transparent' }
+                        }
+                    },
+                    plugins: {
+                        ...SHARED_CHART_OPTIONS.plugins,
+                        tooltip: {
+                             ...SHARED_CHART_OPTIONS.plugins.tooltip,
+                             mode: 'index',
+                             intersect: false,
+                        }
+                    },
+                }
+            });
+        };
+
+        const renderRisksVsBenefitsChart = () => {
+            const ctx = document.getElementById('risksVsBenefitsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Beneficios (Confianza, Salud)', 'Riesgos (Obsesión, Presión)'],
+                    datasets: [{
+                        label: 'Balance de la Auto-Mejora',
+                        data: [65, 35],
+                        backgroundColor: [
+                            PALETTE.blue2,
+                            PALETTE.orange,
+                        ],
+                        borderColor: [
+                            PALETTE.blue1,
+                            PALETTE.yellow,
+                        ],
+                        borderWidth: 2,
+                        hoverOffset: 4
+                    }]
+                },
+                options: { ...SHARED_CHART_OPTIONS }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderHolisticGlowUpChart();
+            renderWorkoutSplitChart();
+            renderRisksVsBenefitsChart();
+        });
+    </script>
+</body>
+</html>

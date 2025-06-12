@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Core y Cintura Escapular</title>
+    <meta name="description" content="Nuestra filosofía y metodología para construir un core fuerte, estable y una cintura escapular funcional, los pilares de un rendimiento superior y la prevención de lesiones.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Core y Cintura Escapular
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-shield-alt mr-3 text-askesis-green"></i>Guía de Core y Cintura Escapular
+        </h1>
+        <p class="section-subtitle">
+           La guía fundamental para forjar un torso a prueba de balas. Aprende a entrenar el core y los estabilizadores del hombro para una fuerza, estabilidad y resiliencia superiores.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Pilar 1: El Core Funcional</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Pilar 2: La Cintura Escapular</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Pilar 3: Principios del Core</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Pilar 4: Principios Escapulares</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Plantilla de Rutina</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 1: El Core Funcional - Más que un Six-Pack</h3>
+                <p>En Askesis, definimos el "core" como un cilindro de 360 grados que estabiliza la columna vertebral y transfiere fuerza entre el tren inferior y superior. Es mucho más que el recto abdominal (el "six-pack").</p>
+                <h4 class="sub-heading">Los Componentes del Core</h4>
+                <ul>
+                    <li><strong>Recto Abdominal:</strong> El músculo visible frontal, responsable de la flexión de la columna (como en un crunch).</li>
+                    <li><strong>Oblicuos (Internos y Externos):</strong> Ubicados a los lados, controlan la rotación y la flexión lateral.</li>
+                    <li><strong>Transverso Abdominal:</strong> La capa más profunda, actúa como una faja natural, estabilizando la pelvis y la columna lumbar.</li>
+                     <li><strong>Suelo Pélvico y Diafragma:</strong> Forman el "piso" y el "techo" de nuestro cilindro, cruciales para la presión intraabdominal.</li>
+                     <li><strong>Multífidos y Erectores Espinales:</strong> Músculos de la espalda baja que trabajan en conjunto para estabilizar la columna.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "Un core fuerte no es solo para la estética. Es el epicentro de todo movimiento atlético. Entrenarlo de forma integral es innegociable para el rendimiento y la prevención de lesiones."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 2: La Cintura Escapular - La Base de la Fuerza Superior</h3>
+                <p>La cintura escapular (las escápulas y los músculos que las rodean) es la plataforma sobre la que se asienta el hombro. Una base inestable conduce a una pérdida de fuerza y a un alto riesgo de lesión.</p>
+                <h4 class="sub-heading">Funciones y Músculos Clave</h4>
+                <ul>
+                    <li><strong>Estabilidad:</strong> Proporciona una base sólida para todos los movimientos de empuje y tracción.</li>
+                    <li><strong>Movilidad:</strong> Permite el rango de movimiento completo y saludable del brazo.</li>
+                    <li><strong>Músculos Principales:</strong> Trapecios (superior, medio, inferior), romboides, serrato anterior y elevador de la escápula. Entrenar la espalda (Pilar de Amplitud y Densidad) cubre gran parte de este trabajo.</li>
+                </ul>
+                 <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "No puedes disparar un cañón desde una canoa. Una cintura escapular débil es como una canoa; limita el potencial de fuerza de tus brazos y pecho."
+                </div>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 3: Principios del Entrenamiento del Core - Resistir el Movimiento</h3>
+                <p>La función principal del core no es crear movimiento (como en los crunches), sino <strong>resistirlo</strong>. Por ello, nuestro enfoque se basa en ejercicios "anti-movimiento".</p>
+                <h4 class="sub-heading">Anti-Extensión (Resistir el arqueo de la espalda)</h4>
+                 <ul>
+                    <li><strong>Pesas:</strong> Rueda Abdominal (Ab Wheel).</li>
+                    <li><strong>Peso Corporal/Anillas:</strong> Plancha, Body Saw (en suelo o anillas), Progresiones a Front Lever.</li>
+                </ul>
+                <h4 class="sub-heading">Anti-Rotación (Resistir el giro del torso)</h4>
+                 <ul>
+                    <li><strong>Pesas:</strong> Press Pallof (con polea o banda).</li>
+                    <li><strong>Peso Corporal/Anillas:</strong> Plancha con toque de hombro, Renegade Rows.</li>
+                </ul>
+                <h4 class="sub-heading">Anti-Flexión Lateral (Resistir la inclinación lateral)</h4>
+                 <ul>
+                    <li><strong>Pesas:</strong> Paseo del Granjero Unilateral (Suitcase Carry).</li>
+                    <li><strong>Peso Corporal/Anillas:</strong> Plancha Lateral.</li>
+                </ul>
+                 <h4 class="sub-heading">Flexión de Cadera/Columna (Trabajo abdominal tradicional)</h4>
+                 <ul>
+                    <li><strong>Pesas:</strong> Crunches en polea.</li>
+                    <li><strong>Peso Corporal/Anillas:</strong> Elevaciones de piernas colgado (Hanging Leg Raises), L-Sit.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 4: Principios del Entrenamiento Escapular - Control Total</h3>
+                <p>Un entrenamiento escapular eficaz se centra en aprender a mover y estabilizar las escápulas de forma voluntaria a través de sus cuatro movimientos principales.</p>
+                <h4 class="sub-heading">Movimientos Escapulares Fundamentales</h4>
+                <ul>
+                    <li><strong>Retracción (Juntar escápulas):</strong> Esencial para todos los remos.
+                        <br><strong>Ejercicios:</strong> Remo Invertido en anillas (con pausa), Face Pulls.
+                    </li>
+                     <li><strong>Protracción (Separar escápulas):</strong> Crucial para la salud del hombro y la fuerza en los empujes.
+                        <br><strong>Ejercicios:</strong> Flexiones escapulares (Scapular Push-ups), Progresiones a Plancha.
+                    </li>
+                     <li><strong>Depresión (Bajar escápulas):</strong> La base de la estabilidad en dominadas y presses verticales.
+                        <br><strong>Ejercicios:</strong> "Escápulas activas" colgado de una barra (Scapular Pull-ups), Sostén en soporte de anillas.
+                    </li>
+                     <li><strong>Elevación (Subir escápulas):</strong> Importante para el rango completo en presses y para el desarrollo del trapecio superior.
+                        <br><strong>Ejercicios:</strong> Encogimientos (Shrugs) con barra o mancuernas.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Plantilla de Rutina Askesis: Circuito de Activación y Fuerza</h3>
+                <p>Este circuito puede realizarse como un calentamiento completo antes de una sesión, o al final como trabajo de acondicionamiento. Realizar 2-3 rondas.</p>
+                
+                <h4 class="sub-heading">Circuito de Estabilidad del Tronco</h4>
+                <ul>
+                    <li><strong>Plancha Frontal:</strong> 30-60 segundos (Anti-Extensión).</li>
+                    <li><strong>Press Pallof:</strong> 10-12 repeticiones por lado (Anti-Rotación).</li>
+                    <li><strong>Plancha Lateral:</strong> 20-40 segundos por lado (Anti-Flexión Lateral).</li>
+                    <li><strong>Face Pulls (con banda o anillas):</strong> 15-20 repeticiones (Salud Escapular/Retracción).</li>
+                    <li><strong>Flexiones Escapulares:</strong> 10-15 repeticiones (Control Escapular/Protracción).</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio de Integración:</strong> La mejor forma de entrenar el core y la cintura escapular es a través de los levantamientos compuestos pesados (sentadillas, peso muerto, presses, remos) con una técnica impecable. Este circuito es un complemento para fortalecer eslabones débiles y mejorar la conciencia corporal.
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

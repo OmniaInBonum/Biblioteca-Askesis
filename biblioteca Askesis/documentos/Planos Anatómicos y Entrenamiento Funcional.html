@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Planos Anatómicos y Entrenamiento Funcional</title>
+    <meta name="description" content="La guía definitiva sobre los planos anatómicos del movimiento. Aprende a entrenar en los planos sagital, frontal y transversal para un rendimiento superior y la prevención de lesiones.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Planos Anatómicos
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-drafting-compass mr-3 text-askesis-green"></i>Planos Anatómicos: Entrenar en 3D
+        </h1>
+        <p class="section-subtitle">
+           El movimiento humano no ocurre en una sola dirección. Aprender a analizar y programar el entrenamiento en los tres planos anatómicos es la clave para un rendimiento atlético superior y un físico a prueba de lesiones.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Los 3 Planos</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Plano Sagital</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Plano Frontal</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Plano Transversal</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Aplicación por Disciplina</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Los 3 Planos del Movimiento Humano</h3>
+                <p>Para analizar el movimiento, imaginamos que el cuerpo es dividido por tres planos invisibles. Cada movimiento que realizamos ocurre predominantemente en uno de estos planos.</p>
+                <h4 class="sub-heading">Definiciones</h4>
+                <ul>
+                    <li><strong>Plano Sagital:</strong> Divide el cuerpo en una mitad izquierda y una derecha. Los movimientos en este plano son hacia <strong>adelante y hacia atrás</strong>. Es el plano de la flexión y la extensión.</li>
+                    <li><strong>Plano Frontal (o Coronal):</strong> Divide el cuerpo en una mitad frontal y una trasera. Los movimientos en este plano son <strong>hacia los lados</strong>. Es el plano de la abducción y la aducción.</li>
+                    <li><strong>Plano Transversal (u Horizontal):</strong> Divide el cuerpo en una mitad superior y una inferior. Los movimientos en este plano son <strong>rotacionales</strong>.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "La mayoría de los programas de gimnasio tradicionales sobre-enfatizan el plano sagital. Un atleta verdaderamente funcional y resiliente debe ser fuerte y estable en los tres planos."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>El Plano Sagital: El Plano de la Fuerza y la Hipertrofia</h3>
+                <p>Es el plano dominante en el culturismo y el powerlifting. La mayoría de los ejercicios clásicos de levantamiento de pesas ocurren aquí.</p>
+                <h4 class="sub-heading">Movimientos Característicos</h4>
+                <ul>
+                    <li><strong>Flexión:</strong> Reducir el ángulo de una articulación (ej: curl de bíceps).</li>
+                    <li><strong>Extensión:</strong> Aumentar el ángulo de una articulación (ej: extensión de tríceps).</li>
+                </ul>
+                <h4 class="sub-heading">Ejemplos de Ejercicios</h4>
+                 <ul>
+                    <li><strong>Sentadillas y sus variantes:</strong> Flexión y extensión de cadera y rodilla.</li>
+                    <li><strong>Peso Muerto y sus variantes:</strong> Principalmente extensión de cadera.</li>
+                    <li><strong>Todos los Presses (Banca, Militar):</strong> Flexión y aducción horizontal del hombro.</li>
+                    <li><strong>Todos los Curls de Bíceps y Extensiones de Tríceps:</strong> Flexión y extensión del codo.</li>
+                    <li><strong>Correr en línea recta, saltos hacia adelante.</strong></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>El Plano Frontal: El Plano de la Amplitud y la Estabilidad</h3>
+                <p>Este plano es crucial para la estética (la forma en "V") y para la estabilidad de la cadera y el hombro, previniendo lesiones comunes como el valgo de rodilla.</p>
+                 <h4 class="sub-heading">Movimientos Característicos</h4>
+                <ul>
+                    <li><strong>Abducción:</strong> Alejar una extremidad de la línea media del cuerpo (ej: elevaciones laterales).</li>
+                    <li><strong>Aducción:</strong> Acercar una extremidad a la línea media del cuerpo (ej: trabajo de aductores en máquina).</li>
+                    <li><strong>Flexión Lateral de la Columna:</strong> Inclinarse hacia un lado.</li>
+                </ul>
+                <h4 class="sub-heading">Ejemplos de Ejercicios</h4>
+                 <ul>
+                    <li><strong>Elevaciones Laterales:</strong> Abducción pura del hombro.</li>
+                    <li><strong>Dominadas con Agarre Ancho:</strong> Aducción del hombro.</li>
+                    <li><strong>Estocadas Laterales (Side Lunges):</strong> Trabajan aductores y glúteo medio.</li>
+                    <li><strong>Paseo del Granjero Unilateral (Suitcase Carry):</strong> Un ejercicio anti-flexión lateral para el core.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>El Plano Transversal: El Plano de la Potencia Atlética</h3>
+                <p>Este es el plano más descuidado en el gimnasio, pero el más importante para la mayoría de los deportes (golf, tenis, béisbol, artes marciales). La capacidad de generar y resistir la rotación es la base de la potencia atlética.</p>
+                <h4 class="sub-heading">Movimientos Característicos</h4>
+                <ul>
+                    <li><strong>Rotación Interna y Externa:</strong> Girar una extremidad sobre su propio eje.</li>
+                    <li><strong>Rotación del Tronco:</strong> Girar el torso.</li>
+                </ul>
+                <h4 class="sub-heading">Ejemplos de Ejercicios</h4>
+                 <ul>
+                     <li><strong>Lanzamientos de Balón Medicinal contra la Pared:</strong> Desarrollan potencia rotacional explosiva.</li>
+                     <li><strong>Leñadores (Wood Chops) con Polea:</strong> Un movimiento de rotación controlado y excelente para el core.</li>
+                     <li><strong>Press Pallof:</strong> El principal ejercicio anti-rotación. Enseña al core a resistir fuerzas de torsión.</li>
+                     <li><strong>Russian Twists:</strong> Un ejercicio de rotación del tronco, aunque debe realizarse con control.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Aplicación por Disciplina: Entendiendo los Énfasis</h3>
+                <p>Cada disciplina tiene un sesgo natural hacia uno de los planos. Un atleta inteligente entrena en todos los planos para mejorar su rendimiento y reducir el riesgo de lesiones.</p>
+                
+                <h4 class="sub-heading">Powerlifting y Bodybuilding</h4>
+                <ul>
+                    <li><strong>Énfasis Dominante:</strong> <strong>Plano Sagital</strong> (Sentadilla, Press de Banca, Peso Muerto).</li>
+                    <li><strong>Necesidades Complementarias:</strong> El trabajo en el <strong>plano frontal</strong> (ej: elevaciones laterales, trabajo de aductor/abductor) es crucial para la estética y la estabilidad de la cadera. El trabajo en el <strong>plano transversal</strong> (ej: Press Pallof) fortalece el core y previene lesiones lumbares.</li>
+                </ul>
+                <h4 class="sub-heading">Calistenia</h4>
+                <ul>
+                    <li><strong>Énfasis Dominante:</strong> Mayormente <strong>Plano Sagital</strong> (Dominadas, Fondos, Flexiones).</li>
+                    <li><strong>Necesidades Complementarias:</strong> El trabajo en el <strong>plano frontal</strong> es vital para habilidades como el Human Flag. El <strong>plano transversal</strong> se entrena indirectamente en movimientos que requieren estabilización contra la rotación.</li>
+                </ul>
+                 <h4 class="sub-heading">Deportes (Tenis, Golf, Fútbol, Béisbol)</h4>
+                <ul>
+                    <li><strong>Énfasis Dominante:</strong> <strong>Plano Transversal</strong> (Swings, lanzamientos, patadas, cambios de dirección).</li>
+                    <li><strong>Necesidades Complementarias:</strong> El entrenamiento en el <strong>plano sagital</strong> (sentadillas, peso muerto) construye la base de fuerza general. El trabajo en el <strong>plano frontal</strong> (estocadas laterales) es clave para la agilidad y la prevención de lesiones de rodilla y cadera.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

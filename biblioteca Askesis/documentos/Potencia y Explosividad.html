@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis: Potencia y Explosividad</title>
+    <meta name="description" content="La guía definitiva para desarrollar potencia y explosividad. Aprende sobre pliometría, entrenamiento balístico y cómo programar para ser un atleta más rápido y poderoso.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Potencia y Explosividad
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-rocket mr-3 text-askesis-green"></i>Guía de Potencia: De Fuerte a Explosivo
+        </h1>
+        <p class="section-subtitle">
+           La fuerza es la base, pero la potencia es la que gana partidos. Aprende la ciencia y los métodos para convertir tu fuerza máxima en velocidad explosiva y dominar tu disciplina.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Principios de Potencia</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Pliometría</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Entrenamiento Balístico</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Fuerza para Potencia</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Programación</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>La Ciencia de la Potencia: Más Allá de la Fuerza</h3>
+                <p>Ser fuerte es la capacidad de mover una carga pesada. Ser potente es la capacidad de mover una carga (pesada o ligera) a la máxima velocidad posible.</p>
+                <h4 class="sub-heading">La Ecuación de Potencia</h4>
+                <ul>
+                    <li><strong>Potencia = Fuerza x Velocidad:</strong> Esta es la fórmula fundamental. Demuestra que no puedes ser potente sin una base de fuerza, pero que la fuerza por sí sola no es suficiente.</li>
+                    <li><strong>Curva Fuerza-Velocidad:</strong> Existe una relación inversa entre la fuerza que puedes aplicar y la velocidad a la que puedes moverte. Con cargas muy pesadas (ej. 1RM de sentadilla), la velocidad es baja. Con cargas muy ligeras (ej. un salto), la velocidad es máxima. El objetivo del entrenamiento de potencia es "desplazar esta curva hacia arriba", es decir, ser capaz de mover cualquier carga a una velocidad mayor.</li>
+                     <li><strong>Tasa de Desarrollo de Fuerza (RFD):</strong> Es la rapidez con la que puedes alcanzar tu fuerza máxima. Para la mayoría de los movimientos atléticos, que duran milisegundos, la RFD es más importante que la fuerza máxima absoluta.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "La fuerza máxima es tu potencial. La potencia es la capacidad de expresar ese potencial en una fracción de segundo. Entrenamos la fuerza para construir el motor y la potencia para aprender a usarlo a toda velocidad."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pliometría: El Poder del Ciclo de Estiramiento-Acortamiento</h3>
+                <p>La pliometría enseña al cuerpo a absorber y redirigir la fuerza de manera elástica, como un resorte.</p>
+                <h4 class="sub-heading">El Ciclo Estiramiento-Acortamiento (CEA)</h4>
+                <p>Es un proceso de tres fases:</p>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li><strong>Fase Excéntrica (Estiramiento):</strong> El músculo se alarga rápidamente para absorber el impacto (ej: al aterrizar de un salto). Almacena energía elástica.</li>
+                    <li><strong>Fase de Amortización (Transición):</strong> El brevísimo instante entre el estiramiento y el acortamiento. Cuanto más corta sea esta fase, más potente será la contracción.</li>
+                    <li><strong>Fase Concéntrica (Acortamiento):</strong> El músculo se contrae explosivamente, liberando la energía elástica almacenada.</li>
+                </ol>
+                <h4 class="sub-heading">Ejemplos de Ejercicios Pliométricos</h4>
+                 <ul>
+                    <li><strong>Tren Inferior:</strong> Saltos al cajón (Box Jumps), Saltos de profundidad (Depth Jumps), Saltos con contramovimiento.</li>
+                    <li><strong>Tren Superior:</strong> Flexiones pliométricas (con palmada), Lanzamientos de balón medicinal desde el pecho.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Entrenamiento Balístico: Aceleración Máxima</h3>
+                <p>A diferencia de un levantamiento tradicional donde se desacelera al final, en un movimiento balístico el objetivo es acelerar durante todo el rango de movimiento y, a menudo, soltar el objeto.</p>
+                 <h4 class="sub-heading">Características</h4>
+                <ul>
+                    <li><strong>Intención de Máxima Velocidad:</strong> El foco es 100% en la velocidad de ejecución.</li>
+                    <li><strong>Sin Fase de Desaceleración:</strong> Permite una mayor producción de potencia y una mayor activación de las fibras de contracción rápida.</li>
+                </ul>
+                <h4 class="sub-heading">Ejemplos de Ejercicios Balísticos</h4>
+                 <ul>
+                    <li><strong>Lanzamientos de Balón Medicinal:</strong> Lanzamientos rotacionales contra la pared, lanzamientos por encima de la cabeza, etc.</li>
+                    <li><strong>Kettlebell Swings:</strong> El swing ruso o americano es un movimiento balístico de bisagra de cadera por excelencia.</li>
+                    <li><strong>Saltos con Carga (Jump Squats):</strong> Sentadillas realizadas con una carga ligera (20-40% 1RM) donde el objetivo es saltar lo más alto posible.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Fuerza para Potencia: Construyendo el Motor</h3>
+                <p>No se puede disparar un cañón desde una canoa. La fuerza máxima es el prerrequisito para la potencia. Un atleta más fuerte tiene un "techo" de potencia más alto.</p>
+                <h4 class="sub-heading">Método de Esfuerzo Máximo</h4>
+                 <ul>
+                    <li>Consiste en levantar cargas pesadas (85-100% 1RM) en ejercicios como la <strong>Sentadilla, Peso Muerto y Press de Banca</strong>. Esto aumenta el número de fibras musculares y la capacidad del SNC para reclutarlas.</li>
+                </ul>
+                <h4 class="sub-heading">Método de Esfuerzo Dinámico (Dynamic Effort)</h4>
+                <ul>
+                    <li>Popularizado por Louie Simmons de Westside Barbell, este método se enfoca en la parte de "Velocidad" de la ecuación de potencia.</li>
+                     <li><strong>Protocolo:</strong> Consiste en mover una carga <strong>submáxima (40-60% 1RM) a la máxima velocidad posible</strong> durante múltiples series de pocas repeticiones (ej: 10 series de 2 repeticiones).</li>
+                     <li><strong>Objetivo:</strong> Entrenar específicamente la Tasa de Desarrollo de Fuerza (RFD) y mejorar la eficiencia neuromuscular.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Programación: Integrando la Potencia en tu Rutina</h3>
+                <p>El entrenamiento de potencia es neurológicamente muy demandante. Su correcta ubicación en la sesión y la semana es crucial para no generar una fatiga que perjudique el entrenamiento de fuerza.</p>
+                
+                <h4 class="sub-heading">Las Reglas de Oro de la Programación</h4>
+                <ol class="list-decimal pl-5 mt-4 space-y-2">
+                    <li><strong>La Potencia Va Primero:</strong> El trabajo de potencia (pliometría, balístico, esfuerzo dinámico) debe realizarse siempre al principio de la sesión, después del calentamiento, cuando el sistema nervioso está fresco.</li>
+                    <li><strong>La Calidad sobre la Cantidad:</strong> El objetivo no es la fatiga muscular. Las repeticiones deben ser pocas (1-5 por serie) y cada una debe ser explosiva y perfecta. El descanso entre series debe ser largo (2-3 minutos) para permitir la recuperación completa del SNC.</li>
+                    <li><strong>Emparejar Movimientos Similares:</strong> Programa el trabajo de potencia del tren inferior en tus días de pierna (ej: saltos al cajón antes de las sentadillas) y el del tren superior en tus días de empuje (ej: flexiones pliométricas antes del press de banca).</li>
+                </ol>
+
+                <h4 class="sub-heading">Ejemplo de Sesión de Pierna con Énfasis en Potencia</h4>
+                <ul>
+                    <li><strong>Calentamiento Completo</strong> (10-15 min)</li>
+                    <li><strong>A1. Saltos al Cajón (Pliometría):</strong> 5 series de 3 repeticiones.</li>
+                    <li><strong>B1. Sentadillas (Método de Esfuerzo Máximo o Dinámico):</strong> 5 series de 3 repeticiones.</li>
+                    <li><strong>C1. Kettlebell Swings (Balístico):</strong> 4 series de 10 repeticiones.</li>
+                    <li><strong>D1. Trabajo de Asistencia/Hipertrofia:</strong> (Estocadas, Curls femorales, etc.) 3-4 series de 8-15 repeticiones.</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>

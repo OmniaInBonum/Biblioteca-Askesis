@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Askesis para el Desarrollo de Hombros</title>
+    <meta name="description" content="Nuestra filosofía y metodología para construir hombros fuertes y tridimensionales, basada en un entendimiento profundo de la anatomía del deltoides.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            padding: 12px 18px;
+            border: 1px solid var(--askesis-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .tab-button:hover {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-blue);
+        }
+
+        .tab-button.active {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            border-color: var(--askesis-orange);
+            box-shadow: 0 3px 10px rgba(245, 130, 32, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tab-content { 
+            display: none; 
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active-tab { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .session-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .session-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .session-card ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .session-card ul li::before {
+            content: "\f138"; /* Font Awesome 'hand-point-right' */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .session-card p, .session-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .session-card strong { color: var(--askesis-orange); }
+        
+        .info-box {
+            border-left: 4px solid var(--askesis-blue);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            background-color: rgba(0, 90, 156, 0.1);
+        }
+        .info-box strong {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--askesis-blue);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                Askesis: Desarrollo de Hombros
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-meteor mr-3 text-askesis-green"></i>Guía Definitiva para el Desarrollo de Hombros
+        </h1>
+        <p class="section-subtitle">
+           Nuestra filosofía y metodología para construir hombros fuertes y tridimensionales, basada en un entendimiento profundo de la anatomía del deltoides.
+        </p>
+        
+        <div class="tabs-navigation" role="tablist">
+            <button class="tab-button" data-tab="pilar1" role="tab" aria-selected="true">Pilar 1: La Anatomía 3D</button>
+            <button class="tab-button" data-tab="pilar2" role="tab">Pilar 2: El Deltoides Anterior</button>
+            <button class="tab-button" data-tab="pilar3" role="tab">Pilar 3: El Deltoides Lateral</button>
+            <button class="tab-button" data-tab="pilar4" role="tab">Pilar 4: El Deltoides Posterior</button>
+            <button class="tab-button" data-tab="rutina" role="tab">Plantilla de Rutina</button>
+        </div>
+        
+        <div id="pilar1" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 1: La Anatomía Tridimensional del Hombro</h3>
+                <p>En Askesis, el primer paso para un desarrollo muscular inteligente es entender la anatomía. El deltoides no es un solo músculo, sino tres músculos distintos con diferentes funciones. Para lograr unos hombros redondos y "3D", es imperativo entrenar las tres cabezas.</p>
+                <h4 class="sub-heading">Las Tres Cabezas del Deltoides</h4>
+                <ul>
+                    <li><strong>Deltoides Anterior (Front Delt):</strong> Ubicado en la parte frontal. Su función principal es la <strong>flexión del hombro</strong> (levantar el brazo hacia adelante).</li>
+                    <li><strong>Deltoides Lateral (Side Delt):</strong> Ubicado en el costado. Su función es la <strong>abducción del hombro</strong> (levantar el brazo hacia el lado). Esta cabeza es la que más contribuye a la "anchura" de los hombros.</li>
+                    <li><strong>Deltoides Posterior (Rear Delt):</strong> Ubicado en la parte trasera. Su función es la <strong>extensión horizontal del hombro</strong> (llevar el brazo hacia atrás). Es crucial para una apariencia completa y para la salud de la articulación del hombro.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>Principio Clave de Askesis:</strong> "Unos hombros impresionantes no se construyen solo con presses. Se esculpen prestando atención deliberada a cada una de las tres cabezas del deltoides."
+                </div>
+            </div>
+        </div>
+
+        <div id="pilar2" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 2: Deltoides Anterior - La Base de la Fuerza</h3>
+                <p>El deltoides anterior recibe un estímulo significativo de todos los ejercicios de empuje (press de banca, fondos, etc.). Por esta razón, en la mayoría de los casos no requiere un volumen excesivo de trabajo de aislamiento.</p>
+                <h4 class="sub-heading">El Mejor Estímulo: Presses Verticales</h4>
+                <ul>
+                    <li><strong>Press Militar (Overhead Press):</strong> Consideramos este el constructor de masa y fuerza por excelencia para el deltoides anterior. Puede realizarse con barra o mancuernas. La clave es mantener una técnica estricta, un core apretado y evitar el impulso excesivo.</li>
+                </ul>
+                <h4 class="sub-heading">Opciones con Anillas y Peso Corporal</h4>
+                <ul>
+                    <li><strong>Flexiones en Pica / Pino (Pike / Handstand Push-ups):</strong> Progresiones fantásticas que replican el patrón de press vertical. A medida que se aumenta la inclinación, mayor es el reclutamiento del hombro. Son un excelente constructor de fuerza y estabilidad.</li>
+                    <li><strong>Fondos en Anillas (Ring Dips):</strong> Aunque también trabajan el pecho y tríceps, la inestabilidad de las anillas exige un trabajo enorme del deltoides anterior para la estabilización.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="pilar3" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 3: Deltoides Lateral - El Secreto de la Amplitud</h3>
+                <p>Esta es la cabeza que crea la ilusión de una cintura más estrecha y un físico más imponente. A diferencia del deltoides anterior, esta cabeza necesita trabajo de aislamiento directo para crecer de forma óptima.</p>
+                <h4 class="sub-heading">El Ejercicio Rey: Elevaciones Laterales</h4>
+                <ul>
+                    <li><strong>Técnica sobre Peso:</strong> Este no es un ejercicio para mover cargas pesadas. El ego debe dejarse en la puerta. El objetivo es aislar la cabeza lateral.</li>
+                    <li><strong>Variantes Efectivas:</strong> Las elevaciones laterales con cable (especialmente con el cable cruzando por detrás del cuerpo) son una opción superior, ya que mantienen una tensión constante en todo el rango de movimiento.</li>
+                </ul>
+                <h4 class="sub-heading">Opciones con Anillas y Peso Corporal</h4>
+                <ul>
+                    <li><strong>Sostén en Plancha (Planche Leans / Holds):</strong> Aunque es un ejercicio avanzado, las progresiones de plancha cargan de manera isométrica e intensa todo el hombro, con un énfasis particular en la cabeza lateral para la estabilización.</li>
+                    <li><strong>Sostén en Pino (Handstand Hold):</strong> La simple tarea de mantener el equilibrio en un pino requiere una contracción isométrica masiva de los deltoides laterales para evitar caerse.</li>
+                    <li><strong>Nota Importante:</strong> Aislar el deltoides lateral con peso corporal es difícil. Si la hipertrofia es el objetivo principal, las elevaciones con peso (mancuernas/cable) son la herramienta más directa y eficiente.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pilar4" class="tab-content">
+            <div class="session-card">
+                <h3><i class="fas fa-check-circle mr-3 text-askesis-green"></i>Pilar 4: Deltoides Posterior - El Toque Final para un Hombro Completo</h3>
+                <p>El deltoides posterior es a menudo el más descuidado, lo que lleva a desequilibrios posturales y a una apariencia "incompleta" desde el lado y la espalda. Recibe algo de estímulo de los remos, pero se beneficia enormemente del trabajo de aislamiento.</p>
+                <h4 class="sub-heading">Ejercicios para un Deltoides Posterior Sólido:</h4>
+                <ul>
+                    <li><strong>Pájaros (Reverse Flys) o Reverse Pec-Deck:</strong> Excelentes opciones para aislar la cabeza posterior. El peso debe ser ligero y el movimiento, controlado y deliberado.</li>
+                </ul>
+                <h4 class="sub-heading">Opciones con Anillas y Peso Corporal</h4>
+                 <ul>
+                    <li><strong>Remo Invertido en Anillas (Ring Rows):</strong> Al ajustar el ángulo del cuerpo, se puede variar la intensidad. Un agarre ancho y tirar hacia la parte superior del pecho pone un gran énfasis en el deltoides posterior y la espalda alta.</li>
+                    <li><strong>Face Pulls en Anillas (Ring Face Pulls):</strong> Una de las mejores opciones. Permite un movimiento natural y una rotación externa al final del movimiento, lo que es fantástico para la salud del hombro y el desarrollo del deltoides posterior.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="rutina" class="tab-content">
+             <div class="session-card">
+                <h3><i class="fas fa-dumbbell mr-3 text-askesis-green"></i>Plantilla de Rutina Askesis: Sesión de Hombros Completa (Día de Empuje)</h3>
+                <p>Esta es una estructura de sesión de empuje (Push Day) que aplica nuestros principios, incluyendo opciones de calistenia.</p>
+                
+                <h4 class="sub-heading">Estructura del "Push Day"</h4>
+                <ul>
+                    <li><strong>Press de Banca Inclinado con Mancuernas (Pecho/Hombro Ant.):</strong> 3 series de 8-12 repeticiones.</li>
+                    <li><strong>Press Militar con Barra O Flexiones en Pino (Hombro Ant./Lat.):</strong> 3 series de 6-10 repeticiones.</li>
+                    <li><strong>Elevaciones Laterales con Cable (Hombro Lat.):</strong> 4 series de 12-15 repeticiones por brazo.</li>
+                    <li><strong>Fondos en Paralelas o Anillas (Pecho/Tríceps/Hombro Ant.):</strong> 3 series al fallo o en rango de 8-15 repeticiones.</li>
+                    <li><strong>Extensiones de Tríceps en Polea:</strong> 3 series de 10-15 repeticiones.</li>
+                </ul>
+                <div class="info-box">
+                    <strong>¿Y el Deltoides Posterior?:</strong> En nuestra filosofía, el deltoides posterior se entrena de forma más efectiva en el "Día de Tracción" (Pull Day), junto con la espalda. Ejercicios como <strong>Face Pulls en anillas</strong> o <strong>Remo invertido</strong> se incluirían en esa sesión.
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainTabButtons = document.querySelectorAll('.tabs-navigation .tab-button');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Ocultar todos los contenidos
+                    mainTabContents.forEach(content => content.classList.remove('active-tab'));
+                    // Desactivar todos los botones
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Activar el botón presionado
+                    button.classList.add('active');
+                    // Mostrar el contenido correspondiente
+                    const targetTabId = button.dataset.tab;
+                    const activeMainContent = document.getElementById(targetTabId);
+                    if (activeMainContent) {
+                        activeMainContent.classList.add('active-tab');
+                    }
+                });
+            });
+            
+            // Activar la primera pestaña por defecto al cargar la página
+            if (mainTabButtons.length > 0) {
+                mainTabButtons[0].click();
+            }
+        });
+    </script>
+</body>
+</html>
