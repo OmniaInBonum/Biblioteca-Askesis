@@ -100,15 +100,15 @@
 
         /* --- CTA Asesorías Section --- */
         #cta-asesorias {
-            position: relative; /* Añadido para posicionar el pseudo-elemento */
-            background-image: url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Handstand%20Castro.jpg'); /* Imagen de fondo */
+            position: relative; /* Added to position the pseudo-element */
+            background-image: url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Handstand%20Castro.jpg'); /* Background image */
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Opcional: para efecto parallax */
+            background-attachment: fixed; /* Optional: for parallax effect */
             padding: 3rem 1.5rem;
             border-bottom: 2px solid var(--askesis-border);
         }
-        /* Capa de superposición para mejorar la legibilidad del texto */
+        /* Overlay layer to improve text readability */
         #cta-asesorias::before {
             content: '';
             position: absolute;
@@ -116,17 +116,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(18, 18, 18, 0.7); /* Oscurece la imagen un poco */
+            background-color: rgba(18, 18, 18, 0.7); /* Slightly darkens the image */
             z-index: 1;
         }
         #cta-asesorias .cta-asesorias-content {
-            position: relative; /* Asegura que el contenido esté por encima de la capa */
+            position: relative; /* Ensures content is above the overlay */
             z-index: 2;
         }
         #cta-asesorias h2 {
             font-size: clamp(1.8rem, 5vw, 2.5rem);
             margin-bottom: 1.5rem;
-            color: var(--askesis-text-white); /* Asegura que el título sea blanco */
+            color: var(--askesis-text-white); /* Ensures title is white */
         }
         .plan-buttons-container {
             display: flex;
@@ -176,7 +176,7 @@
         }
 
 
-        /* --- Carrusel General --- */
+        /* --- General Carousel --- */
         @keyframes scroll {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
@@ -226,7 +226,7 @@
         }
 
 
-        /* --- CTA Guías --- */
+        /* --- CTA Guides --- */
         #cta-guias-container {
             position: relative;
             height: 50vh;
@@ -279,7 +279,7 @@
             font-size: 1.1rem;
         }
         
-        /* --- Info & Contacto Section --- */
+        /* --- Info & Contact Section --- */
         #about-contact-section {
             position: relative;
             background-image: url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/fototdu.png');
@@ -338,8 +338,22 @@
             text-align: center;
             border-top: 1px solid var(--askesis-border);
         }
+        /* Style for the footer logo */
+        footer .footer-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--askesis-orange);
+            margin: 0 auto 1rem;
+            overflow: hidden;
+        }
+        footer .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         
-        /* --- Botón Flotante --- */
+        /* --- Floating Button --- */
          .floating-btn-container { 
             position: fixed; bottom: 20px; right: 20px; z-index: 100;
         }
@@ -435,22 +449,17 @@
             background-color: #00662c;
         }
 
-        /* CORRECCIÓN DE SCROLL: Se añade un margen superior a las secciones para compensar el header */
-        section[id] {
-            scroll-margin-top: 90px;
+        /* SCROLL CORRECTION: Removed scroll-margin-top as JS will handle scrolling on click */
+        /* It might still be useful for direct URL hash navigation, but for clicks, JS is more precise. */
+        /* section[id] {
+            scroll-margin-top: 150px; 
         }
         
-        /* --- Responsive --- */
         @media (max-width: 768px) {
-            .main-header nav.hidden.md\:flex { display: none !important; }
-            .section-title { font-size: 1.5em; } 
-            .info-grid { grid-template-columns: 1fr; }
-            .plan-buttons-container { flex-direction: column; align-items: center; }
-            .plan-button { width: 90%; max-width: 350px; }
             section[id] {
-                scroll-margin-top: 70px;
+                scroll-margin-top: 120px; 
             }
-        }
+        } */
     </style>
 </head>
 
@@ -520,9 +529,9 @@
         </section>
 
         <!-- SECCIÓN 3: GUÍAS GRATIS CON VIDEO ÚNICO -->
-        <section id="cta-guias-container">
+        <section id="cta-guias-container" class="text-center">
              <video autoplay loop muted playsinline>
-                <source src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/brucebanner.mp4" type="video/mp4">
+                <source src="https://raw.githubusercontent.com/OmniaInBonum/Biblioteca-Askesis/main/biblioteca%20Askesis/documentos/vanier.mp4" type="video/mp4">
                 Tu navegador no soporta el video.
             </video>
             <div id="openGuidesModal" class="cta-guias-content">
@@ -645,7 +654,16 @@
 
     <footer>
         <div class="content-wrapper">
+            <!-- Askesis Logo in Footer -->
+            <div class="footer-logo">
+                <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis">
+            </div>
             <p class="text-lg font-semibold text-askesis-text-white">Askesis - Ciencia Aplicada al Movimiento</p>
+            <!-- Personal Information -->
+            <p class="text-sm text-askesis-light-gray mt-2">
+                Luis Patricio Ruiz Ruiz<br>
+                Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico
+            </p>
             <p class="text-sm text-askesis-light-gray mt-2">© <span id="currentYearFooter"></span> Todos los derechos reservados.</p>
         </div>
     </footer>
@@ -694,6 +712,7 @@
                 });
             }
             
+            // Close mobile menu when a link inside it is clicked
             document.querySelectorAll('#mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
                      if (!mobileMenu.classList.contains('hidden')) {
@@ -714,23 +733,54 @@
                 });
             });
 
-            // --- Lógica de Navegación Activa ---
-            const sections = document.querySelectorAll('main > section');
-            const navLinks = document.querySelectorAll('header nav a.nav-link');
+            // --- Lógica de Desplazamiento Suave al hacer clic en los enlaces de navegación ---
+            const mainNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile');
             const header = document.querySelector('.main-header');
 
+            mainNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Evita el comportamiento predeterminado del ancla
+
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        const headerHeight = header ? header.offsetHeight : 0;
+                        // Calcula la posición de desplazamiento para que la sección quede justo debajo del header
+                        // Puedes ajustar el '20' si necesitas un poco más o menos de espacio
+                        const yOffset = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+
+                        window.scrollTo({
+                            top: yOffset,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+
+            // --- Lógica de Navegación Activa (para resaltar el menú al hacer scroll) ---
+            const sections = document.querySelectorAll('main > section');
+            const desktopNavLinks = document.querySelectorAll('header nav a.nav-link');
+            const mobileNavLinks = document.querySelectorAll('#mobile-menu a.nav-link-mobile');
+
+
             function setActiveLink() {
-                let currentActiveId = 'hero-carousel';
+                let currentActiveId = 'hero-carousel'; // Default active if at the very top
                 const headerHeight = header ? header.offsetHeight : 0;
                 
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop - headerHeight - 40;
-                     if (window.scrollY >= sectionTop) {
+                    // Adjust this value based on how much of the section should be visible before it's considered "active"
+                    // It should be slightly less than the header height to account for when the section is just entering view
+                    const sectionTop = section.offsetTop - headerHeight - 40; 
+                    
+                    if (window.scrollY >= sectionTop) {
                         currentActiveId = section.getAttribute('id');
                     }
                 });
                 
-                navLinks.forEach(link => {
+                // Update desktop navigation links
+                desktopNavLinks.forEach(link => {
                     link.classList.remove('active');
                     const linkHref = link.getAttribute('href').substring(1);
 
@@ -741,10 +791,23 @@
                         link.classList.add('active');
                     }
                 });
+
+                // Update mobile navigation links (if they have a different class or need separate handling)
+                mobileNavLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const linkHref = link.getAttribute('href').substring(1);
+                    if (linkHref === currentActiveId) {
+                        link.classList.add('active');
+                    }
+                    if (currentActiveId === 'hero-carousel' && linkHref === 'cta-asesorias') {
+                        link.classList.add('active');
+                    }
+                });
             }
             
+            // Attach scroll and resize listeners for active link highlighting
             if (sections.length > 0) {
-                setActiveLink();
+                setActiveLink(); // Set initial active link
                 window.addEventListener('scroll', setActiveLink);
                 window.addEventListener('resize', setActiveLink);
             }
