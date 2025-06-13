@@ -100,33 +100,13 @@
 
         /* --- CTA Asesorías Section --- */
         #cta-asesorias {
-            position: relative; /* Added to position the pseudo-element */
-            background-image: url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Handstand%20Castro.jpg'); /* Background image */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Optional: for parallax effect */
+            background-color: var(--askesis-gray);
             padding: 3rem 1.5rem;
             border-bottom: 2px solid var(--askesis-border);
-        }
-        /* Overlay layer to improve text readability */
-        #cta-asesorias::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(18, 18, 18, 0.7); /* Slightly darkens the image */
-            z-index: 1;
-        }
-        #cta-asesorias .cta-asesorias-content {
-            position: relative; /* Ensures content is above the overlay */
-            z-index: 2;
         }
         #cta-asesorias h2 {
             font-size: clamp(1.8rem, 5vw, 2.5rem);
             margin-bottom: 1.5rem;
-            color: var(--askesis-text-white); /* Ensures title is white */
         }
         .plan-buttons-container {
             display: flex;
@@ -148,6 +128,7 @@
             text-align: center;
             padding: 0.8rem 1.5rem;
             min-width: 260px;
+            cursor: pointer;
         }
         .plan-button:hover {
             transform: translateY(-5px);
@@ -176,7 +157,7 @@
         }
 
 
-        /* --- General Carousel --- */
+        /* --- Carrusel General --- */
         @keyframes scroll {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
@@ -203,6 +184,7 @@
             height: 100%;
             width: auto;
             max-width: none;
+            object-fit: cover;
         }
         
         /* --- Standalone Portfolio Carousel --- */
@@ -226,7 +208,7 @@
         }
 
 
-        /* --- CTA Guides --- */
+        /* --- CTA Guías --- */
         #cta-guias-container {
             position: relative;
             height: 50vh;
@@ -279,7 +261,7 @@
             font-size: 1.1rem;
         }
         
-        /* --- Info & Contact Section --- */
+        /* --- Info & Contacto Section --- */
         #about-contact-section {
             position: relative;
             background-image: url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/fototdu.png');
@@ -338,22 +320,8 @@
             text-align: center;
             border-top: 1px solid var(--askesis-border);
         }
-        /* Style for the footer logo */
-        footer .footer-logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 2px solid var(--askesis-orange);
-            margin: 0 auto 1rem;
-            overflow: hidden;
-        }
-        footer .footer-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
         
-        /* --- Floating Button --- */
+        /* --- Botón Flotante --- */
          .floating-btn-container { 
             position: fixed; bottom: 20px; right: 20px; z-index: 100;
         }
@@ -384,10 +352,6 @@
         }
         .modal-content {
             background-color: var(--askesis-dark);
-            background-image: url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Handstand%20Castro.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
             border-radius: 10px;
             width: 90%;
             max-width: 1000px;
@@ -395,6 +359,13 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+         /* Specific background for guides modal */
+        #guidesModal .modal-content {
+             background-image: url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Handstand%20Castro.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
         }
         .modal-header {
             padding: 1rem;
@@ -410,6 +381,16 @@
             flex-grow: 1;
             overflow-y: auto;
             background-color: rgba(18, 18, 18, 0.9);
+            height: calc(100% - 60px); /* Adjust height for iframe */
+        }
+        #colabModal .modal-body {
+            padding: 0;
+            overflow: hidden;
+        }
+        #colabModal iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
         .askesis-card-modal {
             background-color: var(--askesis-gray);
@@ -449,17 +430,22 @@
             background-color: #00662c;
         }
 
-        /* SCROLL CORRECTION: Removed scroll-margin-top as JS will handle scrolling on click */
-        /* It might still be useful for direct URL hash navigation, but for clicks, JS is more precise. */
-        /* section[id] {
-            scroll-margin-top: 150px; 
+        /* CORRECCIÓN DE SCROLL: Se añade un margen superior a las secciones para compensar el header */
+        section[id] {
+            scroll-margin-top: 90px;
         }
         
+        /* --- Responsive --- */
         @media (max-width: 768px) {
+            .main-header nav.hidden.md\:flex { display: none !important; }
+            .section-title { font-size: 1.5em; } 
+            .info-grid { grid-template-columns: 1fr; }
+            .plan-buttons-container { flex-direction: column; align-items: center; }
+            .plan-button { width: 90%; max-width: 350px; }
             section[id] {
-                scroll-margin-top: 120px; 
+                scroll-margin-top: 70px;
             }
-        } */
+        }
     </style>
 </head>
 
@@ -479,6 +465,7 @@
                 <a href="#cta-guias-container" class="nav-link">Guías Gratis</a>
                 <a href="#portafolio" class="nav-link">Resultados</a>
                 <a href="#about-contact-section" class="nav-link">Contacto</a>
+                <a href="#colaboraciones" class="nav-link">Colaboraciones</a>
             </nav>
             
             <button id="mobile-menu-button" class="md:hidden text-askesis-text-white focus:outline-none">
@@ -491,6 +478,7 @@
             <a href="#cta-guias-container" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Guías Gratis</a>
             <a href="#portafolio" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Resultados</a>
             <a href="#about-contact-section" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Contacto</a>
+            <a href="#colaboraciones" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Colaboraciones</a>
             <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20sus%20servicios." target="_blank" class="block text-askesis-orange text-center font-bold py-4 hover:bg-askesis-gray">Únete Ahora</a>
         </div>
     </header>
@@ -500,9 +488,9 @@
         <section id="hero-carousel" class="scroller-container">
             <div class="scroller-inner">
                 <!-- Las imágenes se duplicarán vía JS -->
-                <div class="scroller-item"><img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/dominadas.jpeg" alt="Hombre realizando dominadas"></div>
+                <div class="scroller-item"><img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Handstand%20Castro.jpg" alt="Persona haciendo handstand"></div>
+                <div class="scroller-item"><img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/fototdu.png" alt="Entrenamiento TDU"></div>
                 <div class="scroller-item"><img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Sentadilla%20Casa.jpg" alt="Hombre realizando sentadilla con barra"></div>
-                <div class="scroller-item"><img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/portada%20askesis.jpeg" alt="Mujer entrenando con pesas"></div>
                 <div class="scroller-item"><img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo de Askesis"></div>
             </div>
         </section>
@@ -529,9 +517,9 @@
         </section>
 
         <!-- SECCIÓN 3: GUÍAS GRATIS CON VIDEO ÚNICO -->
-        <section id="cta-guias-container" class="text-center">
+        <section id="cta-guias-container">
              <video autoplay loop muted playsinline>
-                <source src="https://raw.githubusercontent.com/OmniaInBonum/Biblioteca-Askesis/main/biblioteca%20Askesis/documentos/vanier.mp4" type="video/mp4">
+                <source src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/brucebanner.mp4" type="video/mp4">
                 Tu navegador no soporta el video.
             </video>
             <div id="openGuidesModal" class="cta-guias-content">
@@ -594,6 +582,18 @@
                 </div>
             </div>
         </section>
+
+        <!-- SECCIÓN 6: COLABORACIONES -->
+        <section id="colaboraciones" class="page-section bg-askesis-gray">
+            <div class="content-wrapper text-center">
+                <h2 class="section-title">Colaboraciones</h2>
+                <div class="flex justify-center">
+                    <a id="openColabModal" class="plan-button">
+                        Colab Ancud Rollers
+                    </a>
+                </div>
+            </div>
+        </section>
         
     </main>
 
@@ -650,20 +650,23 @@
             </div>
         </div>
     </div>
+    
+    <!-- MODAL PARA COLABORACIONES -->
+    <div id="colabModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="closeColabModal" class="modal-close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <iframe id="colabFrame" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
 
 
     <footer>
         <div class="content-wrapper">
-            <!-- Askesis Logo in Footer -->
-            <div class="footer-logo">
-                <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis">
-            </div>
             <p class="text-lg font-semibold text-askesis-text-white">Askesis - Ciencia Aplicada al Movimiento</p>
-            <!-- Personal Information -->
-            <p class="text-sm text-askesis-light-gray mt-2">
-                Luis Patricio Ruiz Ruiz<br>
-                Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico
-            </p>
             <p class="text-sm text-askesis-light-gray mt-2">© <span id="currentYearFooter"></span> Todos los derechos reservados.</p>
         </div>
     </footer>
@@ -679,23 +682,40 @@
             const yearSpan = document.getElementById('currentYearFooter');
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-            // --- Lógica del Modal ---
-            const openModalBtn = document.getElementById('openGuidesModal');
-            const closeModalBtn = document.getElementById('closeGuidesModal');
-            const modal = document.getElementById('guidesModal');
+            // --- Lógica del Modal de Guías ---
+            const openGuidesModalBtn = document.getElementById('openGuidesModal');
+            const closeGuidesModalBtn = document.getElementById('closeGuidesModal');
+            const guidesModal = document.getElementById('guidesModal');
 
-            openModalBtn.addEventListener('click', () => {
-                modal.classList.remove('hidden');
+            if(openGuidesModalBtn) openGuidesModalBtn.addEventListener('click', () => guidesModal.classList.remove('hidden'));
+            if(closeGuidesModalBtn) closeGuidesModalBtn.addEventListener('click', () => guidesModal.classList.add('hidden'));
+            if(guidesModal) guidesModal.addEventListener('click', (e) => {
+                if(e.target === guidesModal) guidesModal.classList.add('hidden');
             });
 
-            closeModalBtn.addEventListener('click', () => {
-                modal.classList.add('hidden');
-            });
+            // --- Lógica del Modal de Colaboraciones ---
+            const openColabModalBtn = document.getElementById('openColabModal');
+            const closeColabModalBtn = document.getElementById('closeColabModal');
+            const colabModal = document.getElementById('colabModal');
+            const colabFrame = document.getElementById('colabFrame');
+            const colabUrl = 'https://omniainbonum.github.io/PresentacionesAskesis/Beneficios.html'; // Correct URL
+
+            if(openColabModalBtn) {
+                openColabModalBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if(colabFrame) colabFrame.src = colabUrl;
+                    if(colabModal) colabModal.classList.remove('hidden');
+                });
+            }
             
-            modal.addEventListener('click', (e) => {
-                if(e.target === modal) {
-                    modal.classList.add('hidden');
-                }
+            function closeTheColabModal() {
+                 if(colabModal) colabModal.classList.add('hidden');
+                 if(colabFrame) colabFrame.src = ''; // Detiene la carga del iframe
+            }
+
+            if(closeColabModalBtn) closeColabModalBtn.addEventListener('click', closeTheColabModal);
+            if(colabModal) colabModal.addEventListener('click', (e) => {
+                if(e.target === colabModal) closeTheColabModal();
             });
 
 
@@ -703,22 +723,19 @@
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileMenuIcon = mobileMenuButton ? mobileMenuButton.querySelector('i') : null;
-
-            if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    mobileMenuIcon.classList.toggle('fa-bars');
-                    mobileMenuIcon.classList.toggle('fa-times');
-                });
-            }
             
-            // Close mobile menu when a link inside it is clicked
-            document.querySelectorAll('#mobile-menu a').forEach(link => {
+            function toggleMobileMenu() {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuIcon.classList.toggle('fa-bars');
+                mobileMenuIcon.classList.toggle('fa-times');
+            }
+
+            if (mobileMenuButton) mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            
+            document.querySelectorAll('.nav-link-mobile').forEach(link => {
                 link.addEventListener('click', () => {
                      if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenuIcon.classList.remove('fa-times');
-                        mobileMenuIcon.classList.add('fa-bars');
+                         toggleMobileMenu();
                      }
                 });
             });
@@ -733,81 +750,38 @@
                 });
             });
 
-            // --- Lógica de Desplazamiento Suave al hacer clic en los enlaces de navegación ---
-            const mainNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile');
+            // --- Lógica de Navegación Activa ---
+            const sections = document.querySelectorAll('main > section');
+            const navLinks = document.querySelectorAll('header nav a.nav-link');
             const header = document.querySelector('.main-header');
 
-            mainNavLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault(); // Evita el comportamiento predeterminado del ancla
-
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-
-                    if (targetSection) {
-                        const headerHeight = header ? header.offsetHeight : 0;
-                        // Calcula la posición de desplazamiento para que la sección quede justo debajo del header
-                        // Puedes ajustar el '20' si necesitas un poco más o menos de espacio
-                        const yOffset = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-
-                        window.scrollTo({
-                            top: yOffset,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-
-            // --- Lógica de Navegación Activa (para resaltar el menú al hacer scroll) ---
-            const sections = document.querySelectorAll('main > section');
-            const desktopNavLinks = document.querySelectorAll('header nav a.nav-link');
-            const mobileNavLinks = document.querySelectorAll('#mobile-menu a.nav-link-mobile');
-
-
             function setActiveLink() {
-                let currentActiveId = 'hero-carousel'; // Default active if at the very top
+                let currentActiveId = 'hero-carousel';
                 const headerHeight = header ? header.offsetHeight : 0;
                 
                 sections.forEach(section => {
-                    // Adjust this value based on how much of the section should be visible before it's considered "active"
-                    // It should be slightly less than the header height to account for when the section is just entering view
-                    const sectionTop = section.offsetTop - headerHeight - 40; 
-                    
-                    if (window.scrollY >= sectionTop) {
+                    const sectionTop = section.offsetTop - headerHeight - 40;
+                     if (window.scrollY >= sectionTop) {
                         currentActiveId = section.getAttribute('id');
                     }
                 });
                 
-                // Update desktop navigation links
-                desktopNavLinks.forEach(link => {
+                navLinks.forEach(link => {
                     link.classList.remove('active');
                     const linkHref = link.getAttribute('href').substring(1);
 
                     if (linkHref === currentActiveId) {
                         link.classList.add('active');
                     }
+                    // Special case for hero section
                     if (currentActiveId === 'hero-carousel' && linkHref === 'cta-asesorias') {
-                        link.classList.add('active');
-                    }
-                });
-
-                // Update mobile navigation links (if they have a different class or need separate handling)
-                mobileNavLinks.forEach(link => {
-                    link.classList.remove('active');
-                    const linkHref = link.getAttribute('href').substring(1);
-                    if (linkHref === currentActiveId) {
-                        link.classList.add('active');
-                    }
-                    if (currentActiveId === 'hero-carousel' && linkHref === 'cta-asesorias') {
-                        link.classList.add('active');
+                         navLinks[0].classList.add('active');
                     }
                 });
             }
             
-            // Attach scroll and resize listeners for active link highlighting
             if (sections.length > 0) {
-                setActiveLink(); // Set initial active link
+                setActiveLink();
                 window.addEventListener('scroll', setActiveLink);
                 window.addEventListener('resize', setActiveLink);
             }
