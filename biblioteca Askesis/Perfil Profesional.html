@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Profesional Luis Ruiz</title>
+    <meta name="description" content="Presentación del rol del Técnico Deportivo Luis Ruiz y su aporte en la preparación física específica para el club de patinaje Ancud Rollers.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #D1D5DB;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 1.8rem; /* Mobile First font size */
+            font-weight: 900;
+            margin-bottom: 2.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .section-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 1.5rem; /* Mobile First padding */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2.5rem;
+        }
+
+        .section-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6rem; /* Mobile First font size */
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .section-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem; /* Mobile First font size */
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .section-card ul li {
+            margin-bottom: 1.25rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .section-card ul li::before {
+            content: "\f138";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .section-card p, .section-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .section-card strong { color: var(--askesis-orange); }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .profile-image {
+            flex-shrink: 0;
+            width: 200px; /* Mobile First size */
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 4px solid var(--askesis-green);
+            box-shadow: 0 0 20px rgba(0, 128, 55, 0.4);
+        }
+
+        .profile-text {
+            flex-grow: 1;
+        }
+        
+        .university-name {
+            color: var(--askesis-blue);
+            font-weight: 700;
+        }
+
+        /* Responsive adjustments for larger screens */
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .section-card {
+                padding: 2.5rem;
+            }
+            .section-card h3 {
+                font-size: 1.8rem;
+            }
+             .section-card h4.sub-heading {
+                font-size: 1.4rem;
+            }
+            .profile-container {
+                flex-direction: row;
+                align-items: center;
+            }
+            .profile-image {
+                width: 250px;
+            }
+        }
+
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-xl md:text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto text-center">
+                Ancud Rollers: Preparación Física
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-user-check mr-3 text-askesis-green"></i>Perfil Profesional y Rol en el Club
+        </h1>
+        
+        <div class="section-card">
+            <div class="profile-container">
+                <img src="https://raw.githubusercontent.com/OmniaInBonum/Biblioteca-Askesis/main/biblioteca%20Askesis/quiensoy.png" alt="Foto de Luis Ruiz" class="profile-image">
+                <div class="profile-text">
+                    <h3><i class="fas fa-user-tie mr-3 text-askesis-green"></i>Luis Patricio Ruiz Ruiz</h3>
+                    <p>Estimados apoderados y deportistas, me presento. Mi nombre es Luis Patricio Ruiz Ruiz y estoy a cargo de la <strong>preparación física específica</strong> del club Ancud Rollers.</p>
+                    <p class="mt-4">Mi pasión por el movimiento y el rendimiento deportivo no es solo mi profesión, sino también mi vida. Como atleta de <strong>Calistenia y Street Workout</strong>, he competido activamente desde el 2013 a la fecha, logrando destacadas participaciones a nivel regional y nacional. Esta experiencia como deportista me entrega una visión única que aplico directamente en mi trabajo: entiendo las exigencias, la disciplina y la mentalidad necesarias para competir.</p>
+                </div>
+            </div>
+            
+            <h4 class="sub-heading">Mis Credenciales y Experiencia</h4>
+             <ul>
+                <li><strong>Técnico Deportivo Profesional</strong>, egresado de la <span class="university-name">Universidad De Los Lagos</span>.</li>
+                <li><strong>Especialista en Entrenamiento de Fuerza y Prescripción de Ejercicio Físico</strong>, certificado por el Comité Olímpico de Chile (COCH).</li>
+                <li><strong>7 años de experiencia</strong> formando y guiando atletas de calistenia y deportistas de diversas disciplinas.</li>
+                 <li>Experiencia en la preparación física para <strong>clubes de gimnasia artística</strong> y diversos grupos etarios en Ancud y Castro, siempre con el objetivo de optimizar la condición física y el rendimiento.</li>
+            </ul>
+        </div>
+
+        <div class="section-card">
+            <h3><i class="fas fa-graduation-cap mr-3 text-askesis-green"></i>Mi Rol como Especialista en Rendimiento</h3>
+            <p>Es común que me llamen "profe", y es un término que recibo con mucho cariño. Para que comprendan el valor y la especificidad de mi trabajo, quiero explicarles mi enfoque dentro del gran <strong>equipo multidisciplinario</strong> que forma a un deportista.</p>
+            <p>En el deporte, el éxito se construye con un equipo de profesionales donde cada uno aporta desde su área de conocimiento. Podríamos verlo de esta manera:</p>
+            <ul>
+                <li>El <strong>Profesor de Educación Física</strong> es un profesional fundamental que sienta las <strong>bases del movimiento y el amor por el deporte</strong> en las etapas iniciales. Su labor pedagógica es esencial para crear la cultura deportiva desde la infancia.</li>
+                 <li>El <strong>Técnico Deportivo</strong>, como yo, toma esas bases y las <strong>especializa para la competencia.</strong> Mi trabajo consiste en aplicar las ciencias del deporte (fisiología, biomecánica) para analizar las demandas del patinaje y diseñar programas que potencien al máximo las capacidades físicas del atleta que ya ha decidido competir.</li>
+            </ul>
+            <p class="mt-4">Ambos roles son <strong>complementarios, no jerárquicos.</strong> Sin el trabajo fundamental de un profesor, muchos deportistas no llegarían a un club. Sin el trabajo especializado de un técnico, a muchos atletas les costaría alcanzar su máximo potencial competitivo. <strong>Mi enfoque, por tanto, es 100% la optimización del rendimiento para la competencia.</strong></p>
+        </div>
+        
+        <div class="section-card">
+             <h3><i class="fas fa-sync-alt mr-3 text-askesis-green"></i>Mi Aporte: La Transferencia Directa al Patinaje</h3>
+            <p>Quizás se pregunten, ¿de qué sirve hacer sentadillas o planchas si el deporte es sobre patines? La respuesta es: <strong>la transferencia.</strong> Todo lo que hacemos fuera de la pista está diseñado para tener un impacto directo sobre ella.</p>
+
+            <ul>
+                <li><strong>Fuerza y Potencia:</strong> Construimos el "motor" del patinador. Una mayor fuerza en las piernas se traduce en <strong>empujes más potentes y mayor velocidad.</strong> La potencia del tren superior y del core permite <strong>saltos más altos y giros más rápidos y controlados.</strong></li>
+                 <li><strong>Estabilidad y Balance (Core):</strong> Un core fuerte es el centro de todo movimiento. Es lo que permite mantener el equilibrio en posiciones complejas, recepcionar saltos de forma segura y transferir la fuerza de manera eficiente.</li>
+                  <li><strong>Prevención de Lesiones:</strong> Un cuerpo más fuerte es un cuerpo más protegido. Mi trabajo es identificar desbalances y fortalecer las articulaciones clave (tobillos, rodillas, caderas) para <strong>minimizar el riesgo de lesiones</strong> y asegurar una carrera deportiva más larga y saludable.</li>
+            </ul>
+        </div>
+
+        <div class="section-card">
+             <h3><i class="fas fa-users mr-3 text-askesis-green"></i>Colaboración y Filosofía de Trabajo</h3>
+            <p>Mi labor es una pieza del rompecabezas. El éxito de nuestros deportistas depende de un trabajo en equipo que nos involucra a todos: la directiva, los deportistas y, fundamentalmente, ustedes, los apoderados.</p>
+            
+            <p class="mt-4">Un punto muy importante en mi filosofía de trabajo es la <strong>adaptabilidad y el bienestar del deportista.</strong> Si bien el objetivo es el rendimiento, entiendo que trabajamos con niños y jóvenes. Por ello, busco siempre la manera de trabajar con los recursos que tenemos, y por sobre todo, que el proceso sea <strong>ameno, lúdico y motivador.</strong> Mi meta no es crear una presión competitiva a temprana edad, sino encontrar la armonía perfecta entre el desarrollo de su potencial atlético y el disfrute del camino, sentando las bases para una relación sana y duradera con el deporte.</p>
+            
+            <p class="mt-4">Mi objetivo final es simple: que cada deportista desarrolle una base física sólida que le permita <strong>aprender y ejecutar</strong> las habilidades del patinaje de la manera más eficiente y segura posible, ayudándolos a alcanzar su máximo potencial.</p>
+
+            <p class="mt-4">Estoy siempre disponible para conversar y resolver cualquier duda. ¡Gracias por su confianza!</p>
+        </div>
+
+    </main>
+</body>
+</html>
