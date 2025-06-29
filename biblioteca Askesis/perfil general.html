@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Ruiz - Técnico Deportivo y Preparador Físico</title>
+    <meta name="description" content="Perfil profesional de Luis Ruiz, Técnico Deportivo y especialista en preparación física, calistenia y entrenamiento de fuerza.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #D1D5DB;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--askesis-light-gray);
+            background-color: var(--askesis-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            width: 95%;
+            margin: 2rem auto;
+        }
+
+        .section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 1.8rem; /* Mobile First font size */
+            font-weight: 900;
+            margin-bottom: 2.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--askesis-green);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .section-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 8px;
+            padding: 1.5rem; /* Mobile First padding */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2.5rem;
+        }
+
+        .section-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6rem; /* Mobile First font size */
+            font-weight: 700;
+            color: var(--askesis-text-white);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--askesis-green);
+        }
+
+        .section-card h4.sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem; /* Mobile First font size */
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .section-card ul li {
+            margin-bottom: 1.25rem;
+            padding-left: 1.75rem;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .section-card ul li::before {
+            content: "\f138";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 4px;
+            font-size: 1.1rem;
+        }
+        
+        .section-card p, .section-card li {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .section-card strong { color: var(--askesis-orange); }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .profile-image {
+            flex-shrink: 0;
+            width: 200px; /* Mobile First size */
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 4px solid var(--askesis-green);
+            box-shadow: 0 0 20px rgba(0, 128, 55, 0.4);
+        }
+
+        .profile-text {
+            flex-grow: 1;
+        }
+        
+        .university-name {
+            color: var(--askesis-blue);
+            font-weight: 700;
+        }
+
+        /* Responsive adjustments for larger screens */
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .section-card {
+                padding: 2.5rem;
+            }
+            .section-card h3 {
+                font-size: 1.8rem;
+            }
+             .section-card h4.sub-heading {
+                font-size: 1.4rem;
+            }
+            .profile-container {
+                flex-direction: row;
+                align-items: center;
+            }
+            .profile-image {
+                width: 250px;
+            }
+        }
+
+    </style>
+</head>
+
+<body class="bg-askesis-dark">
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-center p-4">
+            <a href="#" class="text-xl md:text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto text-center">
+                Luis Ruiz - Preparación Física
+            </a>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <h1 class="section-title">
+            <i class="fas fa-user-check mr-3 text-askesis-green"></i>Sobre Mí y Mi Enfoque en el Rendimiento
+        </h1>
+        
+        <div class="section-card">
+            <div class="profile-container">
+                <img src="https://raw.githubusercontent.com/OmniaInBonum/Biblioteca-Askesis/main/biblioteca%20Askesis/quiensoy.png" alt="Foto de Luis Ruiz" class="profile-image">
+                <div class="profile-text">
+                    <h3><i class="fas fa-user-tie mr-3 text-askesis-green"></i>Luis Patricio Ruiz Ruiz</h3>
+                    <p>¡Hola! Me presento. Mi nombre es Luis Patricio Ruiz Ruiz, <strong>Técnico Deportivo y especialista en preparación física y entrenamiento de fuerza.</strong></p>
+                    <p class="mt-4">Mi pasión por el movimiento no es solo mi profesión, es mi vida. Como atleta de <strong>Calistenia y Street Workout</strong> desde 2013, he dedicado años a entender el cuerpo humano. Esta experiencia como deportista me entrega una visión única que aplico directamente en mi trabajo: entiendo las exigencias, la disciplina y la mentalidad necesarias para alcanzar cualquier meta física.</p>
+                </div>
+            </div>
+            
+            <h4 class="sub-heading">Mis Credenciales y Experiencia</h4>
+             <ul>
+                <li><strong>Técnico Deportivo Profesional</strong>, egresado de la <span class="university-name">Universidad De Los Lagos</span>.</li>
+                <li><strong>Especialista en Entrenamiento de Fuerza y Prescripción de Ejercicio Físico</strong>, certificado por el Comité Olímpico de Chile (COCH).</li>
+                <li><strong>7 años de experiencia</strong> formando y guiando atletas de calistenia, deportistas de diversas disciplinas y personas con objetivos de mejora física.</li>
+                 <li>Experiencia en la preparación física para atletas de <strong>gimnasia artística, deportes de combate, patinaje</strong> y diversos grupos etarios en Ancud y Castro.</li>
+            </ul>
+        </div>
+
+        <div class="section-card">
+            <h3><i class="fas fa-graduation-cap mr-3 text-askesis-green"></i>Mi Enfoque como Especialista en Rendimiento</h3>
+            <p>Mi formación como Técnico Deportivo me permite ir más allá del "ejercicio por ejercicio". Mi enfoque es <strong>estructurar el entrenamiento de manera inteligente y precisa.</strong> Entiendo que cada persona, sea un atleta de élite o alguien que recién comienza, tiene una meta única y un cuerpo diferente.</p>
+            <p>Mi rol es aplicar las ciencias del deporte (fisiología, biomecánica) para analizar tus objetivos, evaluar tus capacidades y construir el plan más eficiente y seguro para llevarte a donde quieres estar. Es un enfoque de <strong>precisión</strong>, diseñado para el rendimiento en su más amplia expresión: desde ganar una competencia hasta ganar calidad de vida y confianza a través del movimiento.</p>
+        </div>
+        
+        <div class="section-card">
+             <h3><i class="fas fa-sync-alt mr-3 text-askesis-green"></i>Mi Aporte: Resultados Tangibles para Ti</h3>
+            <p>El objetivo de la preparación física es lograr una <strong>transferencia</strong> directa a tus metas, ya sea en tu deporte o en tu vida diaria. Todo lo que hacemos está diseñado para tener un impacto real y medible.</p>
+
+            <ul>
+                <li><strong>Fuerza y Potencia:</strong> Construimos tu "motor" para que tengas más velocidad, saltos más altos, movimientos más explosivos o simplemente la fuerza para las tareas del día a día.</li>
+                 <li><strong>Estabilidad y Balance (Core):</strong> Un core fuerte es el centro de todo. Te permite mantener el equilibrio, controlar tu cuerpo en cualquier posición y transferir la fuerza de manera eficiente.</li>
+                  <li><strong>Prevención de Lesiones:</strong> Un cuerpo más fuerte es un cuerpo más protegido. Mi trabajo es identificar desbalances y fortalecer tus articulaciones para minimizar el riesgo de lesiones y asegurar que puedas entrenar de forma constante y segura.</li>
+            </ul>
+        </div>
+
+        <div class="section-card">
+             <h3><i class="fas fa-users mr-3 text-askesis-green"></i>Mi Filosofía de Trabajo</h3>
+            <p>El éxito de cualquier proceso físico depende de una colaboración estrecha entre el atleta y su guía. Pero más allá de los resultados, mi filosofía se basa en dos pilares fundamentales:</p>
+            
+            <p class="mt-4"><strong>1. Adaptabilidad:</strong> Busco siempre la manera de trabajar con los recursos disponibles, demostrando que no se necesita un gimnasio lleno de equipos para lograr resultados de alto nivel.</p>
+            
+            <p class="mt-4"><strong>2. Bienestar y Motivación:</strong> Si bien el objetivo es el rendimiento, entiendo que trabajamos con personas. Busco que el proceso sea <strong>ameno, lúdico y motivador.</strong> Mi meta es encontrar la armonía perfecta entre el desarrollo de tu potencial físico y el disfrute del camino, sentando las bases para una relación sana y duradera con el deporte y la actividad física.</p>
+
+            <p class="mt-4">Mi objetivo final es simple: entregarte las herramientas y la guía para que desarrolles una base física sólida, permitiéndote alcanzar tu máximo potencial de la manera más eficiente y segura posible.</p>
+        </div>
+
+    </main>
+</body>
+</html>
