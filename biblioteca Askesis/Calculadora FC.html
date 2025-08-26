@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora y Guía de Zonas de FC</title>
+    <!-- Usa Tailwind CSS para un diseño limpio y moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 48rem;
+            width: 100%;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .text-gradient {
+            background-image: linear-gradient(to right, #059669, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .zone-info {
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-top: 1.5rem;
+            border-left-width: 4px;
+        }
+        .zone-1 { border-color: #d1d5db; background-color: #f9fafb; }
+        .zone-2 { border-color: #10b981; background-color: #f0fdf4; }
+        .zone-3 { border-color: #3b82f6; background-color: #eff6ff; }
+        .zone-4 { border-color: #f97316; background-color: #fff7ed; }
+        .zone-5 { border-color: #ef4444; background-color: #fef2f2; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-4xl font-extrabold text-center text-gradient mb-2">
+            Zonas de Frecuencia Cardíaca
+        </h1>
+        <p class="text-center text-gray-600 mb-8">
+            Una guía completa para calcular y entender tus zonas de entrenamiento.
+        </p>
+
+        <!-- Sección de entrada de datos -->
+        <div class="mb-6 bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Calcula tus zonas:</h2>
+            <label for="age-input" class="block text-gray-700 font-semibold mb-2">
+                Introduce tu edad:
+            </label>
+            <input 
+                type="number" 
+                id="age-input" 
+                placeholder="Ej: 30" 
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+            <button 
+                id="calculate-button" 
+                class="w-full mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition-colors duration-300 transform active:scale-95"
+            >
+                Calcular Zonas
+            </button>
+        </div>
+
+        <!-- Sección para mostrar los resultados (inicialmente oculta) -->
+        <div id="results" class="mt-8 hidden">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Tus Zonas Personalizadas:</h2>
+            <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500 shadow-md">
+                <p class="text-lg font-semibold text-green-800">
+                    Tu Frecuencia Cardíaca Máxima (FCmáx) es:
+                    <span id="max-hr-result" class="font-bold"></span>
+                </p>
+                <p class="text-lg font-semibold text-gray-800 mt-4">
+                    Tu Zona de Pérdida de Grasa (Zona 2) es:
+                </p>
+                <p class="text-xl font-bold text-green-600 mt-2">
+                    <span id="zone-range-result"></span> latidos por minuto (bpm)
+                </p>
+            </div>
+        </div>
+
+        <!-- Sección de información sobre las zonas -->
+        <div class="mt-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">¿Qué son las zonas de entrenamiento?</h2>
+            <p class="text-gray-700 mb-6">
+                Las zonas de frecuencia cardíaca son rangos de latidos por minuto que indican la intensidad de tu ejercicio. Conocer estas zonas te ayuda a entrenar de forma más inteligente y a alcanzar tus objetivos, ya sea mejorar tu resistencia, quemar grasa o aumentar tu rendimiento. Tu frecuencia cardíaca máxima es el 100% y de ahí se derivan las demás zonas.
+            </p>
+
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Las 5 Zonas de Frecuencia Cardíaca</h3>
+            
+            <!-- Zona 1 -->
+            <div class="zone-info zone-1">
+                <h4 class="text-lg font-semibold text-gray-900">
+                    Zona 1: Muy Ligero (50-60% de tu FCmáx)
+                </h4>
+                <p class="text-sm text-gray-700 mt-2">
+                    <strong>Para qué sirve:</strong> Es perfecta para calentamientos, enfriamientos y recuperación activa. Te ayuda a recuperarte de entrenamientos más intensos.
+                </p>
+                <p class="text-sm text-gray-700 mt-1">
+                    <strong>Ejemplo de ejercicio:</strong> Caminar tranquilamente o un trote muy suave.
+                </p>
+            </div>
+
+            <!-- Zona 2 -->
+            <div class="zone-info zone-2">
+                <h4 class="text-lg font-semibold text-green-800">
+                    Zona 2: Ligero (60-70% de tu FCmáx)
+                </h4>
+                <p class="text-sm text-gray-700 mt-2">
+                    <strong>Para qué sirve:</strong> Es la zona ideal para la quema de grasa y para mejorar tu resistencia aeróbica a largo plazo. Es un ritmo que puedes mantener por mucho tiempo.
+                </p>
+                <p class="text-sm text-gray-700 mt-1">
+                    <strong>Ejemplo de ejercicio:</strong> Trotar a un ritmo constante o ir en bicicleta a paso moderado.
+                </p>
+            </div>
+
+            <!-- Zona 3 -->
+            <div class="zone-info zone-3">
+                <h4 class="text-lg font-semibold text-blue-800">
+                    Zona 3: Moderado (70-80% de tu FCmáx)
+                </h4>
+                <p class="text-sm text-gray-700 mt-2">
+                    <strong>Para qué sirve:</strong> Mejora tu capacidad cardiovascular, te hace más eficiente y aumenta tu resistencia. Es la zona principal para la mayoría de los corredores y ciclistas.
+                </p>
+                <p class="text-sm text-gray-700 mt-1">
+                    <strong>Ejemplo de ejercicio:</strong> Un trote más rápido o una clase de spinning.
+                </p>
+            </div>
+
+            <!-- Zona 4 -->
+            <div class="zone-info zone-4">
+                <h4 class="text-lg font-semibold text-orange-800">
+                    Zona 4: Intenso (80-90% de tu FCmáx)
+                </h4>
+                <p class="text-sm text-gray-700 mt-2">
+                    <strong>Para qué sirve:</strong> En esta zona entras en el umbral anaeróbico. Mejoras tu rendimiento, velocidad y potencia. Es para entrenamientos cortos e intensos.
+                </p>
+                <p class="text-sm text-gray-700 mt-1">
+                    <strong>Ejemplo de ejercicio:</strong> Series de velocidad o un entrenamiento por intervalos de alta intensidad (HIIT).
+                </p>
+            </div>
+
+            <!-- Zona 5 -->
+            <div class="zone-info zone-5">
+                <h4 class="text-lg font-semibold text-red-800">
+                    Zona 5: Máximo (90-100% de tu FCmáx)
+                </h4>
+                <p class="text-sm text-gray-700 mt-2">
+                    <strong>Para qué sirve:</strong> Es el máximo esfuerzo. Solo se debe mantener por periodos muy cortos de tiempo. Se utiliza para mejorar tu velocidad máxima y tu capacidad pulmonar.
+                </p>
+                <p class="text-sm text-gray-700 mt-1">
+                    <strong>Ejemplo de ejercicio:</strong> Sprints al máximo de tu capacidad o el final de una carrera.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Obtiene las referencias a los elementos del DOM.
+        const ageInput = document.getElementById('age-input');
+        const calculateButton = document.getElementById('calculate-button');
+        const resultsDiv = document.getElementById('results');
+        const maxHrResult = document.getElementById('max-hr-result');
+        const zoneRangeResult = document.getElementById('zone-range-result');
+
+        // Agrega un "listener" al botón para detectar clics.
+        calculateButton.addEventListener('click', () => {
+            // Usa try-catch para manejar posibles errores, como una entrada no numérica.
+            try {
+                // Obtiene la edad del input y la convierte a número entero.
+                const age = parseInt(ageInput.value);
+
+                // Valida que la edad sea un número válido y positivo.
+                if (isNaN(age) || age <= 0) {
+                    alert('Por favor, introduce una edad válida.');
+                    return; // Detiene la ejecución si la entrada no es válida.
+                }
+
+                // Calcula la Frecuencia Cardíaca Máxima (FCmáx) usando la fórmula de Tanaka.
+                // Fórmula: 208 - (0.7 * edad)
+                const maxHR = Math.round(208 - (0.7 * age));
+
+                // Calcula los límites de la Zona 2 para la pérdida de grasa.
+                // Zona 2 es entre el 60% y el 70% de la FCmáx.
+                const zone2Lower = Math.round(maxHR * 0.60);
+                const zone2Upper = Math.round(maxHR * 0.70);
+
+                // Actualiza los elementos HTML con los resultados calculados.
+                maxHrResult.textContent = `${maxHR} bpm`; // "bpm" significa "beats per minute" o "latidos por minuto".
+                zoneRangeResult.textContent = `${zone2Lower} - ${zone2Upper}`;
+
+                // Muestra la sección de resultados.
+                resultsDiv.classList.remove('hidden');
+
+            } catch (error) {
+                // Muestra un mensaje de error si algo sale mal durante el cálculo.
+                alert('Ocurrió un error. Por favor, intenta de nuevo.');
+                console.error('Error en el cálculo:', error);
+            }
+        });
+
+        // Función para simular una alerta, ya que las alertas nativas no son compatibles.
+        function alert(message) {
+            // Crea un div para el mensaje de alerta.
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'fixed top-4 left-1/2 -translate-x-1/2 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+            alertDiv.textContent = message;
+            document.body.appendChild(alertDiv);
+            
+            // Elimina la alerta después de 3 segundos.
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
